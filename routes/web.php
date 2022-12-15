@@ -19,7 +19,7 @@ use App\Http\Livewire\DaftarPeserta;
 // Route Landing Page
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('landing-page');
 
 // Route Admin Site
 Route::middleware('is_admin')->group(function()

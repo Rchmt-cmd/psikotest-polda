@@ -247,6 +247,40 @@
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+        $('#formTambahPeserta').validate();
+    });
+    </script>
+
+    <script>
+        window.addEventListener('closeModal', event => {
+            $('#modalTambahPeserta').modal('hide');
+            $('#modalKonfirmasi').modal('hide');
+            $('#modalEditPeserta').modal('hide');
+        })
+    </script>
+    <script>
+        window.addEventListener('removeModalBackdrop', event => {
+            $('.modal-backdrop').remove()
+        })
+    </script>
+    <script>
+        $("#modalLihatPeserta").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalKonfirmasi").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditPeserta").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+    </script>
     <!-- END PAGE LEVEL JS -->
 
     @livewireScripts

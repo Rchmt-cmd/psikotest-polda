@@ -42,11 +42,14 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $input = $request->all();
+        $messages = [
+            'email.required' => 'The email is required.',
+        ];
 
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
-        ]);
+        ], $messages);
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
             if (auth()->user()->is_admin == 1) {
