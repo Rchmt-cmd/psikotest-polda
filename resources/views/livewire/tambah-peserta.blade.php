@@ -1,6 +1,6 @@
 <div>
     <form role="form" id="formTambahPeserta" wire:submit.prevent='store'>
-        <div class="row px-1">
+        <div class="row">
             <div class="col-sm-9">
                 <div class="form-group form-group-default">
                     <label>Nama</label>
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="row px-1">
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group form-group-default">
                     <label>Tempat Lahir</label>
@@ -38,13 +38,12 @@
             </div>
         </div>
 
-
-        <div class="form-group form-group-default">
-            <label>No. Tes</label>
-            <input type="text" class="form-control" wire:model='nomor_tes' required>
+        <div class="form-group form-group-default ">
+            <label>Alamat</label>
+            <input type="text" class="form-control" wire:model='alamat' required>
         </div>
 
-        <div class="row px-1">
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group form-group-default">
                     <label>E-mail</label>
@@ -59,9 +58,19 @@
             </div>
         </div>
 
-        <div class="form-group form-group-default ">
-            <label>Alamat</label>
-            <input type="text" class="form-control" wire:model='alamat' required>
+        <div class="form-group form-group-default">
+            <label>No. Tes</label>
+            <input type="text" class="form-control" wire:model='nomor_tes' required>
+        </div>
+        
+        <div class="form-group form-group-default">
+            <label>Jadwal</label>
+            <select name="jadwal" id="jadwal" class="form-control custom-select full-width" wire:model='jadwal_tes' required> 
+                <option value="">-- Pilih jadwal tes peserta --</option>
+                @foreach ($daftar_jadwals as $daftar_jadwal)
+                    <option value="{{ $daftar_jadwal->id }}"><b>Tanggal: </b>{{ $daftar_jadwal->tanggal_tes }} <b>Waktu: </b>{{ $daftar_jadwal->waktu_mulai }}-{{ $daftar_jadwal->waktu_selesai }}</option>
+                @endforeach
+            </select>
         </div>
         <button class="btn btn-primary pull-right" type="submit">Tambahkan</button>
     </form>

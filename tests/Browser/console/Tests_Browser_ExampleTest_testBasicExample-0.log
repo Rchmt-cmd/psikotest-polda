@@ -1,0 +1,32 @@
+[
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/127.0.0.1:8000\/assets\/css\/dashboard.widgets.css - Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "network",
+        "timestamp": 1671132912977
+    },
+    {
+        "level": "WARNING",
+        "message": "http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js 1:31578 \"jQuery.Deferred exception: Skycons is not defined\" \"ReferenceError: Skycons is not defined\\n    at HTMLDocument.\\u003Canonymous> (http:\/\/127.0.0.1:8000\/assets\/js\/dashboard.js:14:21)\\n    at j (http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js:2:29999)\\n    at k (http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js:2:30313)\" undefined",
+        "source": "console-api",
+        "timestamp": 1671132914241
+    },
+    {
+        "level": "WARNING",
+        "message": "http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js 1:31578 \"jQuery.Deferred exception: Skycons is not defined\" \"ReferenceError: Skycons is not defined\\n    at HTMLDocument.\\u003Canonymous> (http:\/\/127.0.0.1:8000\/assets\/js\/dashboard.js:14:21)\\n    at j (http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js:2:29999)\\n    at k (http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js:2:30313)\" undefined",
+        "source": "console-api",
+        "timestamp": 1671132914243
+    },
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js 1:31688 Uncaught ReferenceError: Skycons is not defined",
+        "source": "javascript",
+        "timestamp": 1671132914244
+    },
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/127.0.0.1:8000\/assets\/plugins\/jquery\/jquery-3.2.1.min.js 1:31688 Uncaught ReferenceError: Skycons is not defined",
+        "source": "javascript",
+        "timestamp": 1671132914245
+    }
+]

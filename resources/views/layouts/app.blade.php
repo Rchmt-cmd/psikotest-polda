@@ -30,6 +30,9 @@
     <!-- Styles -->
     {{--
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/media/css/jquery.dataTables.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css') }}">
+    <link media="screen" type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/datatables.responsive.css') }}">
     <link href="{{ asset('assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,13 +56,9 @@
     <nav class="page-sidebar" data-pages="sidebar">
         <!-- BEGIN SIDEBAR MENU HEADER-->
         <div class="sidebar-header">
-            <img src="{{ asset('assets/img/logo_white.png') }}" alt="logo" class="brand" data-src="{{ asset('assets/img/logo_white.png') }}"
-                data-src-retina="{{ asset('assets/img/logo_white_2x.png') }}" width="78" height="22">
+            <img src="{{ asset('assets/img/logo-tes-polda.png') }}" alt="logo" class="brand" data-src="{{ asset('assets/img/logo-tes-polda.png') }}"
+                data-src-retina="{{ asset('assets/img/logo-tes-polda-2x.png') }}" height="44">
             <div class="sidebar-header-controls">
-                <button aria-label="Toggle Drawer" type="button"
-                    class="btn btn-icon-link invert sidebar-slide-toggle m-l-20 m-r-10" data-pages-toggle="#appMenu">
-                    <i class="pg-icon">chevron_down</i>
-                </button>
                 <button aria-label="Pin Menu" type="button"
                     class="btn btn-icon-link invert d-lg-inline-block d-xlg-inline-block d-md-inline-block d-sm-none d-none"
                     data-toggle-pin="sidebar">
@@ -87,7 +86,7 @@
                     <span class="icon-thumbnail"><i class="material-icons">assignment_ind</i></span>
                 </li>
                 <li class="m-t-10 ">
-                    <a href="index.html" class="detailed">
+                    <a href="{{ route('daftar-soal') }}" class="detailed">
                         <span class="title">Daftar Soal</span>
                         <span class="details">Data soal psikotest</span>
                     </a>
@@ -131,8 +130,8 @@
             <!-- END MOBILE SIDEBAR TOGGLE -->
             <div class="">
                 <div class="brand inline">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo" data-src="{{ asset('assets/img/logo.png') }}"
-                        data-src-retina="{{ asset('assets/img/logo_2x.png') }}" width="78" height="22">
+                    <img style="margin-left: 25px;" src="{{ asset('assets/img/logo-tes-polda-dark.png') }}" alt="logo" data-src="{{ asset('assets/img/logo-tes-polda-dark.png') }}"
+                        data-src-retina="{{ asset('assets/img/logo-tes-polda-dark-2x.png') }}" height="44" >
                 </div>
             </div>
             <div class="d-flex align-items-center">
@@ -176,22 +175,20 @@
         </div>
         <!-- END HEADER -->
         <!-- START PAGE CONTENT WRAPPER -->
-        <div class="page-content-wrapper ">
+        <div class="page-content-wrapper content-builder full-height active" id="columns-3-9">
             <!-- START PAGE CONTENT -->
-            <div class="content sm-gutter">
+            <div class="content full-height">
 
                 <!-- START CONTAINER FLUID -->
-                <div class="container-fluid p-l-25 p-r-25 p-t-0 p-b-25 sm-padding-10">
-                    <main class="py-4">
+                <div class="container-fluid full-height no-padding">
+                    {{-- <main class="py-4"> --}}
                         @yield('content')
-                    </main>
+                    {{-- </main> --}}
                 </div>
                 <!-- END CONTAINER FLUID -->
             </div>
             <!-- END PAGE CONTENT -->
             <!-- START COPYRIGHT -->
-            <!-- START CONTAINER FLUID -->
-            <!-- START CONTAINER FLUID -->
             <div class=" container-fluid  container-fixed-lg footer">
                 <div class="copyright sm-text-center">
                     <p class="small-text no-margin pull-left sm-pull-reset">
@@ -235,6 +232,11 @@
     <script src="{{ asset('assets/plugins/mapplic/js/jquery.mousewheel.js') }}"></script>
     <script src="{{ asset('assets/plugins/mapplic/js/mapplic.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/datatables.responsive.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/lodash.min.js') }}" type="text/javascript"></script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
@@ -246,20 +248,39 @@
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/datatables.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
     
     <script type="text/javascript" src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-        $('#formTambahPeserta').validate();
-    });
+            $('#formTambahPeserta').validate();
+            $('#tableSoal').DataTable({
+                "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
+                "lengthMenu": [8], // 4 records will be shown in the table
+                "columnDefs": [{
+                    "className": "dt-left",
+                    "targets": "_all"
+                } //columnDefs for align text to center
+                ],
+                "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+                "sPaginationType": "bootstrap",
+                "sDom": "<'table-responsive't><'row'<p i>>",
+            });
+            $('#search-table').keyup(function() {
+                $('#tableSoal').DataTable().search($(this).val()).draw();
+            });
+        });
     </script>
 
     <script>
         window.addEventListener('closeModal', event => {
             $('#modalTambahPeserta').modal('hide');
-            $('#modalKonfirmasi').modal('hide');
+            $('#modalKonfirmasiPeserta').modal('hide');
             $('#modalEditPeserta').modal('hide');
+            $('#modalTambahJadwal').modal('hide');
+            $('#modalEditJadwal').modal('hide');
+            $('#modalKonfirmasiJadwal').modal('hide');
         })
     </script>
     <script>
@@ -272,11 +293,23 @@
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
-        $("#modalKonfirmasi").on("hidden.bs.modal", function () {
+        $("#modalKonfirmasiPeserta").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
         $("#modalEditPeserta").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditJadwal").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalTambahJadwal").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalKonfirmasiJadwal").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });

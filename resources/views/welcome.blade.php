@@ -41,7 +41,7 @@
                 <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <img src="{{ asset('assets/img/Lambang_Polda_Sulsel 1.png') }}" alt="">
+                        <img src="{{ asset('assets/img/Lambang_Polda_Sulsel 1.png') }}" alt="logo-polda" lazy>
                         <span>POLDA SULSEL</span>
                     </a>
             
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                            <img src="{{ asset('assets/img/hero-img-3.png') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/img/hero-img-3.png') }}" class="img-fluid" loading="lazy" alt="hero-image" >
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                             </div>
             
                             <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                                <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="about-image" loading="lazy">
                             </div>
             
                         </div>
@@ -148,7 +148,7 @@
             
                             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                                 <div class="box">
-                                    <img src="{{ asset('assets/img/undraw-values-1.png') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/undraw-values-1.png') }}" class="img-fluid" alt="value-1" loading="lazy">
                                     <h3>Ad cupiditate sed est odio</h3>
                                     <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.
                                     </p>
@@ -157,7 +157,7 @@
             
                             <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
                                 <div class="box">
-                                    <img src="{{ asset('assets/img/undraw-values-2.png') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/undraw-values-2.png') }}" class="img-fluid" alt="value-2" loading="lazy">
                                     <h3>Voluptatem voluptatum alias</h3>
                                     <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.
                                     </p>
@@ -166,7 +166,7 @@
             
                             <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
                                 <div class="box">
-                                    <img src="{{ asset('assets/img/undraw-values-3.png') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/undraw-values-3.png') }}" class="img-fluid" alt="value-3" loading="lazy">
                                     <h3>Fugit cupiditate alias nobis.</h3>
                                     <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.
                                     </p>
@@ -255,7 +255,7 @@
                             </div>
             
                             <div class="col-lg-6">
-                                <img src="{{ asset('assets/img/features-2.png') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/img/features-2.png') }}" class="img-fluid" alt="feature" loading="lazy">
                             </div>
             
                         </div>
@@ -491,7 +491,7 @@
                         <div class="row gy-4">
                             <div class="col-lg-5 col-md-12 footer-info">
                                 <a href="{{ route('landing-page') }}" class="logo d-flex align-items-center">
-                                    <img src="{{ asset('assets/img/Lambang_Polda_Sulsel 1.png') }}" alt="">
+                                    <img src="{{ asset('assets/img/Lambang_Polda_Sulsel 1.png') }}" alt="logo-polda" loading="lazy">
                                     <span>POLDA SULSEL</span>
                                 </a>
                                 <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita

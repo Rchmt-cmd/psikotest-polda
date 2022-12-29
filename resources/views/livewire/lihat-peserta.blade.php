@@ -12,11 +12,21 @@
         </tr>
         <tr>
             <td>Password</td>
-            <td>: {{ $idPeserta->password }}</td>
+            <td>: {{ $idPeserta->old_password }}</td>
         </tr>
         <tr>
             <td>Nomor Tes</td>
             <td>: {{ $idPeserta->nomor_tes }}</td>
+        </tr>
+        <tr>
+            <td>Jadwal Tes</td>
+            <td>:
+                @if($idPeserta->jadwal)
+                    {{ $idPeserta->jadwal->tanggal_tes }} / {{ $idPeserta->jadwal->waktu_mulai }}-{{ $idPeserta->jadwal->waktu_selesai }} WITA
+                @else
+                    Jadwal Terhapus
+                @endif 
+            </td>
         </tr>
         <tr>
             <td>Status Tes</td>
