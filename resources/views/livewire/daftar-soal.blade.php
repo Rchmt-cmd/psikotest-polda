@@ -1,6 +1,13 @@
 <div class="row full-height no-margin">
     <div>
         @include('partials.modal-tambah-soal')
+        @include('partials.modal-konfirmasi-soal')
+        @include('partials.modal-edit-soal')
+        @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
     </div>
     <div class="col-md-12 no-padding full-height overflow-auto">
         <div class="full-height p-2">
@@ -55,22 +62,22 @@
                                 <td class="fs-12">{{ $soalTes->isi_soal }}{{ $soalTes->gambar_soal }}</td>
                                 <td class="fs-12">{{ $soalTes->pil_a }} 
                                     @if($soalTes->gambar_pil_a)
-                                        <img src="{{ $soalTes->gambar_pil_a }}" alt="gambar_pil_a" srcset=""> 
+                                        <img src="{{ asset('storage/'.$soalTes->gambar_pil_a) }}" alt="gambar_pil_a" srcset="" width="80"> 
                                     @endif
                                 </td>
                                 <td class="fs-12">{{ $soalTes->pil_b }} 
                                     @if($soalTes->gambar_pil_b)
-                                        <img src="{{ $soalTes->gambar_pil_b }}" alt="gambar_pil_b" srcset=""> 
+                                        <img src="{{ asset('storage/'.$soalTes->gambar_pil_b) }}" alt="gambar_pil_b" srcset="" width="80"> 
                                     @endif
                                 </td>
                                 <td class="fs-12">{{ $soalTes->pil_c }} 
                                     @if($soalTes->gambar_pil_c)
-                                        <img src="{{ $soalTes->gambar_pil_c }}" alt="gambar_pil_c" srcset=""> 
+                                        <img src="{{ asset('storage/'.$soalTes->gambar_pil_c) }}" alt="gambar_pil_c" srcset="" width="80"> 
                                     @endif
                                 </td>
                                 <td class="fs-12">{{ $soalTes->pil_d }} 
                                     @if($soalTes->gambar_pil_d)
-                                        <img src="{{ $soalTes->gambar_pil_d }}" alt="gambar_pil_d" srcset="">
+                                        <img src="{{ asset('storage/'.$soalTes->gambar_pil_d) }}" alt="gambar_pil_d" srcset="" width="80">
                                     @endif
                                 </td>
                                 <td class="fs-12">{{ $soalTes->jawaban }}</td>
@@ -84,8 +91,8 @@
 
                                         <ul class="dropdown-menu pull-right" role="menu"
                                             aria-labelledby="card-settings">
-                                            <li><a href="#"><span class="material-icons fs-16">edit</span> Edit</a></li>
-                                            <li><a href="#"><span class="material-icons fs-16">delete</span> Hapus</a>
+                                            <li><a href="#" data-toggle="modal" data-target="#modalEditSoal" wire:click='handleEditSoal({{ $soalTes->id }})'><span class="material-icons fs-16">edit</span> Edit</a></li>
+                                            <li><a href="#" data-toggle="modal" data-target="#modalKonfirmasiSoal" wire:click='handleHapusSoal({{ $soalTes->id }})'><span class="material-icons fs-16">delete</span> Hapus</a>
                                             </li>
                                         </ul>
                                     </div>

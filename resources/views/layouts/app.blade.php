@@ -281,6 +281,8 @@
             $('#modalTambahJadwal').modal('hide');
             $('#modalEditJadwal').modal('hide');
             $('#modalKonfirmasiJadwal').modal('hide');
+            $('#modalKonfirmasiSoal').modal('hide');
+            $('#modalEditSoal').modal('hide');
         })
     </script>
     <script>
@@ -310,6 +312,14 @@
         window.livewire.emit('closeModal');
         });
         $("#modalKonfirmasiJadwal").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalKonfirmasiSoal").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditSoal").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });

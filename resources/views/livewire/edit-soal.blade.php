@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="col-md-12">
-            <form role="form" id="formTambahSoal" wire:submit.prevent='store'>
+            <form role="form" id="formEditSoal" wire:submit.prevent='update'>
                 <div class="row">
 
                     <div class="col-md-6">
@@ -19,13 +19,13 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group form-group-lg">
                                     <label>Isi Soal</label>
-                                    <textarea class="form-control" name="isi-soal" id="isi-soal" cols="20" rows="10" wire:model='isi_soal'
-                                        required></textarea>
+                                    <textarea class="form-control" name="isi-soal" id="isi-soal" cols="20" rows="10"
+                                        wire:model='isi_soal' required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 <span class="hint-text">Ketikkan pilihan jawaban atau upload gambar</span>
                             </div>
                         </div><br>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group form-group-lg">
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group form-group-default">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary pull-right" type="submit">Tambahkan</button>
+                <button class="btn btn-primary pull-right" type="submit">Edit</button>
             </form>
         </div>
     </div>
