@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EksportDataPeserta;
 use Illuminate\Http\Request;
 use App\Http\Livewire\DaftarSoal;
 use App\Http\Livewire\DaftarJadwal;
@@ -32,6 +33,7 @@ Route::middleware('is_admin')->group(function () {
     Route::get('/admin/daftar-peserta', DaftarPeserta::class)->name('daftar-peserta');
     Route::get('/admin/daftar-soal', DaftarSoal::class)->name('daftar-soal');
     Route::post('/tambah-jadwal', DaftarJadwal::class)->name('tambah-jadwal');
+    Route::get('eksport-data-peserta', [EksportDataPeserta::class, 'export'])->name('eksport.data.peserta');
 });
 
 // Route User Page (Peserta)

@@ -24,6 +24,11 @@
                 </div>
                 <div class="pull-right">
                     <div class="col-xs-12">
+                        <button class="btn btn-primary btn-lg" wire:click="handleEksportData">
+                            <span class="material-icons fs-16">
+                                print
+                            </span> Eksport Data
+                        </button>
                         <!-- Button trigger modal -->
                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalTambahPeserta">
                             <i class="pg-icon">add</i> Tambah Peserta

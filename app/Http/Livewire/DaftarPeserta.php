@@ -38,6 +38,11 @@ class DaftarPeserta extends Component
         $this->idPeserta = $id;
     }
 
+    public function handleEksportData()
+    {
+        redirect(route('eksport.data.peserta'));
+    }
+
     public function delete($id)
     {
         $this->userRepository->delete($id);
