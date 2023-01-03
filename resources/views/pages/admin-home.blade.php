@@ -29,7 +29,7 @@
                     </div>
                     <div class="p-l-20 p-r-20 p-b-10 p-t-5">
                         <div class="pull-left">
-                            <h3 class="text-primary no-margin">Admin</h3>
+                            <h3 class="text-primary no-margin">{{ auth()->user()->name }}</h3>
                         </div>
                         <div class="clearfix"></div>
                     </div>

@@ -18,6 +18,11 @@ class SoalTesRepository implements SoalTesInterface
         return $this->soalTes->all();
     }
 
+    public function getSoalForPeserta()
+    {
+        return $this->soalTes->orderBy('nomor_soal', 'asc')->paginate(1);
+    }
+
     public function create(array $value)
     {
         return $this->soalTes->create($value);

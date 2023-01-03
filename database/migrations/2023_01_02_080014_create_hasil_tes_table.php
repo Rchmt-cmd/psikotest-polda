@@ -17,9 +17,7 @@ class CreateHasilTesTable extends Migration
             $table->id();
             $table->foreignId('id_user');
             $table->foreignId('id_soal');
-            $table->string('jawaban_peserta');
-            $table->string('hasil');
-            $table->date('tanggal_selesai');
+            $table->string('hasil_akhir');
             $table->dateTime('start');
             $table->dateTime('finish');
             $table->timestamps();

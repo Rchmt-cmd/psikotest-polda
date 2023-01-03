@@ -101,14 +101,14 @@
                 </li>
                 @else    
                 <li class="m-t-10 ">
-                    <a href="index.html" class="detailed">
+                    <a href="{{ route('home') }}" class="detailed">
                         <span class="title">Dashboard</span>
                         <span class="details">Beranda peserta tes</span>
                     </a>
                     <span class="icon-thumbnail"><i class="material-icons">dashboard</i></span>
                 </li>
                 <li class="m-t-10 ">
-                    <a href="index.html" class="detailed">
+                    <a href="{{ route('halaman.tes.peserta') }}" class="detailed">
                         <span class="title">Mulai Tes</span>
                         <span class="details">Klik untuk memulai</span>
                     </a>

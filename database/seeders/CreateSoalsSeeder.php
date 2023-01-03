@@ -13,6 +13,6 @@ class CreateSoalsSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\SoalTes::factory(2)->create();
+        \App\Models\SoalTes::factory(30)->create();
     }
 }
