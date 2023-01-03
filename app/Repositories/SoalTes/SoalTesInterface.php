@@ -6,6 +6,8 @@ interface SoalTesInterface
 {
     public function getAll();
 
+    public function getNomorSoal();
+
     public function getSoalForPeserta();
 
     public function create(array $value);

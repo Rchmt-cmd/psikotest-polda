@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\EksportDataPeserta;
 use Illuminate\Http\Request;
 use App\Http\Livewire\DaftarSoal;
 use App\Http\Livewire\DaftarJadwal;
@@ -8,9 +7,10 @@ use App\Http\Livewire\DaftarPeserta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SubmitTestController;
 use App\Http\Livewire\HalamanTesPeserta;
 use Illuminate\Support\Facades\Password;
+use App\Http\Controllers\EksportDataPeserta;
+use App\Http\Controllers\SubmitTestController;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
 /*
@@ -42,7 +42,6 @@ Route::middleware('is_admin')->group(function () {
 Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->name('halaman.tes.peserta');
-    Route::post('/halaman-tes-peserta', [SubmitTestController::class, 'submitJawaban'])->name('submit.jawaban');
 });
 
 

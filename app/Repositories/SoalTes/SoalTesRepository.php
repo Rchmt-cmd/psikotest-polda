@@ -13,9 +13,14 @@ class SoalTesRepository implements SoalTesInterface
         $this->soalTes = $soalTes;
     }
 
+    public function getNomorSoal()
+    {
+        $this->soalTes->all('nomor_soal');
+    }
+
     public function getAll()
     {
-        return $this->soalTes->all();
+        return $this->soalTes->orderBy('nomor_soal', 'asc')->get();
     }
 
     public function getSoalForPeserta()
