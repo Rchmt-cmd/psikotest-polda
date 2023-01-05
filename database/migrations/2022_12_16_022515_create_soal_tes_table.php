@@ -15,7 +15,7 @@ class CreateSoalTesTable extends Migration
     {
         Schema::create('soal_tes', function (Blueprint $table) {
             $table->id();
-            $table->integer('nomor_soal')->nullable();
+            $table->integer('nomor_soal')->unique();
             $table->text('isi_soal')->nullable();
             $table->string('gambar_soal')->nullable();
             $table->string('pil_a')->nullable();

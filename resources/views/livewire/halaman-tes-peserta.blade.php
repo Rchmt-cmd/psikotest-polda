@@ -16,10 +16,10 @@
         </div>
     </div>
     <div class="col-md-9 full-height p-5 overflow-auto">
-        <form action="" method="POST" id="formJawaban">
+        <form  id="formJawaban">
             <div class="row justify-content-between">
                 <div class="col-md-4 no-padding">
-                    {!! $daftarSoal->links('vendor.pagination.custom') !!}
+                    {!! $daftarSoal->links() !!}
                 </div>
                 <div class="com-md-4 no-padding">
                     <h5>00:00</h5>
@@ -28,34 +28,34 @@
                     <button class="btn text-primary btn-lg pull-right" type="submit">Akhiri Test</button>
                 </div>
             </div>
-            <div id="soal-tes">
+            <div id="soal-tes" class="mt-5">
                 @foreach ($daftarSoal as $soal)
                 <p class="font-arial fs-16">{{ $soal->nomor_soal }}. {{ $soal->isi_soal }}</p>
-                <input type="hidden" value="{{ $soal->id }}">
+                {{-- <input type="hidden" value="{{ $soal->id }}"> --}}
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios1"
-                        value="{{ $soal->pil_a }}">
+                        value="a" wire:model='singleAnswer'>
                     <label class="form-check-label" for="exampleRadios1">
                         {{ $soal->pil_a }}
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios2"
-                        value="{{ $soal->pil_a }}">
+                        value="b" wire:model='singleAnswer'>
                     <label class="form-check-label" for="exampleRadios2">
                         {{ $soal->pil_b }}
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios3"
-                        value="{{ $soal->pil_a }}">
+                        value="c" wire:model='singleAnswer'>
                     <label class="form-check-label" for="exampleRadios3">
                         {{ $soal->pil_c }}
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios4"
-                        value="{{ $soal->pil_a }}">
+                        value="d" wire:model='singleAnswer'>
                     <label class="form-check-label" for="exampleRadios4">
                         {{ $soal->pil_d }}
                     </label>
@@ -64,21 +64,4 @@
             </div>
         </form>
     </div>
-    <script>
-        $(document).on('click', '.pagination a', function(event) {
-      event.preventDefault();
-      var page_url = $(this).attr('href');
-      getData(page_url);
-    });
-    function getData(page_url) {
-      $.ajax({
-        url: page_url,
-        type: 'get',
-        dataType: 'html',
-        success: function(response) {
-          $('#soal-tes').html(response);
-        }
-      });
-    }
-    </script>
 </div>

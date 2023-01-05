@@ -42,6 +42,7 @@ Route::middleware('is_admin')->group(function () {
 Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->name('halaman.tes.peserta');
+    // Route::post('/halaman-tes-peserta', HalamanTesPeserta::class, 'handleNavigation')->name('handle.navigation');
 });
 
 

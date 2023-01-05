@@ -23,6 +23,10 @@ class TambahSoal extends Component
     public $gambar_pil_d;
     public $jawaban;
     public $bobot;
+
+    protected $rules = [
+        'nomor_soal' => 'required|unique:soal_tes',
+    ];
     
     protected $soalTesRepository;
     
@@ -50,6 +54,7 @@ class TambahSoal extends Component
 
     public function store()
     {
+        $this->validate();
         $attributes = [];
         $attributes['nomor_soal'] = $this->nomor_soal;
         $attributes['isi_soal'] = $this->isi_soal;

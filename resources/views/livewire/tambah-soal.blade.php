@@ -9,7 +9,12 @@
                             <div class="col-md-6">
                                 <div class="form-group form-group-default">
                                     <label>No. Soal</label>
-                                    <input type="number" class="form-control" wire:model='nomor_soal' required>
+                                    <input type="number" class="form-control @error('nomor_soal') is-invalid @enderror" wire:model='nomor_soal' required>
+                                    @error('nomor_soal')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
