@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+@error('error')
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{$errors->first()}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@enderror
 <div class="row full-height no-margin py-3">
+    @include('partials.modal-konfirmasi-mulai-tes')
     <div class="col-md-3 b-r b-grey sm-b-b overflow-auto">
         <div class="card">
             <div class="card-header">
@@ -46,7 +55,7 @@
             </div>
         </div>
         <div class="text-center mt-5 mb-5">
-            <button class="btn btn-primary btn-lg btn-rounded text-center" data-toggle="modal" data-target="#modalTambahJadwal" disabled>
+            <button class="btn btn-primary btn-lg btn-rounded text-center" data-toggle="modal" data-target="#modalKonfirmasiMulaiTes">
                 <span class="material-icons">
                     start
                 </span> Mulai Tes

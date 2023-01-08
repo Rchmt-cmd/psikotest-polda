@@ -41,9 +41,15 @@ Route::middleware('is_admin')->group(function () {
 // Route User Page (Peserta)
 Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->name('halaman.tes.peserta');
+    Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->middleware('test_running')->name('halaman.tes.peserta');
     // Route::post('/halaman-tes-peserta', HalamanTesPeserta::class, 'handleNavigation')->name('handle.navigation');
+    // Route::get('test', function () {
+    //     $jadwal = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_mulai));
+    //     $timelogin = date('d-m-Y H:i:s');
+    //     dd($timelogin <= $jadwal);
+    // });
 });
+
 
 
 Auth::routes();

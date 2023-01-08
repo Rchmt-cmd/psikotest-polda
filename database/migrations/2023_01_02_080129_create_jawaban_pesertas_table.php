@@ -15,10 +15,10 @@ class CreateJawabanPesertasTable extends Migration
     {
         Schema::create('jawaban_pesertas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_hasil_tes');
-            $table->foreignId('is_soal');
-            $table->string('jawaban');
-            $table->integer('skor');
+            $table->foreignId('id_hasil_tes')->nullable();
+            $table->foreignId('id_soal')->nullable();
+            $table->string('jawaban')->nullable();
+            $table->integer('skor')->nullable();
             $table->timestamps();
         });
     }

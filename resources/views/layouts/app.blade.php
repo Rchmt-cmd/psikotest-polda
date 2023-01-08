@@ -108,7 +108,7 @@
                     <span class="icon-thumbnail"><i class="material-icons">dashboard</i></span>
                 </li>
                 <li class="m-t-10 ">
-                    <a href="{{ route('halaman.tes.peserta') }}" class="detailed">
+                    <a href="#" class="detailed" data-toggle="modal" data-target="#modalKonfirmasiMulaiTes">
                         <span class="title">Mulai Tes</span>
                         <span class="details">Klik untuk memulai</span>
                     </a>
