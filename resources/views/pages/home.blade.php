@@ -11,7 +11,7 @@
 @enderror
 <div class="row full-height no-margin py-3">
     @include('partials.modal-konfirmasi-mulai-tes')
-    <div class="col-md-3 b-r b-grey sm-b-b overflow-auto">
+    <div class="col-md-4 b-r b-grey sm-b-b overflow-auto">
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Selamat Datang!
@@ -33,7 +33,11 @@
                                 <p class="fs-13 text-black no-margin">Status Tes</p>
                             </td>
                             <td>
-                                <p class="fs-13 text-danger no-margin">:  Belum</p>
+                                @if (auth()->user()->status)
+                                <p class="fs-13 text-success no-margin">: Selesai</p>
+                                @else
+                                <p class="fs-13 text-danger no-margin">: Belum</p>
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -41,7 +45,14 @@
                                 <p class="fs-13 text-black no-margin">Jadwal Tes</p>
                             </td>
                             <td>
-                                <p class="fs-13 text-black no-margin">:  Sabtu, 14 Januari 2023</p>
+                                <p class="fs-13 text-black no-margin">: @if (is_null(auth()->user()->jadwal))
+                                    Anda belum mempunyai jadwal
+                                @else
+                                    {{ date('d F Y',
+                                    strtotime(auth()->user()->jadwal->tanggal_tes)) }} ({{ date('H:i',
+                                    strtotime(auth()->user()->jadwal->waktu_mulai)) }}-{{ date('H:i',
+                                    strtotime(auth()->user()->jadwal->waktu_selesai)) }} WITA)</p>
+                                @endif
                             </td>
                         </tr>
                     </table>
@@ -55,14 +66,15 @@
             </div>
         </div>
         <div class="text-center mt-5 mb-5">
-            <button class="btn btn-primary btn-lg btn-rounded text-center" data-toggle="modal" data-target="#modalKonfirmasiMulaiTes">
+            <button class="btn btn-primary btn-lg btn-rounded text-center" data-toggle="modal"
+                data-target="#modalKonfirmasiMulaiTes">
                 <span class="material-icons">
                     start
                 </span> Mulai Tes
             </button>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         <!-- START WIDGET widget_tableWidget-->
         <div class="widget-11 card   no-margin widget-loader-bar">
             <div class="card-header">

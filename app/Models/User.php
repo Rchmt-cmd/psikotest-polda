@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Jadwal::class, 'id_jadwal');
     }
+
+    public function hasilTes()
+    {
+        return $this->hasOne(HasilTes::class, 'id_user', 'id');
+    }
 }

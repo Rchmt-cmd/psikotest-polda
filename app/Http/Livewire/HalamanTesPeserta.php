@@ -29,6 +29,11 @@ class HalamanTesPeserta extends Component
         $this->jawabanPeserta = $jawabanPeserta;
     }
 
+    public function mount()
+    {
+        
+    }
+
     public function updatedSingleAnswer()
     {
         // setting variable to store in database;

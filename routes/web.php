@@ -46,10 +46,8 @@ Route::middleware('is_user')->group(function () {
     // Route::get('test', function () {
     //     $jadwal = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_mulai));
     //     $timelogin = date('d-m-Y H:i:s');
-    //     dd($timelogin <= $jadwal);
+    //     dd(auth()->user()->jadwal);
     // });
 });
-
-
 
 Auth::routes();

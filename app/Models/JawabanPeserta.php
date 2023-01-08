@@ -9,4 +9,14 @@ class JawabanPeserta extends Model
 {
     protected $guarded =[];
     use HasFactory;
+
+    public function hasilTes()
+    {
+        return $this->belongsTo(HasilTes::class, 'id_hasil_tes', 'id');
+    }
+
+    // public function soalTes()
+    // {
+    //     return $this->belongsTo(SoalTes::class, 'id_soal', 'id');
+    // }
 }

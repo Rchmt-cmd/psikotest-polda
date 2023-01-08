@@ -16,12 +16,17 @@ class TestRunning
      */
     public function handle(Request $request, Closure $next)
     {
-        $jadwal = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_mulai));
-        $timelogin = date('d-m-Y H:i:s');
-        if ($timelogin >= $jadwal) {
-            
-            return $next($request);
+        if (!is_null(auth()->user()->jadwal)) {
+            $jadwalMulai = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_mulai));
+            $jadwalSelesai = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_selesai));
+            $timelogin = date('d-m-Y H:i:s');
+            if ($timelogin >= $jadwalMulai && $timelogin <= $jadwalSelesai && auth()->user()->status_tes == 0) {
+                // buat data tabel hasil test
+                
+                return $next($request);
+            }
+            return redirect()->back()->withErrors(['error' => 'Anda belum boleh memasuki halaman tes']);
         }
-        return redirect()->back()->withErrors(['error' => 'Anda belum boleh memasuki halaman tes']);
+        return redirect()->back()->withErrors(['error' => 'Anda belum memiliki jadwal tes']);
     }
 }
