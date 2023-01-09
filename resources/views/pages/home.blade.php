@@ -33,7 +33,7 @@
                                 <p class="fs-13 text-black no-margin">Status Tes</p>
                             </td>
                             <td>
-                                @if (auth()->user()->status)
+                                @if (auth()->user()->status_tes)
                                 <p class="fs-13 text-success no-margin">: Selesai</p>
                                 @else
                                 <p class="fs-13 text-danger no-margin">: Belum</p>
@@ -50,8 +50,8 @@
                                 @else
                                     {{ date('d F Y',
                                     strtotime(auth()->user()->jadwal->tanggal_tes)) }} ({{ date('H:i',
-                                    strtotime(auth()->user()->jadwal->waktu_mulai)) }}-{{ date('H:i',
-                                    strtotime(auth()->user()->jadwal->waktu_selesai)) }} WITA)</p>
+                                    strtotime(auth()->user()->jadwal->waktu_mulai_akses)) }}-{{ date('H:i',
+                                    strtotime(auth()->user()->jadwal->waktu_selesai_akses)) }} WITA)</p>
                                 @endif
                             </td>
                         </tr>

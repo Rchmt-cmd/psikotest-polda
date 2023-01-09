@@ -11,25 +11,49 @@
                     <h5>Edit Jadwal Tes</h5>
                 </div>
                 <div class="modal-body">
-                    <form wire:submit.prevent='edit' method="POST" id="formEditJadwal" role="form">
+                    <form wire:submit='edit' id="formEditJadwal" role="form">
                         <div id="tanggal_tes" class="form-group form-group-default date">
                             <label for="tanggal">Tanggal Tes</label>
                             <input type="date" id="tanggal" class="form-control" wire:model='tanggalTes'>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                                <div id="waktu_mulai" class="form-group form-group-default time">
-                                    <label for="waktu">Waktu MulaiTes</label>
-                                    <input type="time" id="waktu" class="form-control" wire:model='waktuMulai'>
+                                <div id="waktu_mulai_akses" class="form-group form-group-default time">
+                                    <label for="waktu" class="fs-11">Waktu Mulai Akses Tes</label>
+                                    <input required type="time" id="waktu" class="form-control"
+                                        wire:model='waktuMulaiAkses'>
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <h5 class="text-center">-----></h5>
+                                <h5 class="text-center">--></h5>
                             </div>
                             <div class="col-sm-5">
-                                <div id="waktu_selesai" class="form-group form-group-default time">
-                                    <label for="waktu">Waktu Selesai Tes</label>
-                                    <input type="time" id="waktu" class="form-control" wire:model='waktuSelesai'>
+                                <div id="waktu_selesai_akses" class="form-group form-group-default time">
+                                    <label for="waktu" class="fs-11">Waktu Selesai Akses Tes</label>
+                                    <input required type="time" id="waktu" class="form-control"
+                                        wire:model='waktuSelesaiAkses'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="durasi" class="fs-11">Durasi Mengerjakan Tes</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="durasi_tes" class="form-group form-group-default time">
+                                    <input class="in_put" id="durasi" type="number" min="0" max="23" placeholder="jam" wire:model='jam'>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div id="durasi_tes" class="form-group form-group-default time">
+                                    <input class="in_put" id="" type="number" min="0" max="59" placeholder="menit" wire:model='menit'>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div id="durasi_tes" class="form-group form-group-default time">
+                                    <input class="in_put" id="" type="number" min="0" max="59" placeholder="detik" wire:model='detik'>
                                 </div>
                             </div>
                         </div>

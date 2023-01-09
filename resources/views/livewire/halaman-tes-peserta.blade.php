@@ -1,4 +1,5 @@
 <div class="row full-height no-margin no-padding">
+    @include('partials.modal-konfirmasi-selesai-tes')
     <div class="col-md-3 b-r b-grey sm-b-b full-height overflow-auto">
         <div class="py-3 pl-5">
             <div class="row">
@@ -22,10 +23,11 @@
                         {!! $daftarSoal->links() !!}
                     </div>
                     <div class="com-md-4 no-padding">
-                        <h5>00:00</h5>
+                        <h5>{{ auth()->user()->jadwal->durasi_tes }}</h5>
                     </div>
                     <div class="col-md-4 no-padding">
-                        <button class="btn text-primary btn-lg pull-right" type="submit">Akhiri Test</button>
+                        <button class="btn text-primary btn-lg pull-right" type="button" data-toggle="modal"
+                data-target="#modalKonfirmasiSelesaiTes">Akhiri Test</button>
                     </div>
                 </div>
                 <div id="soal-tes" class="mt-5">

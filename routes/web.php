@@ -11,6 +11,7 @@ use App\Http\Livewire\HalamanTesPeserta;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\EksportDataPeserta;
 use App\Http\Controllers\SubmitTestController;
+use App\Http\Livewire\HalamanHasilTes;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
 /*
@@ -34,6 +35,8 @@ Route::middleware('is_admin')->group(function () {
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/daftar-peserta', DaftarPeserta::class)->name('daftar-peserta');
     Route::get('/admin/daftar-soal', DaftarSoal::class)->name('daftar-soal');
+    Route::get('/admin/hasil-tes', HalamanHasilTes::class)->name('hasil-tes');
+
     Route::post('/tambah-jadwal', DaftarJadwal::class)->name('tambah-jadwal');
     Route::get('eksport-data-peserta', [EksportDataPeserta::class, 'export'])->name('eksport.data.peserta');
 });
@@ -46,7 +49,7 @@ Route::middleware('is_user')->group(function () {
     // Route::get('test', function () {
     //     $jadwal = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_mulai));
     //     $timelogin = date('d-m-Y H:i:s');
-    //     dd(auth()->user()->jadwal);
+    //     dd(auth()->user()->hasilTes->jawabanPeserta->first()->id_soal);
     // });
 });
 

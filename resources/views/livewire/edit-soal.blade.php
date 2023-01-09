@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="col-md-12">
-            <form role="form" id="formEditSoal" wire:submit.prevent='update'>
+            <form role="form" id="formEditSoal" wire:submit='update'>
                 <div class="row">
 
                     <div class="col-md-6">

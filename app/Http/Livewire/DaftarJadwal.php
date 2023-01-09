@@ -14,8 +14,11 @@ class DaftarJadwal extends Component
 
     public $daftarJadwals;
     public $tanggalTes;
-    public $waktuMulai;
-    public $waktuSelesai;
+    public $waktuMulaiAkses;
+    public $waktuSelesaiAkses;
+    public $jam;
+    public $menit;
+    public $detik;
 
     protected $listeners = [
         'refreshData' => '$refresh',
@@ -39,8 +42,11 @@ class DaftarJadwal extends Component
     public function resetField()
     {
         $this->tanggalTes = '';
-        $this->waktuMulai = '';
-        $this->waktuSelesai = '';
+        $this->waktuMulaiAkses = '';
+        $this->waktuSelesaiAkses = '';
+        $this->jam = '';
+        $this->menit = '';
+        $this->detik = '';
     }
 
     public function closeModal()
@@ -52,10 +58,12 @@ class DaftarJadwal extends Component
 
     public function store()
     {
+        $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
-        $attributes['waktu_mulai'] = $this->waktuMulai;
-        $attributes['waktu_selesai'] = $this->waktuSelesai;
+        $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
+        $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
+        $attributes['durasi_tes'] = $durasi_tes;
 
         $this->jadwalRepository->create($attributes);
         $this->resetField();
@@ -66,18 +74,26 @@ class DaftarJadwal extends Component
 
     public function handleEditJadwal(Jadwal $id)
     {
+        $jam = date('H', strtotime($id->durasi_tes));
+        $menit = date('i', strtotime($id->durasi_tes));
+        $detik = date('s', strtotime($id->durasi_tes));
         $this->idJadwal = $id->id;
         $this->tanggalTes = $id->tanggal_tes;
-        $this->waktuMulai = $id->waktu_mulai;
-        $this->waktuSelesai = $id->waktu_selesai;
+        $this->waktuMulaiAkses = $id->waktu_mulai_akses;
+        $this->waktuSelesaiAkses = $id->waktu_selesai_akses;
+        $this->jam = $jam;
+        $this->menit = $menit;
+        $this->detik = $detik;
     }
 
     public function edit()
     {
+        $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
-        $attributes['waktu_mulai'] = $this->waktuMulai;
-        $attributes['waktu_selesai'] = $this->waktuSelesai;
+        $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
+        $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
+        $attributes['durasi_tes'] = $durasi_tes;
 
         // dd($this->idJadwal);
 

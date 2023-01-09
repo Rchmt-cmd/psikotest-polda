@@ -17,8 +17,9 @@ class CreateJadwalsTable extends Migration
             $table->id();
             $table->string('periode')->nullable();
             $table->date('tanggal_tes')->nullable();
-            $table->time('waktu_mulai')->nullable();
-            $table->time('waktu_selesai')->nullable();
+            $table->time('waktu_mulai_akses')->nullable();
+            $table->time('waktu_selesai_akses')->nullable();
+            $table->time('durasi_tes')->nullable();
             $table->timestamps();
         });
     }

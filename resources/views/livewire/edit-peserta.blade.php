@@ -1,5 +1,5 @@
 <div>
-    <form role="form" id="formEditPeserta" wire:submit.prevent='update'>
+    <form role="form" id="formEditPeserta" wire:submit='update'>
         <div class="row">
             <div class="col-sm-9">
                 <div class="form-group form-group-default">
@@ -69,8 +69,8 @@
             <select name="jadwal" id="jadwal" class="form-control custom-select full-width" wire:model='jadwal_tes' required>
                 <option value="">-- Pilih jadwal tes peserta --</option>
                 @foreach ($daftar_jadwals as $daftar_jadwal)
-                <option value="{{ $daftar_jadwal->id }}"><b>Tanggal: </b>{{ $daftar_jadwal->tanggal_tes }} <b>Waktu: </b>{{
-                    $daftar_jadwal->waktu_mulai }}-{{ $daftar_jadwal->waktu_selesai }}</option>
+                <option value="{{ $daftar_jadwal->id }}"><b>Tanggal: </b>{{ $daftar_jadwal->tanggal_tes }} <b>Waktu: </b>{{ date('H:i', strtotime($daftar_jadwal->waktu_mulai_akses)) }} - {{ date('H:i',
+                strtotime($daftar_jadwal->waktu_selesai_akses)) }} WITA</option>
                 @endforeach
             </select>
         </div>

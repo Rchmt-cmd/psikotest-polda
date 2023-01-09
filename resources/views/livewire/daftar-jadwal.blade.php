@@ -38,11 +38,11 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <p class="semi-bold fs-13 m-0">Tanggal</p>
-                                <p class="light fs-13 m-0">{{ $daftarJadwal->tanggal_tes }}</p>
+                                <p class="light fs-13 m-0">{{ date('d F Y' ,strtotime($daftarJadwal->tanggal_tes)) }}</p>
                             </div>
                             <div class="col-lg-6">
                                 <p class="semi-bold fs-13 m-0">Waktu</p>
-                                <p class="light fs-13 m-0">{{ $daftarJadwal->waktu_mulai }}-{{ $daftarJadwal->waktu_selesai }} WITA</p>
+                                <p class="light fs-13 m-0">{{ date('H:i', strtotime($daftarJadwal->waktu_mulai_akses)) }} - {{ date('H:i', strtotime($daftarJadwal->waktu_selesai_akses)) }} WITA</p>
                             </div>
                         </div>
                     </div>

@@ -16,8 +16,9 @@ class JadwalFactory extends Factory
         return [
             'periode' => 'I',
             'tanggal_tes' => $this->faker->date('Y-m-d'),
-            'waktu_mulai' => $this->faker->time(),
-            'waktu_selesai' => $this->faker->time(),
+            'waktu_mulai_akses' => $this->faker->time(),
+            'waktu_selesai_akses' => $this->faker->time(),
+            'durasi_tes' => $this->faker->time(),
         ];
     }
 }

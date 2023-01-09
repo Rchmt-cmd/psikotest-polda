@@ -14,4 +14,9 @@ class HasilTes extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function jawabanPeserta()
+    {
+        return $this->hasMany(JawabanPeserta::class, 'id_hasil_tes', 'id');
+    }
 }

@@ -48,6 +48,17 @@
     <link href="{{ asset('assets/css/dashboard.widgets.css')}}" rel="stylesheet" type="text/css" media="screen" />
     <link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 
+    <style>
+        .in_put{
+        background-color: white;
+        display: inline-flex;
+        border: none;
+        color: #555;
+        width :90px;
+        
+        }
+    </style>
+
     @livewireStyles
 
 </head>
@@ -93,7 +104,7 @@
                     <span class="icon-thumbnail"><i class="material-icons">assignment</i></span>
                 </li>
                 <li class="m-t-10 ">
-                    <a href="index.html" class="detailed">
+                    <a href="{{ route('hasil-tes') }}" class="detailed">
                         <span class="title">Hasil Tes</span>
                         <span class="details">Data hasil psikotest</span>
                     </a>

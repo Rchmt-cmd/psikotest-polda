@@ -68,7 +68,6 @@ class EditPeserta extends Component
         $attributes['name'] = $this->nama;
         $attributes['email'] = $this->email;
         $attributes['is_admin'] = false;
-        $attributes['password'] = random_int(10000000, 99999999);
         $attributes['nomor_tes'] = $this->nomor_tes;
         $attributes['status_tes'] = false;
         $attributes['jenis_kelamin'] = $this->jenis_kelamin;

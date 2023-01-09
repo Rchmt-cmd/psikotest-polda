@@ -12,7 +12,7 @@ class JawabanPeserta extends Model
 
     public function hasilTes()
     {
-        return $this->belongsTo(HasilTes::class, 'id_hasil_tes', 'id');
+        return $this->belongsTo(HasilTes::class, 'id_hasil_tes');
     }
 
     // public function soalTes()
