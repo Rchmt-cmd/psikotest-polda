@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\EksportDataPeserta;
 use App\Http\Controllers\SubmitTestController;
 use App\Http\Livewire\HalamanHasilTes;
+use App\Models\JawabanPeserta;
+use App\Models\SoalTes;
+use App\Repositories\SoalTes\SoalTesRepository;
 use Mockery\Generator\StringManipulation\Pass\Pass;
+
+use function PHPSTORM_META\map;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +51,20 @@ Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->middleware('test_running')->name('halaman.tes.peserta');
     // Route::post('/halaman-tes-peserta', HalamanTesPeserta::class, 'handleNavigation')->name('handle.navigation');
-    // Route::get('test', function () {
-    //     $jadwal = date('d-m-Y H:i:s', strtotime(auth()->user()->jadwal->tanggal_tes . " " . auth()->user()->jadwal->waktu_mulai));
-    //     $timelogin = date('d-m-Y H:i:s');
-    //     dd(auth()->user()->hasilTes->jawabanPeserta->first()->id_soal);
-    // });
+    Route::get('test', function () {
+        $allJawaban = JawabanPeserta::with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
+        $hasil = 0;
+        foreach ($allJawaban as $jawaban) {
+            if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
+                $bobot = $jawaban->soalTes->bobot;
+                $hasil = $hasil + $bobot;
+            }
+        }
+        $jumlahSoal = SoalTes::all()->count();
+
+        // dd($allJawaban[2]->soalTes);
+        dd($jumlahSoal);
+    });
 });
 
 Auth::routes();

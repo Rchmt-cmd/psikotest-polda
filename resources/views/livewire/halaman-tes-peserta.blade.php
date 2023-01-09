@@ -22,12 +22,12 @@
                     <div class="col-md-4 no-padding">
                         {!! $daftarSoal->links() !!}
                     </div>
-                    <div class="com-md-4 no-padding">
-                        <h5>{{ auth()->user()->jadwal->durasi_tes }}</h5>
+                    <div class="com-md-4 px-3 py-0 text-primary border">
+                        <h5 id="timer" ></h5>
                     </div>
                     <div class="col-md-4 no-padding">
                         <button class="btn text-primary btn-lg pull-right" type="button" data-toggle="modal"
-                data-target="#modalKonfirmasiSelesaiTes">Akhiri Test</button>
+                            data-target="#modalKonfirmasiSelesaiTes">Akhiri Test</button>
                     </div>
                 </div>
                 <div id="soal-tes" class="mt-5">
@@ -66,4 +66,67 @@
                 </div>
             </form>
         </div>
+        <script>
+            let time = new Date(@js($timer)).getTime(); // This is the time allowed
+            let saved_countdown = localStorage.getItem('saved_countdown');
+            
+            if(saved_countdown == null) {
+                // Set the time we're counting down to using the time allowed
+                let new_countdown = time;
+            
+                time = new_countdown;
+                localStorage.setItem('saved_countdown', new_countdown);
+            } else {
+                time = saved_countdown;
+            }
+
+            function padWithLeadingZeros(num, totalLength) {
+                return String(num).padStart(totalLength, '0');
+            }
+            
+            // Update the count down every 1 second
+            let x = setInterval(() => {
+            
+                // Get today's date and time
+                let now = new Date().getTime();
+            
+                // Find the distance between now and the allowed time
+                let distance = time - now;
+            
+                console.log(distance)
+                // Time counter
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+                // Output the result in an element with id="demo"
+                document.getElementById("timer").innerHTML = padWithLeadingZeros(hours, 2) + ":"
+                + padWithLeadingZeros(minutes, 2) + ":" + padWithLeadingZeros(seconds, 2);
+                    
+                // If the count down is over, write some text 
+                if (distance <= 0) {
+                    clearInterval(x);
+                    localStorage.removeItem('saved_countdown');
+                    window.livewire.emit('storeHasilTest');
+                }
+            }, 1000);
+        </script>
+
+        {{-- <script>
+            const futureDate = new Date(@js($timer)).getTime();
+            function padWithLeadingZeros(num, totalLength) {
+                return String(num).padStart(totalLength, '0');
+            }
+            setInterval(() =>{
+                const now = new Date().getTime();
+                const timeleft = futureDate - now;
+                
+                const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+                
+                document.getElementById("timer").innerHTML = padWithLeadingZeros(hours, 2) + ":"
+                + padWithLeadingZeros(minutes, 2) + ":" + padWithLeadingZeros(seconds, 2);
+            },1000)
+        </script> --}}
     </div>

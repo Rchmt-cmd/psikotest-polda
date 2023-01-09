@@ -11,7 +11,7 @@
                     <h5>Edit Jadwal Tes</h5>
                 </div>
                 <div class="modal-body">
-                    <form wire:submit='edit' id="formEditJadwal" role="form">
+                    <form wire:submit.prevent='edit' id="formEditJadwal" role="form">
                         <div id="tanggal_tes" class="form-group form-group-default date">
                             <label for="tanggal">Tanggal Tes</label>
                             <input type="date" id="tanggal" class="form-control" wire:model='tanggalTes'>
@@ -44,16 +44,19 @@
                             <div class="col-sm-4">
                                 <div id="durasi_tes" class="form-group form-group-default time">
                                     <input class="in_put" id="durasi" type="number" min="0" max="23" placeholder="jam" wire:model='jam'>
+                                    @error('jam') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div id="durasi_tes" class="form-group form-group-default time">
                                     <input class="in_put" id="" type="number" min="0" max="59" placeholder="menit" wire:model='menit'>
+                                    @error('menit') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div id="durasi_tes" class="form-group form-group-default time">
                                     <input class="in_put" id="" type="number" min="0" max="59" placeholder="detik" wire:model='detik'>
+                                    @error('detik') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                         </div>

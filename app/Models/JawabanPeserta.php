@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class JawabanPeserta extends Model
 {
-    protected $guarded =[];
+    protected $guarded = [];
     use HasFactory;
 
     public function hasilTes()
@@ -15,8 +15,8 @@ class JawabanPeserta extends Model
         return $this->belongsTo(HasilTes::class, 'id_hasil_tes');
     }
 
-    // public function soalTes()
-    // {
-    //     return $this->belongsTo(SoalTes::class, 'id_soal', 'id');
-    // }
+    public function soalTes()
+    {
+        return $this->belongsTo(SoalTes::class, 'id_soal');
+    }
 }

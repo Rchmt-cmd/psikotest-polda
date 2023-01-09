@@ -54,7 +54,7 @@
         display: inline-flex;
         border: none;
         color: #555;
-        width :90px;
+        width :100%;
         
         }
     </style>
@@ -159,7 +159,7 @@
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                        <a href="#" class="dropdown-item">Reset Password</a>
+                        <a href="{{ route('password.request') }}" class="dropdown-item">Reset Password</a>
                         @guest
                         @if (Route::has('login'))
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -203,7 +203,7 @@
             <div class=" container-fluid  container-fixed-lg footer">
                 <div class="copyright sm-text-center">
                     <p class="small-text no-margin pull-left sm-pull-reset">
-                        ©2022 All Rights Reserved
+                        ©2023 All Rights Reserved
                     </p>
                     <div class="clearfix"></div>
                 </div>
@@ -287,18 +287,32 @@
     <script>
         window.addEventListener('closeModal', event => {
             $('#modalTambahPeserta').modal('hide');
+            $('#modalTambahPeserta').removeClass('show');
             $('#modalKonfirmasiPeserta').modal('hide');
+            $('#modalKonfirmasiPeserta').removeClass('show');
             $('#modalEditPeserta').modal('hide');
+            $('#modalEditPeserta').removeClass('show');
             $('#modalTambahJadwal').modal('hide');
+            $('#modalTambahJadwal').removeClass('show');
             $('#modalEditJadwal').modal('hide');
+            $('#modalEditJadwal').removeClass('show');
             $('#modalKonfirmasiJadwal').modal('hide');
+            $('#modalKonfirmasiJadwal').removeClass('show');
             $('#modalKonfirmasiSoal').modal('hide');
+            $('#modalKonfirmasiSoal').removeClass('show');
             $('#modalEditSoal').modal('hide');
+            $('#modalEditSoal').removeClass('show');
+            $('body').removeClass('modal-open');
+            // $('body').removeProperty("padding");
         })
     </script>
     <script>
         window.addEventListener('removeModalBackdrop', event => {
             $('.modal-backdrop').remove()
+        })
+        window.addEventListener('clearCookies', event => {
+            localStorage.removeItem('saved_countdown');
+            
         })
     </script>
     <script>

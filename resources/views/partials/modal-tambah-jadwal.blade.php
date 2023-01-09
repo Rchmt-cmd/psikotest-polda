@@ -44,16 +44,19 @@
                             <div class="col-sm-4">
                                 <div id="durasi_tes" class="form-group form-group-default time">
                                     <input class="in_put" id="durasi" type="number" min="0" max="23" placeholder="jam" wire:model='jam'>
+                                    @error('jam') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div id="durasi_tes" class="form-group form-group-default time">
                                     <input class="in_put" id="" type="number" min="0" max="59" placeholder="menit" wire:model='menit'>
+                                    @error('menit') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div id="durasi_tes" class="form-group form-group-default time">
                                     <input class="in_put" id="" type="number" min="0" max="59" placeholder="detik" wire:model='detik'>
+                                    @error('detik') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                         </div>

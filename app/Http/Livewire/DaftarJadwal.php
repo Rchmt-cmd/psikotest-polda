@@ -25,6 +25,12 @@ class DaftarJadwal extends Component
         'closeModal'
     ];
 
+    protected $rules = [
+        'jam' => 'required|digits:2',
+        'menit' => 'required|digits:2',
+        'detik' => 'required|digits:2',
+    ];
+
     public function handleDeleteJadwal(Jadwal $dataJadwal)
     {
         $this->dataJadwal = $dataJadwal;
@@ -64,7 +70,8 @@ class DaftarJadwal extends Component
         $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
         $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
         $attributes['durasi_tes'] = $durasi_tes;
-
+        
+        $this->validate();
         $this->jadwalRepository->create($attributes);
         $this->resetField();
         $this->emitSelf('refreshData');
@@ -88,6 +95,9 @@ class DaftarJadwal extends Component
 
     public function edit()
     {
+        // fixed-header dashboard windows desktop js-focus-visible pace-done modal-open
+        // fixed-header dashboard windows desktop js-focus-visible pace-done
+        $this->validate();
         $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
@@ -95,7 +105,6 @@ class DaftarJadwal extends Component
         $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
         $attributes['durasi_tes'] = $durasi_tes;
 
-        // dd($this->idJadwal);
 
         $this->jadwalRepository->update($this->idJadwal, $attributes);
         $this->emitSelf('refreshData');

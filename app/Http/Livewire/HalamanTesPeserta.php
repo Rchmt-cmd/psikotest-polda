@@ -18,12 +18,16 @@ class HalamanTesPeserta extends Component
     public $nomor;
     public $singleAnswer;
     public $nomorSoal;
+    public $timer;
 
     protected $id_soal;
     protected $jawaban;
     protected $soalTesRepository;
     protected $jawabanPeserta;
     protected $queryString = ['nomor'];
+    protected $listeners = [
+        'storeHasilTest',
+    ];
 
     public function boot(SoalTesRepository $soalTesRepository, JawabanPeserta $jawabanPeserta)
     {
@@ -33,17 +37,38 @@ class HalamanTesPeserta extends Component
 
     public function mount()
     {
-        
+        $date = date("Y-m-d H:i:s");
+        $hours = auth()->user()->jadwal->durasi_tes;
+
+        $d0 = strtotime(date('Y-m-d 00:00:00'));
+        $d1 = strtotime(date('Y-m-d ') . $hours);
+
+        $sumTime = strtotime($date) + ($d1 - $d0);
+        $new_time = date("M d, Y H:i:s", $sumTime);
+        $this->timer = $new_time; 
     }
 
     public function storeHasilTest()
     {
-        $allJawaban = $this->jawabanPeserta->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
+        $allJawaban = $this->jawabanPeserta->with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
+        $jumlahSoal = $this->soalTesRepository->getAll()->count();
+        $hasil = 0;
+        $jumlahBenar = 0;
+        foreach ($allJawaban as $jawaban) {
+            if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
+                $bobot = $jawaban->soalTes->bobot;
+                $hasil = $hasil + $bobot;
+                $jumlahBenar = $jumlahBenar + 1;
+            }
+        }
         $attributes = [];
         $attributes['finish'] = date('Y-m-d H:i:s');
-        $attributes['hasil_akhir'] = 50;
+        $attributes['hasil_akhir'] = $hasil;
+        $attributes['jumlah_benar'] = $jumlahBenar;
         HasilTes::where('id_user', auth()->user()->id)->update($attributes);
         User::where('id', auth()->user()->id)->update(['status_tes' => 1]);
+        $this->dispatchBrowserEvent('clearCookies');
+        return redirect('home');
     }
 
     public function updatedSingleAnswer()

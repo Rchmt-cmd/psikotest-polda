@@ -8,11 +8,11 @@
         <div class="text-center">
             <button class="btn btn-primary btn-sm btn-rounded text-center" data-toggle="modal"
                 data-target="#modalTambahJadwal">
-                <i class="pg-icon">add</i> Tambah Periode
+                <i class="pg-icon">add</i> Tambah Jadwal
             </button>
         </div>
     </div>
-    <div class="col-md-9 full-height">
+    <div class="col-md-9 full-height overflow-auto">
         <div class="row no-margin">
             <div class="col-md-6">
                 <div class="card">
@@ -107,7 +107,7 @@
                                     </td>
                                     <td>
                                         <span class="font-montserrat fs-18">
-                                            @if($dsp->status == 1)
+                                            @if($dsp->status_tes == 1)
                                             <i class="text-success">Selesai</i>
                                             @else
                                             <i class="text-danger">Belum</i>
