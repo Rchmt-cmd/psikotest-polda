@@ -283,6 +283,25 @@
             });
         });
     </script>
+    <script>
+        $('#tableHasilTes').DataTable({
+            "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
+            "lengthMenu": [8], // 4 records will be shown in the table
+            "columnDefs": [{
+                "className": "dt-left",
+                "targets": "_all"
+            } //columnDefs for align text to center
+            ],
+            "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+            "sPaginationType": "bootstrap",
+            "sDom": "<'table-responsive't><'row'<p i>>",
+        });
+        $(document).ready(function() {
+            $('#search-table-hasil-tes').keyup(function() {
+                $('#tableHasilTes').DataTable().search($(this).val()).draw();
+            });
+        });
+    </script>
 
     <script>
         window.addEventListener('closeModal', event => {
