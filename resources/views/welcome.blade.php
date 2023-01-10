@@ -494,13 +494,8 @@
                         data-aos-delay="200">
                         <div class="content">
                             <h3>Tentang Tes Psikologi Online</h3>
-                            <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
-                                corrupti reprehenderit.</h2>
-                            <p>
-                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                                consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam
-                                et est corrupti.
-                            </p>
+                            <h2>Psikotes Merupakan salah satu ujian yang terdapat pada proses seleksi penerimaan anggota Kepolisian Republik Indonesia.</h2>
+                            <p>Psikotest ini terdiri dari beberapa bagian, yaitu tes kecerdasan, tes kepribadian, tes kecermatan, dan tes menggambar. Ujian ini bertujuan untuk mengetahui gambaran seseorang mulai dari gambaran kognitif , kondisi emosi, kecenderungan sikap serta faktor-faktor yang mempengaruhinya.</p>
                             <div class="text-center text-lg-start">
                                 <a href="#"
                                     class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
@@ -579,14 +574,11 @@
                                 loading="lazy" class="img-responsive center-block">
                             {{-- <span>POLDA SULSEL</span> --}}
                         </a>
-                        <p class="text-center" style="padding-inline: 10vw">Cras fermentum odio eu feugiat lide par naso
-                            tierra. Justo eget nada
-                            terra videa magna derita
-                            valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <p class="text-center" style="padding-inline: 10vw">Jl. Tamalanrea Indah, Jl. Perintis Kemerdekaan No.KM.16, Pai, Kec. Biringkanaya, Kota Makassar, Sulawesi Selatan 90242</p>
                         <div class="social-links mt-3 text-center">
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+                            <a href="https://www.youtube.com/channel/UC2D_odWnpjKYtkQ4gCeBzgw" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://twitter.com/poldasulsel" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/polda.sulawesiselatan.5" class="youtube"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
                 </div>
