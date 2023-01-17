@@ -24,6 +24,10 @@ class TambahPeserta extends Component
     
     protected $userRepository;
     protected $jadwalRepository;
+    protected $rules = [
+        'email' => 'required|unique:users,email|string|email',
+        'jenis_kelamin' => 'required',
+    ];
     
     public function boot(UserRepository $userRepository, JadwalRepository $jadwalRepository)
     {
@@ -48,6 +52,7 @@ class TambahPeserta extends Component
     public function store()
     {
         $this->old_password = random_int(10000000, 99999999);
+        $this->validate();
 
         $attributes = [];
 

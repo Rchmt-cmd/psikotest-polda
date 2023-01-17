@@ -23,7 +23,7 @@
                         {!! $daftarSoal->links() !!}
                     </div>
                     <div class="com-md-4 px-3 py-0 text-primary border">
-                        <h5 id="timer" ></h5>
+                        <h5 id="timer"></h5>
                     </div>
                     <div class="col-md-4 no-padding">
                         <button class="btn text-primary btn-lg pull-right" type="button" data-toggle="modal"
@@ -38,28 +38,40 @@
                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios1"
                             value='a' wire:model='singleAnswer'>
                         <label class="form-check-label" for="exampleRadios1">
-                            {{ $soal->pil_a }}
+                            {{ $soal->pil_a }} <br>
+                            @if (!is_null($soal->gambar_pil_a) || !empty($soal->gambar_pil_a))
+                            <img src="{{ asset('storage/'.$soal->gambar_pil_a) }}" width="80" alt="pil_a">
+                            @endif
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios2"
                             value='b' wire:model='singleAnswer'>
                         <label class="form-check-label" for="exampleRadios2">
-                            {{ $soal->pil_b }}
+                            {{ $soal->pil_b }} <br>
+                            @if (!is_null($soal->gambar_pil_b) || !empty($soal->gambar_pil_b))
+                            <img src="{{ asset('storage/'.$soal->gambar_pil_b) }}" width="80" alt="pil_b">
+                            @endif
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios3"
                             value='c' wire:model='singleAnswer'>
                         <label class="form-check-label" for="exampleRadios3">
-                            {{ $soal->pil_c }}
+                            {{ $soal->pil_c }} <br>
+                            @if (!is_null($soal->gambar_pil_c) || !empty($soal->gambar_pil_c))
+                            <img src="{{ asset('storage/'.$soal->gambar_pil_c) }}" width="80" alt="pil_c">
+                            @endif
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios4"
                             value='d' wire:model='singleAnswer'>
                         <label class="form-check-label" for="exampleRadios4">
-                            {{ $soal->pil_d }}
+                            {{ $soal->pil_d }} <br>
+                            @if (!is_null($soal->gambar_pil_d) || !empty($soal->gambar_pil_d))
+                            <img src="{{ asset('storage/'.$soal->gambar_pil_d) }}" width="80" alt="pil_d">
+                            @endif
                         </label>
                     </div>
                     @endforeach

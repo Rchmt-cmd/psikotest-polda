@@ -9,16 +9,23 @@
             </div>
             <div class="col-sm-3 px-2">
                 <div class="form-check">
-                    <input type="radio" name="jenis_kelamin" id="lakiRadio" wire:model='jenis_kelamin' value="L">
+                    <input type="radio" class="@error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" id="lakiRadio"
+                        wire:model='jenis_kelamin' value="L">
                     <label for="lakiRadio">
                         Laki-laki
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" name="jenis_kelamin" id="perempuanRadio" wire:model='jenis_kelamin' value="P">
+                    <input type="radio" class="@error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin"
+                        id="perempuanRadio" wire:model='jenis_kelamin' value="P">
                     <label for="perempuanRadio">
                         Perempuan
                     </label>
+                    @error('jenis_kelamin')
+                    <span class="invalid-feedback" role="alert">
+                        <p class="fs-12 text-danger">{{ $message }}</p>
+                    </span>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -47,8 +54,13 @@
             <div class="col-sm-6">
                 <div class="form-group form-group-default">
                     <label>E-mail</label>
-                    <input type="email" class="form-control" placeholder="ex: contoh@gmail.com" wire:model='email'
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="ex: contoh@gmail.com" wire:model='email'
                         required>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <p class="fs-12 text-danger">{{ $message }}</p>
+                    </span>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-6">
@@ -66,11 +78,12 @@
 
         <div class="form-group form-group-default">
             <label>Jadwal</label>
-            <select name="jadwal" id="jadwal" class="form-control custom-select full-width" wire:model='jadwal_tes' required>
+            <select name="jadwal" id="jadwal" class="form-control custom-select full-width" wire:model='jadwal_tes'>
                 <option value="">-- Pilih jadwal tes peserta --</option>
                 @foreach ($daftar_jadwals as $daftar_jadwal)
-                <option value="{{ $daftar_jadwal->id }}"><b>Tanggal: </b>{{ $daftar_jadwal->tanggal_tes }} <b>Waktu: </b>{{ date('H:i', strtotime($daftar_jadwal->waktu_mulai_akses)) }} - {{ date('H:i',
-                strtotime($daftar_jadwal->waktu_selesai_akses)) }} WITA</option>
+                <option value="{{ $daftar_jadwal->id }}"><b>Tanggal: </b>{{ $daftar_jadwal->tanggal_tes }} <b>Waktu:
+                    </b>{{ date('H:i', strtotime($daftar_jadwal->waktu_mulai_akses)) }} - {{ date('H:i',
+                    strtotime($daftar_jadwal->waktu_selesai_akses)) }} WITA</option>
                 @endforeach
             </select>
         </div>

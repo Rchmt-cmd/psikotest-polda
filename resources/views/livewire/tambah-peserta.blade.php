@@ -9,16 +9,21 @@
             </div>
             <div class="col-sm-3 px-2">
                 <div class="form-check">
-                    <input type="radio" name="jenis_kelamin" id="lakiRadio" wire:model='jenis_kelamin' value="L">
+                    <input type="radio" class="@error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" id="lakiRadio" wire:model='jenis_kelamin' value="L">
                     <label for="lakiRadio">
                         Laki-laki
                     </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" name="jenis_kelamin" id="perempuanRadio" wire:model='jenis_kelamin' value="P">
+                    <input type="radio" class="@error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" id="perempuanRadio" wire:model='jenis_kelamin' value="P">
                     <label for="perempuanRadio">
                         Perempuan
                     </label>
+                    @error('jenis_kelamin')
+                    <span class="invalid-feedback" role="alert">
+                        <p class="fs-12 text-danger">{{ $message }}</p>
+                    </span>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -47,7 +52,12 @@
             <div class="col-sm-6">
                 <div class="form-group form-group-default">
                     <label>E-mail</label>
-                    <input type="email" class="form-control" placeholder="ex: contoh@gmail.com" wire:model='email' required>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="ex: contoh@gmail.com" wire:model='email' required>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <p class="fs-12 text-danger">{{ $message }}</p>
+                    </span>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-6">
