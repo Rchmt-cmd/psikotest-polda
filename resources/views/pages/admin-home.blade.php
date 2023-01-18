@@ -3,7 +3,7 @@
 @section('content')
 <div class="row full-height no-margin py-3">
 
-    <div class="col-md-3 b-r b-grey sm-b-b full-height overflow-auto">
+    <div class="col-md-3 full-height overflow-auto">
         @livewire('daftar-jadwal')
         <div class="text-center">
             <button class="btn btn-primary btn-sm btn-rounded text-center" data-toggle="modal"
@@ -12,7 +12,7 @@
             </button>
         </div>
     </div>
-    <div class="col-md-9 full-height overflow-auto">
+    <div class="col-md-9 b-l b-grey sm-b-b full-height overflow-auto">
         <div class="row no-margin">
             <div class="col-md-6">
                 <div class="card">

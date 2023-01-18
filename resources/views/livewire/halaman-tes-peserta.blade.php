@@ -1,16 +1,15 @@
-<div class="row full-height no-margin no-padding">
+<div class="row full-height no-margin no-padding soal-wrapper">
     @include('partials.modal-konfirmasi-selesai-tes')
     <div class="col-md-3 b-r b-grey sm-b-b full-height overflow-auto">
-        <div class="py-3 pl-5">
+        <div class="py-3 pl-5 navigation-wrapper">
             <div class="row">
                 @for ($nav = 0; $nav < count($quizNav); $nav++) @if ($nav % 5==0) </div>
                     <div class="row">
                         @endif
                         <div class="col-md-2 p-1">
-                            <div class="card p-1">
-                                <a href="?page={{ $quizNav[$nav] }}" class="fs-12 text-center py-1">{{ $quizNav[$nav]
+                                <a href="?page={{ $quizNav[$nav] }}" class="btn btn-default btn-block m-t-5">
+                                    {{ $quizNav[$nav]
                                     }}</a>
-                            </div>
                         </div>
                         @endfor
                     </div>

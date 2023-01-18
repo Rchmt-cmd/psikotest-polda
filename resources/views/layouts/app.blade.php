@@ -64,6 +64,17 @@
             .start-button{
                 display: none;
             }
+            .soal-wrapper{
+                flex-direction: column-reverse;
+            }
+            .navigation-wrapper{
+                padding: 0px !important;
+                padding-inline: 10%;
+            }
+            .navigation-wrapper .row{
+                flex-wrap: nowrap;
+                flex-direction: row;
+            }
         }
 
         @media (max-width: 767px){

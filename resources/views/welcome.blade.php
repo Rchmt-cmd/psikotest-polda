@@ -576,9 +576,9 @@
                         </a>
                         <p class="text-center" style="padding-inline: 10vw">Jl. Tamalanrea Indah, Jl. Perintis Kemerdekaan No.KM.16, Pai, Kec. Biringkanaya, Kota Makassar, Sulawesi Selatan 90242</p>
                         <div class="social-links mt-3 text-center">
-                            <a href="https://www.youtube.com/channel/UC2D_odWnpjKYtkQ4gCeBzgw" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.facebook.com/polda.sulawesiselatan.5" class="facebook"><i class="bi bi-facebook"></i></a>
                             <a href="https://twitter.com/poldasulsel" class="twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="https://www.facebook.com/polda.sulawesiselatan.5" class="youtube"><i class="bi bi-youtube"></i></a>
+                            <a href="https://www.youtube.com/channel/UC2D_odWnpjKYtkQ4gCeBzgw" class="youtube"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
                 </div>

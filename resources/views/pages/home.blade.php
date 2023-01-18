@@ -11,7 +11,7 @@
 @enderror
 <div class="row full-height no-margin py-3">
     
-    <div class="col-md-4 b-r b-grey sm-b-b overflow-auto data-peserta">
+    <div class="col-md-4 overflow-auto data-peserta">
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Selamat Datang!
@@ -74,7 +74,7 @@
             </button>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 b-l b-grey sm-b-b">
         <!-- START WIDGET widget_tableWidget-->
         <div class="widget-11 card   no-margin widget-loader-bar">
             <div class="card-header">
