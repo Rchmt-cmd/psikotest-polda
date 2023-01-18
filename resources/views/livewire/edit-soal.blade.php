@@ -73,9 +73,23 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group form-group-default">
-                                    <label>Jawaban</label>
-                                    <input type="text" class="form-control" wire:model='jawaban' required>
+                                <div class="form-group form-group-lg">
+                                    <label for="">Jawaban</label>
+                                    <div class="form-check form-check border d-flex justify-content-around p-2">
+                                        <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios1" value='a'
+                                            wire:model='jawaban'>
+                                        <label class="form-check-label" for="exampleRadios1">A</label>
+                        
+                                        <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios2" value='b'
+                                            wire:model='jawaban'>
+                                        <label class="form-check-label" for="exampleRadios1">B</label>
+                                        <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios3" value='c'
+                                            wire:model='jawaban'>
+                                        <label class="form-check-label" for="exampleRadios1">C</label>
+                                        <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios4" value='d'
+                                            wire:model='jawaban'>
+                                        <label class="form-check-label" for="exampleRadios1">D</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

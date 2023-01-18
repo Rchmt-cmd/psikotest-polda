@@ -83,9 +83,9 @@
         {{ session('message') }}
     </div>
     @endif
-    <div class="container">
+    <div class="container overflow-auto">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 img-wrapper">
                 <img src="{{ asset('assets/img/undraw_remotely_2j6y.svg') }}" alt="Image" class="img-fluid">
             </div>
             <div class="col-md-6 contents">

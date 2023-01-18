@@ -10,12 +10,37 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/login/icomoon/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/vendor/login/icomoon/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/vendor/login/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/login/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/login/css/style2.css') }}">
 
     <!-- Style -->
+    <style>
+        @media (max-width:411px){
+            .img-fluid{
+                max-width: 70%;
+            }
+            .img-wrapper{
+                display: flex;
+                justify-content: center;
+            }
+            .content{
+                padding-top: 15%;
+            }
+        }
+        @media (max-width: 375px){
+            body{
+                overflow: auto;
+            }
+            .img-fluid{
+                display: none;
+            }
+            .content{
+                padding: 0 auto;
+            }
+        }
+    </style>
 
 </head>
 

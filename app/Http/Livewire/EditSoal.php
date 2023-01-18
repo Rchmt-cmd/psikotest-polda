@@ -4,11 +4,13 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Repositories\SoalTes\SoalTesRepository;
+use Livewire\WithFileUploads;
 
 use function PHPUnit\Framework\isEmpty;
 
 class EditSoal extends Component
 {
+    use WithFileUploads;
     public $dataSoal;
 
     public $nomor_soal;
@@ -73,13 +75,13 @@ class EditSoal extends Component
         $attributes['isi_soal'] = $this->isi_soal;
         $attributes['gambar_soal'] = $this->gambar_soal;
         $attributes['pil_a'] = $this->pil_a;
-        $attributes['gambar_pil_a'] = (!isEmpty($this->gambar_pil_a)) ? $this->gambar_pil_a->store('files/jawaban_a', 'public') : '';
+        $attributes['gambar_pil_a'] = (!is_null($this->gambar_pil_a)) ? $this->gambar_pil_a->store('files/jawaban_a', 'public') : '';
         $attributes['pil_b'] = $this->pil_b;
-        $attributes['gambar_pil_b'] = (!isEmpty($this->gambar_pil_b)) ? $this->gambar_pil_b->store('files/jawaban_b', 'public') : '';
+        $attributes['gambar_pil_b'] = (!is_null($this->gambar_pil_b)) ? $this->gambar_pil_b->store('files/jawaban_b', 'public') : '';
         $attributes['pil_c'] = $this->pil_c;
-        $attributes['gambar_pil_c'] = (!isEmpty($this->gambar_pil_c)) ? $this->gambar_pil_c->store('files/jawaban_c', 'public') : '';
+        $attributes['gambar_pil_c'] = (!is_null($this->gambar_pil_c)) ? $this->gambar_pil_c->store('files/jawaban_c', 'public') : '';
         $attributes['pil_d'] = $this->pil_d;
-        $attributes['gambar_pil_d'] = (!isEmpty($this->gambar_pil_d)) ? $this->gambar_pil_d->store('files/jawaban_d', 'public') : '';
+        $attributes['gambar_pil_d'] = (!is_null($this->gambar_pil_d)) ? $this->gambar_pil_d->store('files/jawaban_d', 'public') : '';
         $attributes['jawaban'] = $this->jawaban;
         $attributes['bobot'] = $this->bobot;
 
