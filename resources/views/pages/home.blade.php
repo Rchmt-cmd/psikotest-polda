@@ -10,8 +10,8 @@
 </div>
 @enderror
 <div class="row full-height no-margin py-3">
-    @include('partials.modal-konfirmasi-mulai-tes')
-    <div class="col-md-4 b-r b-grey sm-b-b overflow-auto">
+    
+    <div class="col-md-4 b-r b-grey sm-b-b overflow-auto data-peserta">
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Selamat Datang!
@@ -65,7 +65,7 @@
                 </p>
             </div>
         </div>
-        <div class="text-center mt-5 mb-5">
+        <div class="text-center mt-5 mb-5 start-button">
             <button class="btn btn-primary btn-lg btn-rounded text-center" data-toggle="modal"
                 data-target="#modalKonfirmasiMulaiTes">
                 <span class="material-icons">

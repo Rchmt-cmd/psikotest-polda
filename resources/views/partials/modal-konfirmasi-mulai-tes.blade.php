@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade slide-up disable-scroll" id="modalKonfirmasiMulaiTes" tabindex="-1" role="dialog"
+<div class="modal fade slide-up disable-scroll z-index-3" id="modalKonfirmasiMulaiTes" tabindex="-1" role="dialog"
   aria-labelledby="modalKonfirmasiMulaiTes" aria-hidden="false">
   <div class="modal-dialog ">
     <div class="modal-content-wrapper">

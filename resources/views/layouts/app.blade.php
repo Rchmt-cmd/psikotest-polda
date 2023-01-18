@@ -57,6 +57,23 @@
         width :100%;
         
         }
+        @media (max-width: 411px){
+            .data-peserta{
+                border: none;
+            }
+            .start-button{
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px){
+            .data-peserta{
+            border: none;
+            }
+            .start-button{
+            display: none;
+            }
+        }
     </style>
 
     @livewireStyles
@@ -64,6 +81,7 @@
 </head>
 
 <body class="fixed-header dashboard">
+    @include('partials.modal-konfirmasi-mulai-tes')
     <nav class="page-sidebar" data-pages="sidebar">
         <!-- BEGIN SIDEBAR MENU HEADER-->
         <div class="sidebar-header">
@@ -186,7 +204,7 @@
         </div>
         <!-- END HEADER -->
         <!-- START PAGE CONTENT WRAPPER -->
-        <div class="page-content-wrapper content-builder full-height active" id="columns-3-9">
+        <div class="page-content-wrapper content-builder active" id="columns-3-9">
             <!-- START PAGE CONTENT -->
             <div class="content full-height">
 
