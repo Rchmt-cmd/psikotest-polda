@@ -1,23 +1,24 @@
 <?php
 
+use App\Models\Jadwal;
+use App\Models\SoalTes;
 use Illuminate\Http\Request;
+use App\Models\JawabanPeserta;
+use function PHPSTORM_META\map;
 use App\Http\Livewire\DaftarSoal;
 use App\Http\Livewire\DaftarJadwal;
 use App\Http\Livewire\DaftarPeserta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\HalamanHasilTes;
 use App\Http\Controllers\HomeController;
 use App\Http\Livewire\HalamanTesPeserta;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\EksportDataPeserta;
 use App\Http\Controllers\SubmitTestController;
-use App\Http\Livewire\HalamanHasilTes;
-use App\Models\JawabanPeserta;
-use App\Models\SoalTes;
+
 use App\Repositories\SoalTes\SoalTesRepository;
 use Mockery\Generator\StringManipulation\Pass\Pass;
-
-use function PHPSTORM_META\map;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,20 +52,24 @@ Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->middleware('test_running')->name('halaman.tes.peserta');
     // Route::post('/halaman-tes-peserta', HalamanTesPeserta::class, 'handleNavigation')->name('handle.navigation');
-    Route::get('test', function () {
-        $allJawaban = JawabanPeserta::with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
-        $hasil = 0;
-        foreach ($allJawaban as $jawaban) {
-            if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
-                $bobot = $jawaban->soalTes->bobot;
-                $hasil = $hasil + $bobot;
-            }
-        }
-        $jumlahSoal = SoalTes::all()->count();
+});
+Route::get('test', function () {
+    // $allJawaban = JawabanPeserta::with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
+    // $hasil = 0;
+    // foreach ($allJawaban as $jawaban) {
+    //     if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
+    //         $bobot = $jawaban->soalTes->bobot;
+    //         $hasil = $hasil + $bobot;
+    //     }
+    // }
+    // $jumlahSoal = SoalTes::all()->count();
 
-        // dd($allJawaban[2]->soalTes);
-        dd($jumlahSoal);
-    });
+    // // dd($allJawaban[2]->soalTes);
+    $date = date('Y m d H:i:s', strtotime(Jadwal::first()->waktu_mulai_akses));
+    dd(date('Y m d H:i:s') > $date);
+    if (Jadwal::first()->waktu_mulai_akses) {
+        # code...
+    }
 });
 
 Auth::routes();

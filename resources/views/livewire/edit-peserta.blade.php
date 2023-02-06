@@ -78,7 +78,9 @@
 
         <div class="form-group form-group-default">
             <label>Jadwal</label>
-            <select name="jadwal" id="jadwal" class="form-control custom-select full-width" wire:model='jadwal_tes'>
+            <select name="jadwal" id="jadwal" class="form-control custom-select full-width" wire:model='jadwal_tes' @if ($idPeserta->status_tes == 1)
+                disabled
+            @endif>
                 <option value="">-- Pilih jadwal tes peserta --</option>
                 @foreach ($daftar_jadwals as $daftar_jadwal)
                 <option value="{{ $daftar_jadwal->id }}"><b>Tanggal: </b>{{ $daftar_jadwal->tanggal_tes }} <b>Waktu:

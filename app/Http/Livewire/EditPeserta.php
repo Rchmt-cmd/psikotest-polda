@@ -68,7 +68,7 @@ class EditPeserta extends Component
     public function update()
     {
         $attributes = [];
-        $this->validate();
+        // $this->validate();
 
         $attributes['name'] = $this->nama;
         $attributes['email'] = $this->email;

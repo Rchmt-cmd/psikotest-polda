@@ -1,6 +1,6 @@
 <div class="row full-height no-margin no-padding soal-wrapper">
     @include('partials.modal-konfirmasi-selesai-tes')
-    <div class="col-md-3 b-r b-grey sm-b-b full-height overflow-auto">
+    <div class="col-md-3 b-r b-grey sm-b-b full-height">
         <div class="py-3 pl-5 navigation-wrapper">
             <div class="row">
                 @for ($nav = 0; $nav < count($quizNav); $nav++) @if ($nav % 5==0) </div>
@@ -15,7 +15,7 @@
                     </div>
             </div>
         </div>
-        <div class="col-md-9 full-height p-5 overflow-auto">
+        <div class="col-md-9 full-height p-5">
             <form id="formJawaban">
                 <div class="row justify-content-between">
                     <div class="col-md-4 no-padding">
