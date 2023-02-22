@@ -55,6 +55,9 @@ Route::middleware('is_admin')->group(function () {
 Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->middleware('test_running')->name('halaman.tes.peserta');
+    
+    Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
+    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
 });
 
 Auth::routes();
