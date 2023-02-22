@@ -47,8 +47,6 @@ Route::middleware('is_admin')->group(function () {
     Route::post('/tambah-jadwal', DaftarJadwal::class)->name('tambah-jadwal');
     Route::get('eksport-data-peserta', [EksportDataPeserta::class, 'export'])->name('eksport.data.peserta');
 
-    Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
-    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
 });
 
 // Route User Page (Peserta)
@@ -56,8 +54,10 @@ Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->middleware('test_running')->name('halaman.tes.peserta');
     
-    Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
-    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
+    // Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
+    // Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
 });
 
+Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
 Auth::routes();

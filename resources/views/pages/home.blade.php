@@ -61,7 +61,7 @@
             </div>
             <div class="p-t-15 p-b-15 p-l-20 p-r-20">
                 <p class="small no-margin">
-                    <span class="hint-text "><a href="{{ route('password.request') }}">Reset Password</a></span>
+                    <span class="hint-text "><a href="{{ route('reset-password') }}">Reset Password</a></span>
                 </p>
             </div>
         </div>
