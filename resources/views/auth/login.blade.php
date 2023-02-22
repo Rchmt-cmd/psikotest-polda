@@ -100,11 +100,11 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group first">
-                                <label for="email">Email</label>
-                                {{-- <input type="email" class="form-control" id="email"> --}}
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
+                                <label for="no_hp">Nomor Hp</label>
+                                {{-- <input type="no_hp" class="form-control" id="no_hp"> --}}
+                                <input id="no_hp" type="number" class="form-control @error('no_hp') is-invalid @enderror"
+                                    name="no_hp" value="{{ old('no_hp') }}" required autocomplete="no_hp" autofocus>
+                                @error('no_hp')
                                 <span class="invalid-feedback" role="alert">
                                     <p class="fs-12 text-danger">{{ $message }}</p>
                                 </span>

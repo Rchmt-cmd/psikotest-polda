@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Models\Jadwal;
 use App\Models\SoalTes;
 use Illuminate\Http\Request;
@@ -45,31 +46,15 @@ Route::middleware('is_admin')->group(function () {
 
     Route::post('/tambah-jadwal', DaftarJadwal::class)->name('tambah-jadwal');
     Route::get('eksport-data-peserta', [EksportDataPeserta::class, 'export'])->name('eksport.data.peserta');
+
+    Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
+    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
 });
 
 // Route User Page (Peserta)
 Route::middleware('is_user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/halaman-tes-peserta', HalamanTesPeserta::class)->middleware('test_running')->name('halaman.tes.peserta');
-    // Route::post('/halaman-tes-peserta', HalamanTesPeserta::class, 'handleNavigation')->name('handle.navigation');
-});
-Route::get('test', function () {
-    // $allJawaban = JawabanPeserta::with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
-    // $hasil = 0;
-    // foreach ($allJawaban as $jawaban) {
-    //     if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
-    //         $bobot = $jawaban->soalTes->bobot;
-    //         $hasil = $hasil + $bobot;
-    //     }
-    // }
-    // $jumlahSoal = SoalTes::all()->count();
-
-    // // dd($allJawaban[2]->soalTes);
-    $date = date('Y m d H:i:s', strtotime(Jadwal::first()->waktu_mulai_akses));
-    dd(date('Y m d H:i:s') > $date);
-    if (Jadwal::first()->waktu_mulai_akses) {
-        # code...
-    }
 });
 
 Auth::routes();

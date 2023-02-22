@@ -42,8 +42,7 @@
                     <thead>
                         <tr>
                             <th>Nama</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Email</th>
+                            <th>Nomor HP</th>
                             <th>No. Tes</th>
                             <th>Status Tes</th>
                             <th>Aksi</th>
@@ -53,8 +52,7 @@
                         @foreach ($users as $user)
                         <tr class="odd gradeX">
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->jenis_kelamin }}</td>
-                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->no_hp }}</td>
                             <td class="center">{{$user->nomor_tes}}</td>
                             <td class="center">
                                 @if($user->status_tes == 0)

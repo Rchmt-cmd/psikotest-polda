@@ -35,7 +35,7 @@
                     </div>
                     <div class="p-t-15 p-b-15 p-l-20 p-r-20">
                         <p class="small no-margin">
-                            <span class="hint-text "><a href="{{ route('password.request') }}">Reset Password</a></span>
+                            <span class="hint-text "><a href="{{ route('reset-password') }}">Reset Password</a></span>
                         </p>
                     </div>
                 </div>
@@ -99,8 +99,9 @@
                                 @foreach ($dataSingkatPeserta as $dsp)
                                 <tr>
                                     <td class="fs-12">{{ $dsp->name }}</td>
+                                    <td class="fs-12">{{ $dsp->nomor_tes }}</td>
                                     <td class="text-right">
-                                        <span class="hint-text small">{{ $dsp->email }}</span>
+                                        <span class="hint-text small">{{ $dsp->no_hp }}</span>
                                     </td>
                                     <td class="text-right b-r b-dashed b-grey">
                                         <span class="hint-text small">status</span>

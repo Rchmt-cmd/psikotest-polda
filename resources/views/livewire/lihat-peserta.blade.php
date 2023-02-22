@@ -7,8 +7,8 @@
             <td>: {{ $idPeserta->name }}</td>
         </tr>
         <tr>
-            <td>Email</td>
-            <td>: {{ $idPeserta->email }}</td>
+            <td>Nomor HP</td>
+            <td>: {{ $idPeserta->no_hp }}</td>
         </tr>
         <tr>
             <td>Password</td>
@@ -24,7 +24,7 @@
                 @if($idPeserta->jadwal)
                     {{ $idPeserta->jadwal->tanggal_tes }} / {{ $idPeserta->jadwal->waktu_mulai }}-{{ $idPeserta->jadwal->waktu_selesai }} WITA
                 @else
-                    Jadwal Terhapus
+                    <i>Jadwal Terhapus</i>
                 @endif 
             </td>
         </tr>
@@ -32,27 +32,11 @@
             <td>Status Tes</td>
             <td>: 
                 @if($idPeserta->status_tes)
-                    Selesai
+                    <i class="text-success">Selesai</i>
                 @else
-                    Belum
+                    <i class="text-danger">Belum</i>
                 @endif
             </td>
-        </tr>
-        <tr>
-            <td>Jenis Kelamin</td>
-            <td>: {{ $idPeserta->jenis_kelamin }}</td>
-        </tr>
-        <tr>
-            <td>TTL</td>
-            <td>: {{ $idPeserta->tmpt_lahir }}, {{ $idPeserta->tgl_lahir }}</td>
-        </tr>
-        <tr>
-            <td>Alamat</td>
-            <td>: {{ $idPeserta->alamat }}</td>
-        </tr>
-        <tr>
-            <td>No. Hp</td>
-            <td>: {{ $idPeserta->no_hp }}</td>
         </tr>
     </table>
 </div>

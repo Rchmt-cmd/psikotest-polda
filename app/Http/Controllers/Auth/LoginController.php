@@ -43,15 +43,15 @@ class LoginController extends Controller
     {
         $input = $request->all();
         $messages = [
-            'email.required' => 'The email is required.',
+            'no_hp.required' => 'The phone number is required.',
         ];
 
         $this->validate($request, [
-            'email' => 'required|email',
+            'no_hp' => 'required|numeric|digits_between:11,13',
             'password' => 'required',
         ], $messages);
 
-        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
+        if (auth()->attempt(array('no_hp' => $input['no_hp'], 'password' => $input['password']))) {
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             } else {
@@ -60,7 +60,7 @@ class LoginController extends Controller
         } else {
             return
             back()->withErrors([
-                'email' => 'Email-Address And Password Are Wrong.',
+                'no_hp' => 'Phone Number And Password Are Wrong.',
             ]);
         }
     }
