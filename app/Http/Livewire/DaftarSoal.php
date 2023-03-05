@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\SoalTes;
+use App\Models\SubKategoriSoal;
 use Livewire\Component;
 use App\Repositories\SoalTes\SoalTesRepository;
 
@@ -12,6 +13,7 @@ class DaftarSoal extends Component
     public $dataSoal;
     
     protected $soalTesRepository;
+    protected $subKategoriSoal;
     protected $listeners = [
         'closeModal',
         'dataSoalStored' => 'handleDataSoalStored',
@@ -19,9 +21,10 @@ class DaftarSoal extends Component
         'refreshData' => '$refresh',
     ];
 
-    public function boot(SoalTesRepository $soalTesRepository)
+    public function boot(SoalTesRepository $soalTesRepository, SubKategoriSoal $subKategoriSoal)
     {
         $this->soalTesRepository = $soalTesRepository;
+        $this->subKategoriSoal = $subKategoriSoal;
     }
 
     public function handleHapusSoal(SoalTes $id)
@@ -45,7 +48,7 @@ class DaftarSoal extends Component
     public function delete($id)
     {
         $this->soalTesRepository->delete($id);
-        session()->flash('message', 'Contact delete successfully!');
+        session()->flash('message', 'Soal delete successfully!');
         $this->closeModal();
         $this->emitSelf('refreshData');
     }
@@ -66,7 +69,7 @@ class DaftarSoal extends Component
 
     public function render()
     {
-        $this->daftarSoalTes = $this->soalTesRepository->getAll();
+        $this->daftarSoalTes = $this->subKategoriSoal->all();
         return view('livewire.daftar-soal')
             ->extends('layouts.app')
             ->section('content');

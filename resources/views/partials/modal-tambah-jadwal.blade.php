@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-12">
                                 <label for="durasi" class="fs-11">Durasi Mengerjakan Tes</label>
                             </div>
@@ -59,7 +59,7 @@
                                     @error('detik') <span class="error text-danger fs-10">{{ $message }}</span> @enderror
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="align-center">
                             <button class="btn btn-primary pull-right" type="submit">Tambahkan</button>
                         </div>

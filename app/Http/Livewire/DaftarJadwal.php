@@ -16,20 +16,20 @@ class DaftarJadwal extends Component
     public $tanggalTes;
     public $waktuMulaiAkses;
     public $waktuSelesaiAkses;
-    public $jam;
-    public $menit;
-    public $detik;
+    // public $jam;
+    // public $menit;
+    // public $detik;
 
     protected $listeners = [
         'refreshData' => '$refresh',
         'closeModal'
     ];
 
-    protected $rules = [
-        'jam' => 'required|digits:2',
-        'menit' => 'required|digits:2',
-        'detik' => 'required|digits:2',
-    ];
+    // protected $rules = [
+    //     'jam' => 'required|digits:2',
+    //     'menit' => 'required|digits:2',
+    //     'detik' => 'required|digits:2',
+    // ];
 
     public function handleDeleteJadwal(Jadwal $dataJadwal)
     {
@@ -50,9 +50,9 @@ class DaftarJadwal extends Component
         $this->tanggalTes = '';
         $this->waktuMulaiAkses = '';
         $this->waktuSelesaiAkses = '';
-        $this->jam = '';
-        $this->menit = '';
-        $this->detik = '';
+        // $this->jam = '';
+        // $this->menit = '';
+        // $this->detik = '';
     }
 
     public function closeModal()
@@ -64,14 +64,14 @@ class DaftarJadwal extends Component
 
     public function store()
     {
-        $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
+        // $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
         $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
         $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
-        $attributes['durasi_tes'] = $durasi_tes;
+        // $attributes['durasi_tes'] = $durasi_tes;
         
-        $this->validate();
+        // $this->validate();
         $this->jadwalRepository->create($attributes);
         $this->resetField();
         $this->emitSelf('refreshData');
@@ -81,29 +81,29 @@ class DaftarJadwal extends Component
 
     public function handleEditJadwal(Jadwal $id)
     {
-        $jam = date('H', strtotime($id->durasi_tes));
-        $menit = date('i', strtotime($id->durasi_tes));
-        $detik = date('s', strtotime($id->durasi_tes));
+        // $jam = date('H', strtotime($id->durasi_tes));
+        // $menit = date('i', strtotime($id->durasi_tes));
+        // $detik = date('s', strtotime($id->durasi_tes));
         $this->idJadwal = $id->id;
         $this->tanggalTes = $id->tanggal_tes;
         $this->waktuMulaiAkses = $id->waktu_mulai_akses;
         $this->waktuSelesaiAkses = $id->waktu_selesai_akses;
-        $this->jam = $jam;
-        $this->menit = $menit;
-        $this->detik = $detik;
+        // $this->jam = $jam;
+        // $this->menit = $menit;
+        // $this->detik = $detik;
     }
 
     public function edit()
     {
         // fixed-header dashboard windows desktop js-focus-visible pace-done modal-open
         // fixed-header dashboard windows desktop js-focus-visible pace-done
-        $this->validate();
-        $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
+        // $this->validate();
+        // $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
         $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
         $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
-        $attributes['durasi_tes'] = $durasi_tes;
+        // $attributes['durasi_tes'] = $durasi_tes;
 
 
         $this->jadwalRepository->update($this->idJadwal, $attributes);

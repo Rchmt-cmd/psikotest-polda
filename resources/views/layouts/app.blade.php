@@ -188,7 +188,7 @@
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                        <a href="{{ route('password.request') }}" class="dropdown-item">Reset Password</a>
+                        <a href="{{ route('reset-password') }}" class="dropdown-item">Reset Password</a>
                         @guest
                         @if (Route::has('login'))
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJadwalsTable extends Migration
+class CreateMasterDurasiTesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateJadwalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('master_durasi_tes', function (Blueprint $table) {
             $table->id();
-            $table->string('periode')->nullable();
-            $table->date('tanggal_tes')->nullable();
-            $table->time('waktu_mulai_akses')->nullable();
-            $table->time('waktu_selesai_akses')->nullable();
-            // $table->time('durasi_tes')->nullable();
+            $table->time('durasi_tes')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateJadwalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwals');
+        Schema::dropIfExists('master_durasi_tes');
     }
 }

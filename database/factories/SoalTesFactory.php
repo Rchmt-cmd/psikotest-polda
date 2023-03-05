@@ -26,6 +26,8 @@ class SoalTesFactory extends Factory
         // ): string;
 
         return [
+            'id_subkategori' => $this->faker->randomNumber(1),
+            'id_kategori' => 1,
             'nomor_soal' => $init_number++,
             'isi_soal' => $this->faker->paragraph(),
             'pil_a' => $this->faker->sentence(),
@@ -36,7 +38,9 @@ class SoalTesFactory extends Factory
             // 'gambar_pil_c' => $this->faker->imageUrl(80, 60, 'animals', true),
             'pil_d' => $this->faker->sentence(),
             // 'gambar_pil_d' => $this->faker->imageUrl(80, 60, 'animals', true),
-            'jawaban' => $this->faker->randomElement(['a', 'b', 'c', 'd']),
+            'pil_e' => $this->faker->sentence(),
+            // 'gambar_pil_d' => $this->faker->imageUrl(80, 60, 'animals', true),
+            'jawaban' => $this->faker->randomElement(['a', 'b', 'c', 'd', 'e']),
             'bobot' => 1,
         ];
     }

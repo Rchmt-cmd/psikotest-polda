@@ -15,6 +15,8 @@ class CreateSoalTesTable extends Migration
     {
         Schema::create('soal_tes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_subkategori')->nullable();
+            $table->foreignId('id_kategori')->nullable();
             $table->integer('nomor_soal')->unique();
             $table->text('isi_soal')->nullable();
             $table->string('gambar_soal')->nullable();
@@ -26,6 +28,8 @@ class CreateSoalTesTable extends Migration
             $table->string('gambar_pil_c')->nullable();
             $table->string('pil_d')->nullable();
             $table->string('gambar_pil_d')->nullable();
+            $table->string('pil_e')->nullable();
+            $table->string('gambar_pil_e')->nullable();
             $table->string('jawaban')->nullable();
             $table->integer('bobot')->nullable();
             $table->timestamps();

@@ -11,7 +11,28 @@
                     <h5>Tambah Soal Psikotes</h5>
                 </div>
                 <div class="modal-body">
-                    @livewire('tambah-soal')
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <ul class="nav nav-tabs nav-tabs-simple">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#inputSoal">Input Soal</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#inputChapter">Input Chapter</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane slide-left active" id="inputSoal">
+                                        @livewire('tambah-soal')
+                                    </div>
+                                    <div class="tab-pane slide-left" id="inputChapter">
+                                        @livewire('tambah-chapter')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

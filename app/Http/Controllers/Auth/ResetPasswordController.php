@@ -57,6 +57,7 @@ class ResetPasswordController extends Controller
         //Change Password
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
+        $user->old_password = 'Password has been changed';
         $user->save();
 
         return redirect()->back()->with("success", "Password successfully changed!");
