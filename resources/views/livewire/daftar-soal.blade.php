@@ -4,6 +4,9 @@
         @include('partials.modal-konfirmasi-soal')
         @include('partials.modal-edit-soal')
         @include('partials.modal-edit-chapter-kategori1')
+
+        {{-- partials kategori 2 --}}
+        @include('partials.modal-tambah-soal-kategori2')
         @if (session()->has('message'))
         <div class="alert alert-success">
             {{ session('message') }}
@@ -29,12 +32,10 @@
                     <div class="tab-pane slide-left active" id="kategori1">
                         <div class="card card-default p-3 flex-row justify-content-between align-items-center">
                             <div>
-                                <h3>Total Chapter Kategori 1: <span class="light no-margin">{{
-                                        $daftarChapter->count() }} Chapter</span></h3>
+                                <h3>Total Chapter Kategori 1: <span class="light no-margin">{{ $daftarChapter->where('id_kategori', '1')->count() }} Chapter</span></h3>
                             </div>
                             <div>
-                                <h3>Total Soal Kategori 1: <span class="light no-margin">{{
-                                        $daftarSoalTes->count() }} Soal</span></h3>
+                                <h3>Total Soal Kategori 1: <span class="light no-margin">{{ $daftarSoalTes->where('id_kategori', '1')->count() }} Soal</span></h3>
                             </div>
                             <div class="">
                                 <button class="btn btn-primary btn-lg" data-toggle="modal"
@@ -47,23 +48,17 @@
                         {{-- @livewire('soals-kategori1') --}}
                     </div>
                     <div class="tab-pane slide-left" id="kategori2">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>
-                                    “ Nothing is <span class="semi-bold">impossible</span>, the word
-                                    itself says 'I'm <span class="semi-bold">possible</span>'! ”
-                                </h3>
-                                <p>
-                                    A style represents visual customizations on top of a layout. By
-                                    editing a style, you can use Squarespace's visual interface to
-                                    customize your...
-                                </p><br>
-                                <p class="pull-right">
-                                    <button class="btn btn-white btn-cons" type="button">White</button>
-                                    <button class="btn btn-success btn-cons" type="button">Success</button>
-                                </p>
+                        <div class="card card-default p-3 flex-row justify-content-between align-items-center">
+                            <div>
+                                <h3>Total Soal Kategori 2: <span class="light no-margin">{{ $daftarSoalTes->where('id_kategori', '2')->count() }} Soal</span></h3>
+                            </div>
+                            <div class="">
+                                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalTambahSoalKategori2">
+                                    <i class="pg-icon">add</i> Tambah
+                                </button>
                             </div>
                         </div>
+                        @livewire('soals-kategori2')
                     </div>
                     <div class="tab-pane slide-left" id="kategori3">
                         <div class="row">

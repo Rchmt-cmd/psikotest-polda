@@ -105,16 +105,19 @@
 
                                 <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios2"
                                     value='b' wire:model='jawaban'>
-                                <label class="form-check-label" for="exampleRadios1">B</label>
+                                <label class="form-check-label" for="exampleRadios2">B</label>
+
                                 <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios3"
                                     value='c' wire:model='jawaban'>
-                                <label class="form-check-label" for="exampleRadios1">C</label>
+                                <label class="form-check-label" for="exampleRadios3">C</label>
+
                                 <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios4"
                                     value='d' wire:model='jawaban'>
-                                <label class="form-check-label" for="exampleRadios1">D</label>
-                                <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios4"
+                                <label class="form-check-label" for="exampleRadios4">D</label>
+
+                                <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios5"
                                     value='e' wire:model='jawaban'>
-                                <label class="form-check-label" for="exampleRadios1">E</label>
+                                <label class="form-check-label" for="exampleRadios5">E</label>
                             </div>
                         </div>
                     </div>

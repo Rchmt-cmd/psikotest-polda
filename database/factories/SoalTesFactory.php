@@ -27,7 +27,7 @@ class SoalTesFactory extends Factory
 
         return [
             'id_subkategori' => $this->faker->randomNumber(1),
-            'id_kategori' => 1,
+            'id_kategori' => $this->faker->numberBetween(1,3),
             'nomor_soal' => $init_number++,
             'isi_soal' => $this->faker->paragraph(),
             'pil_a' => $this->faker->sentence(),
