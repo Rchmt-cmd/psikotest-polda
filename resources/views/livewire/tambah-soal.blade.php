@@ -35,6 +35,9 @@
                             <select name="chapter" id="chapter" class="form-control custom-select full-width"
                                 wire:model='chapter_soal'>
                                 <option value="">-- Pilih chapter soal/kosongkan jika tidak ada --</option>
+                                @foreach ($daftar_chapter as $chapter)
+                                    <option value={{ $chapter->id }}>{{ $chapter->deskripsi_subkategori }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

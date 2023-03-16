@@ -27,7 +27,7 @@
                                         @livewire('tambah-soal')
                                     </div>
                                     <div class="tab-pane slide-left" id="inputChapter">
-                                        @livewire('tambah-chapter')
+                                        @livewire('tambah-chapter-kategori1')
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\SubKategoriSoal;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Repositories\SoalTes\SoalTesRepository;
@@ -21,8 +22,13 @@ class TambahSoal extends Component
     public $gambar_pil_c;
     public $pil_d;
     public $gambar_pil_d;
+    public $pil_e;
+    public $gambar_pil_e;
     public $jawaban;
+    public $chapter_soal;
     public $bobot;
+
+    protected $subKategoriSoal;
 
     protected $rules = [
         'nomor_soal' => 'required|unique:soal_tes',
@@ -30,9 +36,10 @@ class TambahSoal extends Component
     
     protected $soalTesRepository;
     
-    public function boot(SoalTesRepository $soalTesRepository)
+    public function boot(SoalTesRepository $soalTesRepository, SubKategoriSoal $subKategoriSoal)
     {
         $this->soalTesRepository = $soalTesRepository;
+        $this->subKategoriSoal = $subKategoriSoal;
     }
     
     public function resetField()
@@ -49,6 +56,7 @@ class TambahSoal extends Component
         $this->pil_d = '';
         $this->gambar_pil_d = '';
         $this->jawaban = '';
+        $this->chapter_soal = '';
         $this->bobot = '';
     }
 
@@ -67,8 +75,10 @@ class TambahSoal extends Component
         $attributes['gambar_pil_c'] = (!is_null($this->gambar_pil_c)) ? $this->gambar_pil_c->store('files/jawaban_c', 'public') : '';
         $attributes['pil_d'] = $this->pil_d;
         $attributes['gambar_pil_d'] = (!is_null($this->gambar_pil_d)) ? $this->gambar_pil_d->store('files/jawaban_d', 'public') : '';
+        $attributes['pil_d'] = $this->pil_e;
+        $attributes['gambar_pil_e'] = (!is_null($this->gambar_pil_e)) ? $this->gambar_pil_e->store('files/jawaban_e', 'public') : '';
         $attributes['jawaban'] = $this->jawaban;
-        $attributes['bobot'] = $this->bobot;
+        $attributes['id_subkategori'] = $this->chapter_soal;
 
         $this->soalTesRepository->create($attributes);
         $this->resetField();
@@ -78,6 +88,8 @@ class TambahSoal extends Component
 
     public function render()
     {
-        return view('livewire.tambah-soal');
+        return view('livewire.tambah-soal')->with([
+            'daftar_chapter' => $this->subKategoriSoal->all(),
+        ]);
     }
 }

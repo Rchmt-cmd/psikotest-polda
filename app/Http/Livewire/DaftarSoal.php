@@ -11,13 +11,16 @@ class DaftarSoal extends Component
 {
     public $daftarSoalTes;
     public $dataSoal;
-    
+    public $daftarChapter;
+    public $dataChapterKategori1;
+
     protected $soalTesRepository;
     protected $subKategoriSoal;
     protected $listeners = [
         'closeModal',
-        'dataSoalStored' => 'handleDataSoalStored',
+        'dataStored' => 'handleDataStored',
         'dataSoalUpdated' => 'handleDataSoalUpdated',
+        'editChapterKategori1' => 'handleEditChapterKategori1',
         'refreshData' => '$refresh',
     ];
 
@@ -38,6 +41,13 @@ class DaftarSoal extends Component
         $this->emit('editSoal');
     }
 
+    public function handleEditChapterKategori1($dataChapterKategori1)
+    {
+        $this->dataChapterKategori1 = $dataChapterKategori1;
+        $this->emit('editChapterKategori1', $this->dataChapterKategori1);
+        // dd($this->dataChapterKategori1);
+    }
+
     public function handleDataSoalUpdated()
     {
         session()->flash('message', 'Soal updated successfully!');
@@ -53,9 +63,9 @@ class DaftarSoal extends Component
         $this->emitSelf('refreshData');
     }
 
-    public function handleDataSoalStored()
+    public function handleDataStored($type)
     {
-        session()->flash('message', 'Soal stored successfully!');
+        session()->flash('message', $type . ' stored successfully!');
         $this->closeModal();
         $this->emitSelf('refreshData');
     }
@@ -69,7 +79,9 @@ class DaftarSoal extends Component
 
     public function render()
     {
-        $this->daftarSoalTes = $this->subKategoriSoal->all();
+        $this->daftarSoalTes = $this->soalTesRepository->getAll();
+        $this->daftarChapter = $this->subKategoriSoal->all();
+
         return view('livewire.daftar-soal')
             ->extends('layouts.app')
             ->section('content');

@@ -5,25 +5,24 @@ namespace App\Http\Livewire;
 use App\Models\SubKategoriSoal;
 use Livewire\Component;
 
-class TambahChapter extends Component
+class TambahChapterKategori1 extends Component
 {
     public $deskripsi_chapter;
     public $isi_chapter;
     public $gambar_chapter;
-    
+
     protected $subKategoriSoal;
-    
+
     public function boot(SubKategoriSoal $subKategoriSoal)
     {
         $this->subKategoriSoal = $subKategoriSoal;
     }
-    
+
     public function resetField()
     {
         $this->deskripsi_chapter = '';
         $this->isi_chapter = '';
         $this->gambar_chapter = '';
-        
     }
 
     public function store()
@@ -37,11 +36,11 @@ class TambahChapter extends Component
 
         $this->subKategoriSoal->create($attributes);
         $this->resetField();
-        $this->emit('dataSoalStored');
+        $this->emit('dataChapterStored');
     }
 
     public function render()
     {
-        return view('livewire.tambah-chapter');
+        return view('livewire.tambah-chapter-kategori1');
     }
 }

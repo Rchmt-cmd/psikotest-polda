@@ -30,9 +30,12 @@
     <!-- Styles -->
     {{--
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/media/css/jquery.dataTables.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css') }}">
-    <link media="screen" type="text/css" rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/datatables.responsive.css') }}">
+    <link type="text/css" rel="stylesheet"
+        href="{{ asset('assets/plugins/jquery-datatable/media/css/jquery.dataTables.css') }}">
+    <link type="text/css" rel="stylesheet"
+        href="{{ asset('assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css') }}">
+    <link media="screen" type="text/css" rel="stylesheet"
+        href="{{ asset('assets/plugins/datatables-responsive/css/datatables.responsive.css') }}">
     <link href="{{ asset('assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -49,40 +52,46 @@
     <link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 
     <style>
-        .in_put{
-        background-color: white;
-        display: inline-flex;
-        border: none;
-        color: #555;
-        width :100%;
-        
+        .in_put {
+            background-color: white;
+            display: inline-flex;
+            border: none;
+            color: #555;
+            width: 100%;
+
         }
-        @media (max-width: 411px){
-            .data-peserta{
+
+        @media (max-width: 411px) {
+            .data-peserta {
                 border: none;
             }
-            .start-button{
+
+            .start-button {
                 display: none;
             }
-            .soal-wrapper{
+
+            .soal-wrapper {
                 flex-direction: column-reverse;
             }
-            .navigation-wrapper{
+
+            .navigation-wrapper {
                 padding: 0px !important;
                 padding-inline: 10%;
             }
-            .navigation-wrapper .row{
+
+            .navigation-wrapper .row {
                 flex-wrap: nowrap;
                 flex-direction: row;
             }
         }
 
-        @media (max-width: 767px){
-            .data-peserta{
-            border: none;
+        @media (max-width: 767px) {
+            .data-peserta {
+                border: none;
             }
-            .start-button{
-            display: none;
+
+            .start-button {
+                display: none;
             }
         }
     </style>
@@ -96,7 +105,8 @@
     <nav class="page-sidebar" data-pages="sidebar">
         <!-- BEGIN SIDEBAR MENU HEADER-->
         <div class="sidebar-header">
-            <img src="{{ asset('assets/img/logo-tes-polda.png') }}" alt="logo" class="brand" data-src="{{ asset('assets/img/logo-tes-polda.png') }}"
+            <img src="{{ asset('assets/img/logo-tes-polda.png') }}" alt="logo" class="brand"
+                data-src="{{ asset('assets/img/logo-tes-polda.png') }}"
                 data-src-retina="{{ asset('assets/img/logo-tes-polda-2x.png') }}" height="44">
             <div class="sidebar-header-controls">
                 <button aria-label="Pin Menu" type="button"
@@ -139,7 +149,7 @@
                     </a>
                     <span class="icon-thumbnail"><i class="material-icons">assignment_turned_in</i></span>
                 </li>
-                @else    
+                @else
                 <li class="m-t-10 ">
                     <a href="{{ route('home') }}" class="detailed">
                         <span class="title">Dashboard</span>
@@ -170,8 +180,9 @@
             <!-- END MOBILE SIDEBAR TOGGLE -->
             <div class="">
                 <div class="brand inline">
-                    <img style="margin-left: 25px;" src="{{ asset('assets/img/logo-tes-polda-dark.png') }}" alt="logo" data-src="{{ asset('assets/img/logo-tes-polda-dark.png') }}"
-                        data-src-retina="{{ asset('assets/img/logo-tes-polda-dark-2x.png') }}" height="44" >
+                    <img style="margin-left: 25px;" src="{{ asset('assets/img/logo-tes-polda-dark.png') }}" alt="logo"
+                        data-src="{{ asset('assets/img/logo-tes-polda-dark.png') }}"
+                        data-src-retina="{{ asset('assets/img/logo-tes-polda-dark-2x.png') }}" height="44">
                 </div>
             </div>
             <div class="d-flex align-items-center">
@@ -183,8 +194,10 @@
                     <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" aria-label="profile dropdown">
                         <span class="thumbnail-wrapper d32 circular inline">
-                            <img src="{{ asset('assets/img/profiles/avatar.jpg') }}" alt="" data-src="{{ asset('assets/img/profiles/avatar.jpg') }}"
-                                data-src-retina="{{ asset('assets/img/profiles/avatar_small2x.jpg') }}" width="32" height="32">
+                            <img src="{{ asset('assets/img/profiles/avatar.jpg') }}" alt=""
+                                data-src="{{ asset('assets/img/profiles/avatar.jpg') }}"
+                                data-src-retina="{{ asset('assets/img/profiles/avatar_small2x.jpg') }}" width="32"
+                                height="32">
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
@@ -223,7 +236,7 @@
                 <div class="container-fluid full-height no-padding">
                     {{-- <main class="py-4"> --}}
                         @yield('content')
-                    {{-- </main> --}}
+                        {{-- </main> --}}
                 </div>
                 <!-- END CONTAINER FLUID -->
             </div>
@@ -272,10 +285,16 @@
     <script src="{{ asset('assets/plugins/mapplic/js/jquery.mousewheel.js') }}"></script>
     <script src="{{ asset('assets/plugins/mapplic/js/mapplic.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
-    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-responsive/js/datatables.responsive.js') }}" type="text/javascript"></script>
+    <script type="text/javascript"
+        src="{{ asset('assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset('assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}">
+    </script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/datatables.responsive.js') }}"
+        type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/datatables-responsive/js/lodash.min.js') }}" type="text/javascript"></script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
@@ -290,12 +309,52 @@
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/datatables.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
-    
-    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}">
+    </script>
     <script>
         $(document).ready(function() {
             $('#formTambahPeserta').validate();
             $('#tableSoal').DataTable({
+                "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
+                "lengthMenu": [4], // 4 records will be shown in the table
+                "columnDefs": [{
+                    "className": "dt-left",
+                    "targets": "_all"
+                } //columnDefs for align text to center
+                ],
+                "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+                "sPaginationType": "bootstrap",
+                "sDom": "<'table-responsive't><'row'<p i>>",
+            });
+            $('#search-table-soal').keyup(function() {
+                $('#tableSoal').DataTable().search($(this).val()).draw();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // $('#formTambahPeserta').validate();
+            $('#tableChapter').DataTable({
+                "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
+                "lengthMenu": [4], // 4 records will be shown in the table
+                "columnDefs": [{
+                    "className": "dt-left",
+                    "targets": "_all"
+                } //columnDefs for align text to center
+                ],
+                "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+                "sPaginationType": "bootstrap",
+                "sDom": "<'table-responsive't><'row'<p i>>",
+            });
+            $('#search-table-chapter').keyup(function() {
+                $('#tableChapter').DataTable().search($(this).val()).draw();
+            });
+        });
+    </script>
+    <script>
+        $(document).load(function() {
+            $('#tableHasilTes').DataTable({
                 "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
                 "lengthMenu": [8], // 4 records will be shown in the table
                 "columnDefs": [{
@@ -307,27 +366,10 @@
                 "sPaginationType": "bootstrap",
                 "sDom": "<'table-responsive't><'row'<p i>>",
             });
-            $('#search-table').keyup(function() {
-                $('#tableSoal').DataTable().search($(this).val()).draw();
-            });
-        });
-    </script>
-    <script>
-        $('#tableHasilTes').DataTable({
-            "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
-            "lengthMenu": [8], // 4 records will be shown in the table
-            "columnDefs": [{
-                "className": "dt-left",
-                "targets": "_all"
-            } //columnDefs for align text to center
-            ],
-            "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
-            "sPaginationType": "bootstrap",
-            "sDom": "<'table-responsive't><'row'<p i>>",
-        });
-        $(document).ready(function() {
-            $('#search-table-hasil-tes').keyup(function() {
-                $('#tableHasilTes').DataTable().search($(this).val()).draw();
+            $(document).ready(function() {
+                $('#search-table-hasil-tes').keyup(function() {
+                    $('#tableHasilTes').DataTable().search($(this).val()).draw();
+                });
             });
         });
     </script>
