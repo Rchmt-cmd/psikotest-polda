@@ -7,6 +7,7 @@
 
         {{-- partials kategori 2 --}}
         @include('partials.modal-tambah-soal-kategori2')
+        @include('partials.modal-edit-soal-kategori2')
         @if (session()->has('message'))
         <div class="alert alert-success">
             {{ session('message') }}

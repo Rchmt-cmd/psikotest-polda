@@ -20,6 +20,11 @@ class SoalsKategori2 extends Component
         $this->emitSelf('refreshData');
     }
 
+    public function handleEditSoalKategori2($id)
+    {
+        $this->emit('editSoalKategori2', $id);
+    }
+
     public function boot(SoalTes $soalKategori2)
     {
         $this->soalKategori2 = $soalKategori2->where('id_kategori', '2')->get();

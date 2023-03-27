@@ -13,6 +13,7 @@ class DaftarSoal extends Component
     public $dataSoal;
     public $daftarChapter;
     public $dataChapterKategori1;
+    public $dataSoalKategori2;
 
     protected $soalTesRepository;
     protected $subKategoriSoal;
@@ -21,6 +22,7 @@ class DaftarSoal extends Component
         'dataStored' => 'handleDataStored',
         'dataSoalUpdated' => 'handleDataSoalUpdated',
         'editChapterKategori1' => 'handleEditChapterKategori1',
+        'editSoalKategori2' => 'handleEditSoalKategori2',
         'refreshData' => '$refresh',
     ];
 
@@ -68,6 +70,12 @@ class DaftarSoal extends Component
         session()->flash('message', $type . ' stored successfully!');
         $this->closeModal();
         $this->emitSelf('refreshData');
+    }
+
+    public function handleEditSoalKategori2(SoalTes $id)
+    {
+        $this->dataSoalKategori2 = $id;
+        $this->emit('editSoal');
     }
 
     public function closeModal()
