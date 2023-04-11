@@ -8,7 +8,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <p class="pg-close fs-14">x</p>
                     </button>
-                    <h5>Tambah Soal Psikotes</h5>
+                    <h5>Tambah Soal Kategori 1</h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -16,18 +16,18 @@
                             <div class="panel">
                                 <ul class="nav nav-tabs nav-tabs-simple">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#inputSoal">Input Soal</a>
+                                        <a data-toggle="tab" href="#inputChapter">Input Chapter</a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#inputChapter">Input Chapter</a>
+                                        <a data-toggle="tab" href="#inputSoal">Input Soal</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane slide-left active" id="inputSoal">
-                                        @livewire('tambah-soal')
-                                    </div>
-                                    <div class="tab-pane slide-left" id="inputChapter">
+                                    <div class="tab-pane slide-left active" id="inputChapter">
                                         @livewire('tambah-chapter-kategori1')
+                                    </div>
+                                    <div class="tab-pane slide-left" id="inputSoal">
+                                        @livewire('tambah-soal-kategori1')
                                     </div>
                                 </div>
                             </div>

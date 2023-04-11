@@ -61,9 +61,7 @@
                     </div>
                     <div class="p-t-15 p-b-15 p-l-20 p-r-20">
                         <p class="small no-margin">
-                            <span class="hint-text ">Lihat selengkapnya di halaman <a
-                                    href="{{ route('daftar-soal') }}">Daftar
-                                    Soal</a></span>
+                            <span class="hint-text ">Lihat selengkapnya di halaman Soal <a href="{{ route('soal-kategori-1') }}">Kategori 1,</a><a href="{{ route('soal-kategori-2') }}">Kategori 2,</a><a href="{{ route('soal-kategori-3') }}">Kategori 3</a></span>
                         </p>
                     </div>
                 </div>

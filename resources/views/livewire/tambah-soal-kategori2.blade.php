@@ -1,5 +1,5 @@
 <div>
-    <form role="form" id="formTambahSoal" wire:submit.prevent='store'>
+    <form role="form" id="formTambahSoalKategori2" wire:submit.prevent='store'>
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -9,6 +9,7 @@
                             <label>No. Soal</label>
                             <input type="number" class="form-control @error('nomor_soal') is-invalid @enderror"
                                 wire:model='nomor_soal' required>
+                            <input type="hidden" name="id_kategori" wire:model='id_kategori'>
                             @error('nomor_soal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

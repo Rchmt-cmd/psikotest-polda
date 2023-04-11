@@ -4,34 +4,80 @@ namespace App\Http\Livewire;
 
 use App\Models\SoalTes;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class SoalsKategori2 extends Component
 {
-    public $daftarSoalKategori2;
+    use WithPagination;
+
+    public $totalSoalKategori2;
+    public $dataSoalKategori2;
 
     protected $soalKategori2;
     protected $listeners = [
         'dataStored',
+        'closeModal',
+        'dataSoal2Updated' => 'handleDataSoalUpdated',
         'refreshData' => '$refresh',
     ];
 
+    // initial
+    public function boot(SoalTes $soalKategori2)
+    {
+        $this->soalKategori2 = $soalKategori2;
+    }
+
+    public function paginationView()
+    {
+        return 'vendor.pagination.simple-bootstrap-4';   
+    }
+
+    // event handler
     public function dataStored($type)
     {
         $this->emitSelf('refreshData');
+        $this->closeModal();
+    }
+    
+    public function closeModal()
+    {
+        $this->dataSoalKategori2 = null;
+        $this->dispatchBrowserEvent('closeModal');
+        $this->dispatchBrowserEvent('removeModalBackdrop');
     }
 
-    public function handleEditSoalKategori2($id)
+    public function handleDataSoalUpdated()
     {
-        $this->emit('editSoalKategori2', $id);
+        $this->emitSelf('refreshData');
+        $this->closeModal();
     }
 
-    public function boot(SoalTes $soalKategori2)
+    // query handler
+    public function delete($id)
     {
-        $this->soalKategori2 = $soalKategori2->where('id_kategori', '2')->get();
+        $this->soalKategori2->where('id', $id)->delete();
+        // session()->flash('message', 'Chapter delete successfully!');
+        $this->closeModal();
+        $this->emitSelf('refreshData');
     }
+
+    // button handler
+    public function handleEditSoalKategori2(SoalTes $id)
+    {
+        $this->dataSoalKategori2 = $id;
+        $this->emit('editSoalKategori2');
+    }
+
+    public function handleHapusSoalKategori2(SoalTes $id)
+    {
+        $this->dataSoalKategori2 = $id;
+    }
+
     public function render()
     {
-        $this->daftarSoalKategori2 = $this->soalKategori2;
-        return view('livewire.soals-kategori2');
+        $this->totalSoalKategori2 = $this->soalKategori2->where('id_kategori', '2')->count();
+        return view('livewire.soals-kategori2', [
+            'daftarSoalKategori2' => $this->soalKategori2->where('id_kategori', '2')->paginate(4)
+        ])->extends('layouts.app')->section('content');
     }
 }

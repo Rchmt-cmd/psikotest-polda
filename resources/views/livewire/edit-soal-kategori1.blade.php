@@ -1,5 +1,5 @@
 <div>
-    <form role="form" id="formTambahSoal" wire:submit.prevent='store'>
+    <form role="form" id="formEditSoalKategori1" wire:submit.prevent='update'>
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -9,6 +9,7 @@
                             <label>No. Soal</label>
                             <input type="number" class="form-control @error('nomor_soal') is-invalid @enderror"
                                 wire:model='nomor_soal' required>
+                            <input type="hidden" name="id_kategori" wire:model='id_kategori'>
                             @error('nomor_soal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -36,7 +37,7 @@
                                 wire:model='chapter_soal'>
                                 <option value="">-- Pilih chapter soal/kosongkan jika tidak ada --</option>
                                 @foreach ($daftar_chapter as $chapter)
-                                    <option value={{ $chapter->id }}>{{ $chapter->deskripsi_subkategori }}</option>
+                                <option value={{ $chapter->id }}>{{ $chapter->deskripsi_subkategori }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -96,7 +97,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group form-group-lg">
+                        {{-- <div class="form-group form-group-lg">
                             <label for="">Jawaban</label>
                             <div class="form-check form-check border d-flex justify-content-around p-2">
                                 <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios1"
@@ -119,11 +120,57 @@
                                     value='e' wire:model='jawaban'>
                                 <label class="form-check-label" for="exampleRadios5">E</label>
                             </div>
+                        </div> --}}
+                        
+                        <div class="form-group form-group-lg">
+                            <label for="">Jawaban</label>
+                            <div class="border d-flex justify-content-around p-2">
+                                <div class="form-check">
+                                    <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban" wire:model='jawaban'
+                                        id="defaultradio1" value="a">
+                                    <label for="defaultradio1">
+                                        A
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban" wire:model='jawaban'
+                                        id="defaultradio2" value="b">
+                                    <label for="defaultradio2">
+                                        B
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban" wire:model='jawaban'
+                                        id="defaultradio3" value="c">
+                                    <label for="defaultradio3">
+                                        C
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban" wire:model='jawaban'
+                                        id="defaultradio4" value="d">
+                                    <label for="defaultradio4">
+                                        D
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban" wire:model='jawaban'
+                                        id="defaultradio5" value="e">
+                                    <label for="defaultradio5">
+                                        E
+                                    </label>
+                                    @error('jawaban')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary pull-right" type="submit">Tambahkan Soal</button>
+        <button class="btn btn-primary pull-right" type="submit">Update Soal</button>
     </form>
 </div>

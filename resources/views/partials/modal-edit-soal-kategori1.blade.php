@@ -1,6 +1,6 @@
 <!-- Modal -->
-<div class="modal fade slide-up disable-scroll" id="modalEditSoalKategori2" tabindex="-1" role="dialog"
-  aria-labelledby="modalEditSoalKategori2Label" aria-hidden="false" wire:ignore.self>
+<div class="modal fade slide-up disable-scroll" id="modalEditSoalKategori1" tabindex="-1" role="dialog"
+  aria-labelledby="modalEditSoalKategori1Label" aria-hidden="false" wire:ignore.self>
   <div class="modal-dialog">
     <div class="modal-content-wrapper">
       <div class="modal-content modal-lg">
@@ -11,8 +11,8 @@
           <h5>Edit Soal Psikotes</h5>
         </div>
         <div class="modal-body">
-          @if ($dataSoalKategori2)
-          @livewire('edit-soal-kategori2', ['dataSoalKategori2' => $dataSoalKategori2])
+          @if($dataSoalKategori1)
+          @livewire('edit-soal-kategori1', ['dataSoalKategori1' => $dataSoalKategori1])
           @else
           <div class="progress-circle-indeterminate"></div>
           @endif

@@ -18,6 +18,7 @@ class CreateSoalTesTable extends Migration
             $table->foreignId('id_subkategori')->nullable();
             $table->foreignId('id_kategori')->nullable();
             $table->integer('nomor_soal')->nullable();
+            // $table->unique(['nomor_soal', 'id_kategori']);
             $table->text('isi_soal')->nullable();
             $table->string('gambar_soal')->nullable();
             $table->string('pil_a')->nullable();

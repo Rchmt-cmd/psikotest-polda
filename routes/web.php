@@ -17,7 +17,9 @@ use App\Http\Livewire\HalamanTesPeserta;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\EksportDataPeserta;
 use App\Http\Controllers\SubmitTestController;
-
+use App\Http\Livewire\SoalsKategori1;
+use App\Http\Livewire\SoalsKategori2;
+use App\Http\Livewire\SoalsKategori3;
 use App\Repositories\SoalTes\SoalTesRepository;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
@@ -41,7 +43,9 @@ Route::get('/', function () {
 Route::middleware('is_admin')->group(function () {
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/daftar-peserta', DaftarPeserta::class)->name('daftar-peserta');
-    Route::get('/admin/daftar-soal', DaftarSoal::class)->name('daftar-soal');
+    Route::get('/admin/soal-kategori-1', SoalsKategori1::class)->name('soal-kategori-1');
+    Route::get('/admin/soal-kategori-2', SoalsKategori2::class)->name('soal-kategori-2');
+    Route::get('/admin/soal-kategori-3', SoalsKategori3::class)->name('soal-kategori-3');
     Route::get('/admin/hasil-tes', HalamanHasilTes::class)->name('hasil-tes');
 
     Route::post('/tambah-jadwal', DaftarJadwal::class)->name('tambah-jadwal');

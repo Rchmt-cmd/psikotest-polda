@@ -11,6 +11,7 @@ class TambahSoalKategori2 extends Component
     use WithFileUploads;
     
     public $nomor_soal;
+    public $id_kategori;
     public $isi_soal;
     public $gambar_soal;
     public $jawaban;
@@ -25,6 +26,11 @@ class TambahSoalKategori2 extends Component
     public function boot(SoalTes $soalKategori2)
     {
         $this->soalKategori2 = $soalKategori2;
+    }
+
+    public function mount()
+    {
+        $this->id_kategori = '2';
     }
     
     public function resetField()

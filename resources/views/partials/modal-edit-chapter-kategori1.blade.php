@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade slide-up" id="modalEditChapterKategori1" tabindex="-1" role="dialog" aria-labelledby="modalEditChapterKategori1Label"
-    aria-hidden="false">
+    aria-hidden="false" wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content-wrapper">
             <div class="modal-content modal-lg">
@@ -8,7 +8,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <p class="pg-close fs-14">x</p>
                     </button>
-                    <h5>Tambah Soal Psikotes</h5>
+                    <h5>Edit Chapter Soal</h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">

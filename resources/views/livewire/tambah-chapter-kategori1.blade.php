@@ -1,5 +1,5 @@
 <div>
-    <form role="form" id="formTambahChapter" wire:submit='store'>
+    <form role="form" id="formTambahChapter" wire:submit.prevent='store'>
         @csrf
         <div class="form-group form-group-lg">
             <label>Deskripsi Chapter</label>

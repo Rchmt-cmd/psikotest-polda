@@ -9,6 +9,7 @@
                             <label>No. Soal</label>
                             <input type="number" class="form-control @error('nomor_soal') is-invalid @enderror"
                                 wire:model='nomor_soal' required>
+                            <input type="hidden" name="id_kategori" wire:model='id_kategori'>
                             @error('nomor_soal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -39,29 +40,29 @@
                     <label for="">Jawaban</label>
                     <div class="form-check">
                         <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban"
-                            wire:model='jawaban' id="defaultradio1" value="a">
-                        <label for="defaultradio1">
+                            wire:model='jawaban' id="jawaban1" value="a">
+                        <label for="jawaban1">
                             A. Sangat Setuju
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban"
-                            wire:model='jawaban' id="defaultradio2" value="b">
-                        <label for="defaultradio2">
+                            wire:model='jawaban' id="jawaban2" value="b">
+                        <label for="jawaban2">
                             B. Setuju
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban"
-                            wire:model='jawaban' id="defaultradio3" value="c">
-                        <label for="defaultradio3">
+                            wire:model='jawaban' id="jawaban3" value="c">
+                        <label for="jawaban3">
                             C. Tidak Setuju
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="@error('jawaban') is-invalid @enderror" type="radio" name="jawaban"
-                            wire:model='jawaban' id="defaultradio4" value="d">
-                        <label for="defaultradio4">
+                            wire:model='jawaban' id="jawaban4" value="d">
+                        <label for="jawaban4">
                             D. Sangat Tidak Setuju
                         </label>
                         @error('jawaban')

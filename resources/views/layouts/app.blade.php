@@ -136,11 +136,24 @@
                     <span class="icon-thumbnail"><i class="material-icons">assignment_ind</i></span>
                 </li>
                 <li class="m-t-10 ">
-                    <a href="{{ route('daftar-soal') }}" class="detailed">
+                    <a href="javascript:;" class="title">
                         <span class="title">Daftar Soal</span>
-                        <span class="details">Data soal psikotest</span>
                     </a>
                     <span class="icon-thumbnail"><i class="material-icons">assignment</i></span>
+                    <ul class="sub-menu">
+                        <li class="">
+                            <a href="{{ route('soal-kategori-1') }}">Kategori 1</a>
+                            <span class="icon-thumbnail"><i class="pg-icon">1</i></span>
+                        </li>
+                        <li class="">
+                            <a href="{{ route('soal-kategori-2') }}">Kategori 2</a>
+                            <span class="icon-thumbnail"><i class="pg-icon">2</i></span>
+                        </li>
+                        <li class="">
+                            <a href="{{ route('soal-kategori-3') }}">Kategori 3</a>
+                            <span class="icon-thumbnail"><i class="pg-icon">3</i></span>
+                        </li>
+                    </ul>
                 </li>
                 <li class="m-t-10 ">
                     <a href="{{ route('hasil-tes') }}" class="detailed">
@@ -312,7 +325,7 @@
 
     <script type="text/javascript" src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}">
     </script>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#formTambahPeserta').validate();
             $('#tableSoal').DataTable({
@@ -331,27 +344,27 @@
                 $('#tableSoal').DataTable().search($(this).val()).draw();
             });
         });
-    </script>
-    <script>
+    </script> --}}
+    {{-- <script>
         $(document).ready(function() {
             // $('#formTambahPeserta').validate();
-            $('#tableChapter').DataTable({
-                "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
-                "lengthMenu": [4], // 4 records will be shown in the table
-                "columnDefs": [{
-                    "className": "dt-left",
-                    "targets": "_all"
-                } //columnDefs for align text to center
-                ],
-                "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
-                "sPaginationType": "bootstrap",
-                "sDom": "<'table-responsive't><'row'<p i>>",
-            });
+            // $('#tableChapter').DataTable({
+            //     "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
+            //     "lengthMenu": [4], // 4 records will be shown in the table
+            //     "columnDefs": [{
+            //         "className": "dt-left",
+            //         "targets": "_all"
+            //     } //columnDefs for align text to center
+            //     ],
+            //     "dom": "lrtip", //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+            //     "sPaginationType": "bootstrap",
+            //     "sDom": "<'table-responsive't><'row'<p i>>",
+            // });
             $('#search-table-chapter').keyup(function() {
                 $('#tableChapter').DataTable().search($(this).val()).draw();
             });
         });
-    </script>
+    </script> --}}
     <script>
         $(document).load(function() {
             $('#tableHasilTes').DataTable({
@@ -380,20 +393,41 @@
             $('#modalTambahPeserta').removeClass('show');
             $('#modalKonfirmasiPeserta').modal('hide');
             $('#modalKonfirmasiPeserta').removeClass('show');
+            $('#modalKonfirmasiPeserta').removeAttr('style');
             $('#modalEditPeserta').modal('hide');
             $('#modalEditPeserta').removeClass('show');
+            $('#modalEditPeserta').removeAttr('style');
             $('#modalTambahJadwal').modal('hide');
             $('#modalTambahJadwal').removeClass('show');
             $('#modalEditJadwal').modal('hide');
             $('#modalEditJadwal').removeClass('show');
+            $('#modalEditJadwal').removeAttr('style');
             $('#modalKonfirmasiJadwal').modal('hide');
             $('#modalKonfirmasiJadwal').removeClass('show');
-            $('#modalKonfirmasiSoal').modal('hide');
-            $('#modalKonfirmasiSoal').removeClass('show');
-            $('#modalEditSoal').modal('hide');
-            $('#modalEditSoal').removeClass('show');
+            $('#modalKonfirmasiJadwal').removeAttr('style');
+            $('#modalKonfirmasiChapterKategori1').modal('hide');
+            $('#modalKonfirmasiChapterKategori1').removeClass('show');
+            $('#modalKonfirmasiChapterKategori1').removeAttr('style');
+            $('#modalKonfirmasiSoalKategori1').modal('hide');
+            $('#modalKonfirmasiSoalKategori1').removeClass('show');
+            $('#modalKonfirmasiSoalKategori1').removeAttr('style');
+            $('#modalKonfirmasiSoalKategori2').modal('hide');
+            $('#modalKonfirmasiSoalKategori2').removeClass('show');
+            $('#modalKonfirmasiSoalKategori2').removeAttr('style');
+            $('#modalEditChapterKategori1').modal('hide');
+            $('#modalEditChapterKategori1').removeClass('show');
+            $('#modalEditChapterKategori1').removeAttr('style');
+            $('#modalEditSoalKategori1').modal('hide');
+            $('#modalEditSoalKategori1').removeClass('show');
+            $('#modalEditSoalKategori1').removeAttr('style');
+            $('#modalEditSoalKategori2').modal('hide');
+            $('#modalEditSoalKategori2').removeClass('show');
+            $('#modalEditSoalKategori2').removeAttr('style');
+            $('#modalEditSoalKategori3').modal('hide');
+            $('#modalEditSoalKategori3').removeClass('show');
+            $('#modalEditSoalKategori3').removeAttr('style');
             $('body').removeClass('modal-open');
-            // $('body').removeProperty("padding");
+            $('body').removeAttr("style");
         })
     </script>
     <script>
@@ -430,11 +464,31 @@
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
-        $("#modalKonfirmasiSoal").on("hidden.bs.modal", function () {
+        $("#modalKonfirmasiSoalKategori1").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
-        $("#modalEditSoal").on("hidden.bs.modal", function () {
+        $("#modalKonfirmasiChapterKategori1").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalKonfirmasiChapterKategori2").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditChapterKategori1").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditSoalKategori1").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditSoalKategori2").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditSoalKategori3").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
