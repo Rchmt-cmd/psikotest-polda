@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\SoalTes;
+use App\Models\SubKategoriSoal;
 use Livewire\Component;
 
 class TambahSoalKategori3 extends Component
@@ -14,8 +15,11 @@ class TambahSoalKategori3 extends Component
     public $pil_c;
     public $pil_d;
     public $jawaban;
+    public $chapter_soal;
+    public $daftarChapterKategori3;
 
     protected $soalKategori3;
+    protected $chapterKategori3;
     protected $rules = [
         'nomor_soal' => 'required|unique_with:soal_tes,id_kategori',
         'jawaban' => 'required',
@@ -30,9 +34,10 @@ class TambahSoalKategori3 extends Component
         $this->id_kategori = '3';
     }
 
-    public function boot(SoalTes $soalKategori3)
+    public function boot(SoalTes $soalKategori3, SubKategoriSoal $chapterKategori3)
     {
         $this->soalKategori3 = $soalKategori3;
+        $this->chapterKategori3 = $chapterKategori3;
     }
 
     public function resetField()
@@ -51,10 +56,11 @@ class TambahSoalKategori3 extends Component
         $attributes = [];
         $attributes['nomor_soal'] = $this->nomor_soal;
         $attributes['id_kategori'] = $this->id_kategori;
-        $attributes['pil_a'] = $this->pil_a;
-        $attributes['pil_b'] = $this->pil_b;
-        $attributes['pil_c'] = $this->pil_c;
-        $attributes['pil_d'] = $this->pil_d;
+        $attributes['pil_a'] = strtoupper($this->pil_a);
+        $attributes['pil_b'] = strtoupper($this->pil_b);
+        $attributes['pil_c'] = strtoupper($this->pil_c);
+        $attributes['pil_d'] = strtoupper($this->pil_d);
+        $attributes['id_subkategori'] = $this->chapter_soal;
         $attributes['jawaban'] = $this->jawaban;
 
         $this->soalKategori3->create($attributes);
@@ -64,6 +70,7 @@ class TambahSoalKategori3 extends Component
 
     public function render()
     {
+        $this->daftarChapterKategori3 = $this->chapterKategori3->where('id_kategori', 3)->get();
         return view('livewire.tambah-soal-kategori3');
     }
 }

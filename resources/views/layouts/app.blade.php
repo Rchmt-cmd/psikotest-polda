@@ -408,15 +408,24 @@
             $('#modalKonfirmasiChapterKategori1').modal('hide');
             $('#modalKonfirmasiChapterKategori1').removeClass('show');
             $('#modalKonfirmasiChapterKategori1').removeAttr('style');
+            $('#modalKonfirmasiChapterKategori3').modal('hide');
+            $('#modalKonfirmasiChapterKategori3').removeClass('show');
+            $('#modalKonfirmasiChapterKategori3').removeAttr('style');
             $('#modalKonfirmasiSoalKategori1').modal('hide');
             $('#modalKonfirmasiSoalKategori1').removeClass('show');
             $('#modalKonfirmasiSoalKategori1').removeAttr('style');
             $('#modalKonfirmasiSoalKategori2').modal('hide');
             $('#modalKonfirmasiSoalKategori2').removeClass('show');
             $('#modalKonfirmasiSoalKategori2').removeAttr('style');
+            $('#modalKonfirmasiSoalKategori3').modal('hide');
+            $('#modalKonfirmasiSoalKategori3').removeClass('show');
+            $('#modalKonfirmasiSoalKategori3').removeAttr('style');
             $('#modalEditChapterKategori1').modal('hide');
             $('#modalEditChapterKategori1').removeClass('show');
             $('#modalEditChapterKategori1').removeAttr('style');
+            $('#modalEditChapterKategori3').modal('hide');
+            $('#modalEditChapterKategori3').removeClass('show');
+            $('#modalEditChapterKategori3').removeAttr('style');
             $('#modalEditSoalKategori1').modal('hide');
             $('#modalEditSoalKategori1').removeClass('show');
             $('#modalEditSoalKategori1').removeAttr('style');
@@ -468,7 +477,15 @@
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
+        $("#modalKonfirmasiSoalKategori3").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
         $("#modalKonfirmasiChapterKategori1").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalKonfirmasiChapterKategori3").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
@@ -477,6 +494,10 @@
         window.livewire.emit('closeModal');
         });
         $("#modalEditChapterKategori1").on("hidden.bs.modal", function () {
+        console.log('modal closed');
+        window.livewire.emit('closeModal');
+        });
+        $("#modalEditChapterKategori3").on("hidden.bs.modal", function () {
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
