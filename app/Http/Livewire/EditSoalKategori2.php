@@ -21,11 +21,11 @@ class EditSoalKategori2 extends Component
     protected $listeners = [
         'editSoalKategori2'
     ];
-    protected $rules = [
-        'nomor_soal' => 'required|unique_with:soal_tes,id_kategori',
-        'isi_soal' => 'required',
-        'jawaban' => 'required',
-    ];
+    // protected $rules = [
+    //     'nomor_soal' => 'required|unique_with:soal_tes,id_kategori',
+    //     'isi_soal' => 'required',
+    //     'jawaban' => 'required',
+    // ];
 
     public function mount()
     {
@@ -56,18 +56,24 @@ class EditSoalKategori2 extends Component
 
     public function update()
     {
-        $this->validate();
-        $attributes = [];
-        $attributes['nomor_soal'] = $this->dataSoalKategori2->nomor_soal;
-        $attributes['isi_soal'] = $this->dataSoalKategori2->isi_soal;
-        $attributes['gambar_soal'] = (!empty($this->gambar_soal)) ? $this->gambar_soal->store('files/soal_kategori_2', 'public') : '';
-        $attributes['jawaban'] = $this->dataSoalKategori2->jawaban;
-        $attributes['pil_a'] = 'Sangat Setuju';
-        $attributes['pil_b'] = 'Setuju';
-        $attributes['pil_c'] = 'Tidak Setuju';
-        $attributes['pil_d'] = 'Sangat Tidak Setuju';
+        $validated_data = $this->validate([
+            'nomor_soal' => 'required|unique_with:soal_tes,id_kategori,' . $this->nomor_soal . '=nomor_soal',
+            'isi_soal' => 'required',
+            'jawaban' => 'required',
+            'isi_soal' => 'required',
+        ]);
 
-        $this->soalKategori2->where('id', $this->dataSoalKategori2->id)->update($attributes);
+        $validated_data['gambar_soal'] = (!empty($this->gambar_soal)) ? $this->gambar_soal->store('files/soal_kategori_2', 'public') : '';
+        // $attributes = [];
+        // $attributes['nomor_soal'] = $this->dataSoalKategori2->nomor_soal;
+        // $attributes['isi_soal'] = $this->dataSoalKategori2->isi_soal;
+        // $attributes['jawaban'] = $this->dataSoalKategori2->jawaban;
+        // $attributes['pil_a'] = 'Sangat Setuju';
+        // $attributes['pil_b'] = 'Setuju';
+        // $attributes['pil_c'] = 'Tidak Setuju';
+        // $attributes['pil_d'] = 'Sangat Tidak Setuju';
+
+        $this->soalKategori2->where('id', $this->dataSoalKategori2->id)->update($validated_data);
         $this->resetField();
         $this->emit('dataSoal2Updated');
 

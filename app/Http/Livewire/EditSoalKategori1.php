@@ -94,26 +94,30 @@ class EditSoalKategori1 extends Component
 
     public function update()
     {
-        $this->validate();
-        $attributes = [];
-        $attributes['nomor_soal'] = $this->nomor_soal;
-        $attributes['id_kategori'] = $this->id_kategori;
-        $attributes['isi_soal'] = $this->isi_soal;
-        $attributes['gambar_soal'] = (!empty($this->gambar_soal)) ? $this->gambar_soal->store('files/soal_kategori_1', 'public') : '';
-        $attributes['pil_a'] = $this->pil_a;
-        $attributes['gambar_pil_a'] = (!empty($this->gambar_pil_a)) ? $this->gambar_pil_a->store('files/jawaban_a', 'public') : '';
-        $attributes['pil_b'] = $this->pil_b;
-        $attributes['gambar_pil_b'] = (!empty($this->gambar_pil_b)) ? $this->gambar_pil_b->store('files/jawaban_b', 'public') : '';
-        $attributes['pil_c'] = $this->pil_c;
-        $attributes['gambar_pil_c'] = (!empty($this->gambar_pil_c)) ? $this->gambar_pil_c->store('files/jawaban_c', 'public') : '';
-        $attributes['pil_d'] = $this->pil_d;
-        $attributes['gambar_pil_d'] = (!empty($this->gambar_pil_d)) ? $this->gambar_pil_d->store('files/jawaban_d', 'public') : '';
-        $attributes['pil_e'] = $this->pil_e;
-        $attributes['gambar_pil_e'] = (!empty($this->gambar_pil_e)) ? $this->gambar_pil_e->store('files/jawaban_e', 'public') : '';
-        $attributes['jawaban'] = $this->jawaban;
-        $attributes['id_subkategori'] = $this->chapter_soal;
+        $validated_data = $this->validate([
+            'nomor_soal' => 'required|unique_with:soal_tes,id_kategori,'. $this->nomor_soal . '=nomor_soal',
+            'isi_soal' => 'required',
+            'jawaban' => 'required',
+        ]);
+        $validated_data = [];
+        $validated_data['nomor_soal'] = $this->nomor_soal;
+        $validated_data['id_kategori'] = $this->id_kategori;
+        $validated_data['isi_soal'] = $this->isi_soal;
+        $validated_data['gambar_soal'] = (!empty($this->gambar_soal)) ? $this->gambar_soal->store('files/soal_kategori_1', 'public') : '';
+        $validated_data['pil_a'] = $this->pil_a;
+        $validated_data['gambar_pil_a'] = (!empty($this->gambar_pil_a)) ? $this->gambar_pil_a->store('files/jawaban_a', 'public') : '';
+        $validated_data['pil_b'] = $this->pil_b;
+        $validated_data['gambar_pil_b'] = (!empty($this->gambar_pil_b)) ? $this->gambar_pil_b->store('files/jawaban_b', 'public') : '';
+        $validated_data['pil_c'] = $this->pil_c;
+        $validated_data['gambar_pil_c'] = (!empty($this->gambar_pil_c)) ? $this->gambar_pil_c->store('files/jawaban_c', 'public') : '';
+        $validated_data['pil_d'] = $this->pil_d;
+        $validated_data['gambar_pil_d'] = (!empty($this->gambar_pil_d)) ? $this->gambar_pil_d->store('files/jawaban_d', 'public') : '';
+        $validated_data['pil_e'] = $this->pil_e;
+        $validated_data['gambar_pil_e'] = (!empty($this->gambar_pil_e)) ? $this->gambar_pil_e->store('files/jawaban_e', 'public') : '';
+        $validated_data['jawaban'] = $this->jawaban;
+        $validated_data['id_subkategori'] = $this->chapter_soal;
 
-        $this->soalTes->where('id', $this->dataSoalKategori1->id)->update($attributes);
+        $this->soalTes->where('id', $this->dataSoalKategori1->id)->update($validated_data);
         $this->resetField();
         $this->emit('dataSoal1Updated');
     }
