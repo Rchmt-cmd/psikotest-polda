@@ -16,8 +16,8 @@ class CreateSubKategoriSoalsTable extends Migration
         Schema::create('sub_kategori_soals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_kategori');
-            $table->string('deskripsi_subkategori')->nullable();
-            $table->string('isi_subkategori')->nullable();
+            $table->text('deskripsi_subkategori')->nullable();
+            $table->text('isi_subkategori')->nullable();
             $table->string('gambar_subkategori')->nullable();
             $table->timestamps();
         });
