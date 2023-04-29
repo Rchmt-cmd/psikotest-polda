@@ -77,7 +77,7 @@ class TambahSoalKategori1 extends Component
         $attributes['id_kategori'] = '1';
         $attributes['nomor_soal'] = $this->nomor_soal;
         $attributes['isi_soal'] = $this->isi_soal;
-        $attributes['gambar_soal'] = $this->gambar_soal;
+        $attributes['gambar_soal'] = (!empty($this->gambar_soal)) ? $this->gambar_soal->store('files/soal_kategori1', 'public') : '';;
         $attributes['pil_a'] = $this->pil_a;
         $attributes['gambar_pil_a'] = (!empty($this->gambar_pil_a)) ? $this->gambar_pil_a->store('files/jawaban_a', 'public') : '';
         $attributes['pil_b'] = $this->pil_b;

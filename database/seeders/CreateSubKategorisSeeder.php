@@ -14,6 +14,6 @@ class CreateSubKategorisSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\SubKategoriSoal::factory(5)->create();
+        \App\Models\SubKategoriSoal::factory(10)->create();
     }
 }

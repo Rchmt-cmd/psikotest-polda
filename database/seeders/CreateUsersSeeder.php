@@ -29,6 +29,7 @@ class CreateUsersSeeder extends Seeder
                 'old_password' => '123456',
                 'nomor_tes' => random_int(10000000, 99999999),
                 'status_tes' => false,
+                'progres_tes' => '1',
                 'no_hp' => $base_number . random_int(1000000000, 9999999999),
             ],
             [
@@ -38,6 +39,7 @@ class CreateUsersSeeder extends Seeder
                 'old_password' => '123456',
                 'nomor_tes' => random_int(10000000, 99999999),
                 'status_tes' => false,
+                'progres_tes' => '1',
                 'no_hp' => $base_number . random_int(1000000000, 9999999999),
             ],
             [
@@ -47,6 +49,7 @@ class CreateUsersSeeder extends Seeder
                 'old_password' => '123456',
                 'nomor_tes' => random_int(10000000, 99999999),
                 'status_tes' => false,
+                'progres_tes' => '1',
                 'no_hp' => $base_number . random_int(1000000000, 9999999999),
             ],
             [
@@ -56,6 +59,7 @@ class CreateUsersSeeder extends Seeder
                 'old_password' => '123456',
                 'nomor_tes' => random_int(10000000, 99999999),
                 'status_tes' => false,
+                'progres_tes' => '1',
                 'no_hp' => $base_number . random_int(1000000000, 9999999999),
             ],
             [
@@ -65,6 +69,7 @@ class CreateUsersSeeder extends Seeder
                 'old_password' => '123456',
                 'nomor_tes' => random_int(10000000, 99999999),
                 'status_tes' => false,
+                'progres_tes' => '1',
                 'no_hp' => $base_number . random_int(1000000000, 9999999999),
             ],
         ];

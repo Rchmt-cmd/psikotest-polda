@@ -58,18 +58,23 @@
             <div class="col-md-6">
                 <div class="form-group form-group-lg">
                     <label>Chapter Soal</label>
-                    <select name="chapter" id="chapter" class="form-control custom-select full-width" wire:model='chapter_soal'>
+                    <select name="chapter" id="chapter" class="form-control custom-select full-width @error('chapter_soal') is-invalid @enderror" wire:model='chapter_soal'>
                         <option value="">-- Pilih chapter soal/kosongkan jika tidak ada --</option>
                         @foreach ($daftarChapterKategori3 as $chapter)
                         <option value={{ $chapter->id }}>{{ $chapter->deskripsi_subkategori }} ({{ $chapter->isi_subkategori }})</option>
                         @endforeach
+                        @error('chapter_soal')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </select>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group form-group-lg">
                     <label for="">Jawaban</label>
-                    <div class="form-check form-check border d-flex justify-content-around p-2">
+                    <div class="form-check form-check border d-flex justify-content-around p-2 @error('jawaban') is-invalid @enderror">
                         <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios1" value='a'
                             wire:model='jawaban'>
                         <label class="form-check-label" for="exampleRadios1">A</label>

@@ -22,6 +22,7 @@ class TambahSoalKategori3 extends Component
     protected $chapterKategori3;
     protected $rules = [
         'nomor_soal' => 'required|unique_with:soal_tes,id_kategori',
+        'chapter_soal' => 'required',
         'jawaban' => 'required',
         'pil_a' => 'required|max:1',
         'pil_b' => 'required|max:1',
@@ -48,6 +49,7 @@ class TambahSoalKategori3 extends Component
         $this->pil_c = '';
         $this->pil_d = '';
         $this->jawaban = '';
+        $this->chapter_soal = '';
     }
 
     public function store()

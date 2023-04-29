@@ -1,6 +1,6 @@
 <!-- Modal -->
-<div class="modal fade slide-up disable-scroll" id="modalKonfirmasiSelesaiTes" tabindex="-1" role="dialog"
-  aria-labelledby="modalKonfirmasiSelesaiTes" aria-hidden="false">
+<div class="modal fade slide-up disable-scroll" id="modalKonfirmasiSelesaiTesKategori3" tabindex="-1" role="dialog"
+  aria-labelledby="modalKonfirmasiSelesaiTesKategori3" aria-hidden="false">
   <div class="modal-dialog ">
     <div class="modal-content-wrapper">
       <div class="modal-content modal-md">

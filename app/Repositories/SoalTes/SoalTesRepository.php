@@ -23,9 +23,39 @@ class SoalTesRepository implements SoalTesInterface
         return $this->soalTes->orderBy('nomor_soal', 'asc')->get();
     }
 
+    public function getAllKategori1()
+    {
+        return $this->soalTes->where('id_kategori', 1)->orderBy('nomor_soal', 'asc')->get();
+    }
+
+    public function getAllKategori2()
+    {
+        return $this->soalTes->where('id_kategori', 2)->orderBy('nomor_soal', 'asc')->get();
+    }
+
+    public function getAllKategori3()
+    {
+        return $this->soalTes->where('id_kategori', 3)->orderBy('nomor_soal', 'asc')->get();
+    }
+
     public function getSoalForPeserta()
     {
         return $this->soalTes->orderBy('nomor_soal', 'asc')->paginate(1);
+    }
+
+    public function getSoalKategori1()
+    {
+        return $this->soalTes->with(['subKategoriSoal'])->where('id_kategori', 1)->orderBy('nomor_soal', 'asc')->paginate(1);
+    }
+
+    public function getSoalKategori2()
+    {
+        return $this->soalTes->with(['subKategoriSoal'])->where('id_kategori', 2)->orderBy('nomor_soal', 'asc')->paginate(1);
+    }
+
+    public function getSoalKategori3()
+    {
+        return $this->soalTes->with(['subKategoriSoal'])->where('id_kategori', 3)->orderBy('nomor_soal', 'asc')->paginate(1);
     }
 
     public function create(array $value)

@@ -14,9 +14,9 @@ class SubKategoriSoalFactory extends Factory
     public function definition()
     {
         return [
-            'id_kategori' => 1,
+            'id_kategori' => 2,
             'deskripsi_subkategori' => $this->faker->text(15),
-            'isi_subkategori' => $this->faker->text(100),    
+            'isi_subkategori' => $this->faker->text(300),    
         ];
     }
 }

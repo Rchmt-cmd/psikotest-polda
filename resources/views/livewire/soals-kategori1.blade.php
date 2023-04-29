@@ -118,7 +118,10 @@
                         <td class="fs-12">
                             {{ $soalTes->subKategoriSoal == null ? '-' : $soalTes->subKategoriSoal->deskripsi_subkategori }}
                         </td>
-                        <td class="fs-12">{{ $soalTes->isi_soal }}{{ $soalTes->gambar_soal }}</td>
+                        <td class="fs-12">{{ $soalTes->isi_soal }} <br>
+                            @if($soalTes->gambar_soal)
+                                <img src="{{ asset('storage/'.$soalTes->gambar_soal) }}" alt="gambar_pil_a" srcset="" width="80">
+                            @endif</td>
                         <td class="fs-12">{{ $soalTes->pil_a }}
                             @if($soalTes->gambar_pil_a)
                             <img src="{{ asset('storage/'.$soalTes->gambar_pil_a) }}" alt="gambar_pil_a" srcset=""

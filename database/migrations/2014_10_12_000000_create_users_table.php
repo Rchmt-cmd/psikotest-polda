@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('old_password')->nullable();
             $table->string('nomor_tes')->nullable();
             $table->boolean('status_tes')->nullable();
+            $table->string('progres_tes')->nullable();
             // $table->char('jenis_kelamin')->nullable();
             // $table->date('tgl_lahir')->nullable();
             // $table->string('tmpt_lahir')->nullable();

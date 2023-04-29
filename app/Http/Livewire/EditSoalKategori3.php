@@ -41,7 +41,7 @@ class EditSoalKategori3 extends Component
         $this->pil_c = '';
         $this->pil_d = '';
         $this->jawaban = '';
-        $this->chapter_soal = '';
+        $this->id_subkategori = '';
     }
     
     public function editSoalKategori3()
@@ -53,6 +53,7 @@ class EditSoalKategori3 extends Component
         $this->pil_c = $this->dataSoalKategori3->pil_c;
         $this->pil_d = $this->dataSoalKategori3->pil_d;
         $this->jawaban = $this->dataSoalKategori3->jawaban;
+        $this->id_subkategori = $this->dataSoalKategori3->id_subkategori;
     }
 
     public function update()

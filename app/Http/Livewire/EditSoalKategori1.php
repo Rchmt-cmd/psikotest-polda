@@ -69,7 +69,7 @@ class EditSoalKategori1 extends Component
         $this->pil_e = $this->dataSoalKategori1->pil_e;
         $this->gambar_pil_e = $this->dataSoalKategori1->gambar_pil_e;
         $this->jawaban = $this->dataSoalKategori1->jawaban;
-        $this->chapter_soal = $this->dataSoalKategori1->chapter_soal;
+        $this->chapter_soal = $this->dataSoalKategori1->id_subkategori;
     }
 
     public function resetField()
