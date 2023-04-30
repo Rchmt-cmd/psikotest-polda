@@ -94,8 +94,7 @@
                         <div class="mb-4">
                             <h3>Login</h3>
                             <p class="mb-4">Silakan login untuk mengakses <a href="{{ route('landing-page') }}">Tes
-                                    Psikologi Online
-                                    Polda Sulsel</a></p>
+                                    Psikologi Online</a></p>
                         </div>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf

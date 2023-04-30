@@ -1,5 +1,11 @@
 <div class="row no-margin no-padding">
     @include('partials.modal-konfirmasi-selesai-tes-kategori2')
+    @include('partials.modal-flyout-nav2')
+    <button class="btn text-primary btn-lg pull-right nav-soal-flyout" type="button" data-toggle="modal"
+        data-target="#modalFlyoutNav2"><span class="material-icons">
+            more_vert
+        </span><span>Nomor Soal</span>
+    </button>
     <div class="col-md-3 b-r b-grey sm-b-b full-height">
         <div class="py-3 pl-5 navigation-wrapper">
             <div class="row">

@@ -53,7 +53,9 @@ class HalamanTesKategori1 extends Component
 
     public function storeHasilTest()
     {
-        $allJawaban = $this->jawabanPeserta->with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
+        $allJawaban = JawabanPeserta::with(['soalTes.kategoriSoal', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->whereHas('soalTes', function ($item) {
+            $item->where('id_kategori', 1);
+        })->get();
         // $jumlahSoal = $this->soalTesRepository->getAllKategori1()->count();
         // $hasil = 0;
         $jumlahBenar = 0;

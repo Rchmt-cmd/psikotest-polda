@@ -1,6 +1,16 @@
 <div class="row no-margin no-padding">
     @include('partials.modal-konfirmasi-selesai-tes')
-    <div class="col-md-3 b-r b-grey sm-b-b full-height">
+    @include('partials.modal-flyout-nav')
+
+    <button class="btn text-primary btn-lg pull-right nav-soal-flyout" type="button" data-toggle="modal"
+        data-target="#modalFlyoutNav">
+        <span class="material-icons">
+            more_vert
+        </span><span>Nomor Soal</span>
+    </button>
+
+
+    <div class="col-md-3 b-r b-grey sm-b-b full-height nav-soal">
         <div class="py-3 pl-5 navigation-wrapper">
             <div class="row">
                 @for ($nav = 0; $nav < count($quizNav); $nav++) @if ($nav % 5==0) </div>
@@ -15,6 +25,7 @@
                     </div>
             </div>
         </div>
+
         <div class="col-md-9 full-height p-5">
             <form id="formJawaban">
                 <div class="row justify-content-between">
@@ -88,7 +99,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios5"
                             value='e' wire:model='singleAnswer'>
-                        <label class="form-check-label" for="exampleRadios4">
+                        <label class="form-check-label" for="exampleRadios5">
                             {{ $soal->pil_e }} <br>
                             @if ($soal->gambar_pil_e)
                             <img src="{{ asset('storage/'.$soal->gambar_pil_e) }}" width="80" alt="pil_e">

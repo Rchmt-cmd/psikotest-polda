@@ -425,8 +425,8 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="{{ asset('assets/img/Lambang_Polda_Sulsel 1.png') }}" alt="logo-polda" lazy>
-                <span>POLDA SULSEL</span>
+                <img src="{{ asset('assets/img/Psikotes-Logo.png') }}" alt="logo-psikotes" lazy>
+                {{-- <span>POLDA SULSEL</span> --}}
             </a>
 
             <nav id="navbar" class="navbar">
@@ -570,8 +570,8 @@
                     <div class="col-md-12 text-center">
                         <a href="{{ route('landing-page') }}" class="logo align-items-center mb-3"
                             style="display: inline-block;">
-                            <img src="{{ asset('assets/img/Lambang_Polda_Sulsel 1.png') }}" alt="logo-polda"
-                                loading="lazy" class="img-responsive center-block">
+                            <img src="{{ asset('assets/img/Psikotes-Logo.png') }}" alt="logo-psikotes"
+                                loading="lazy" class="img-responsive center-block" width="150">
                             {{-- <span>POLDA SULSEL</span> --}}
                         </a>
                         <p class="text-center" style="padding-inline: 10vw">Jl. Tamalanrea Indah, Jl. Perintis Kemerdekaan No.KM.16, Pai, Kec. Biringkanaya, Kota Makassar, Sulawesi Selatan 90242</p>

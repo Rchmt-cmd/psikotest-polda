@@ -60,6 +60,9 @@
             width: 100%;
 
         }
+        .nav-soal-flyout {
+            display: none;
+        }
 
         @media (max-width: 411px) {
             .data-peserta {
@@ -83,6 +86,14 @@
                 flex-wrap: nowrap;
                 flex-direction: row;
             }
+
+            .nav-soal {
+                display: none;
+            }
+
+            .nav-soal-flyout {
+                display: block;
+            }
         }
 
         @media (max-width: 767px) {
@@ -105,9 +116,9 @@
     <nav class="page-sidebar" data-pages="sidebar">
         <!-- BEGIN SIDEBAR MENU HEADER-->
         <div class="sidebar-header">
-            <img src="{{ asset('assets/img/logo-tes-polda.png') }}" alt="logo" class="brand"
-                data-src="{{ asset('assets/img/logo-tes-polda.png') }}"
-                data-src-retina="{{ asset('assets/img/logo-tes-polda-2x.png') }}" height="44">
+            <img src="{{ asset('assets/img/Psikotes-Logo.png') }}" alt="logo" class="brand"
+                data-src="{{ asset('assets/img/Psikotes-Logo.png') }}"
+                data-src-retina="{{ asset('assets/img/Psikotes-Logo-2x.png') }}" height="44" style="margin-right:33px;">
             <div class="sidebar-header-controls">
                 <button aria-label="Pin Menu" type="button"
                     class="btn btn-icon-link invert d-lg-inline-block d-xlg-inline-block d-md-inline-block d-sm-none d-none"
@@ -193,9 +204,9 @@
             <!-- END MOBILE SIDEBAR TOGGLE -->
             <div class="">
                 <div class="brand inline">
-                    <img style="margin-left: 25px;" src="{{ asset('assets/img/logo-tes-polda-dark.png') }}" alt="logo"
-                        data-src="{{ asset('assets/img/logo-tes-polda-dark.png') }}"
-                        data-src-retina="{{ asset('assets/img/logo-tes-polda-dark-2x.png') }}" height="44">
+                    <img style="margin-left: 25px;" src="{{ asset('assets/img/Psikotes-Logo.png') }}" alt="logo"
+                        data-src="{{ asset('assets/img/Psikotes-Logo.png') }}"
+                        data-src-retina="{{ asset('assets/img/Psikotes-Logo.png') }}" height="44">
                 </div>
             </div>
             <div class="d-flex align-items-center">
@@ -207,9 +218,9 @@
                     <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" aria-label="profile dropdown">
                         <span class="thumbnail-wrapper d32 circular inline">
-                            <img src="{{ asset('assets/img/profiles/avatar.jpg') }}" alt=""
-                                data-src="{{ asset('assets/img/profiles/avatar.jpg') }}"
-                                data-src-retina="{{ asset('assets/img/profiles/avatar_small2x.jpg') }}" width="32"
+                            <img src="{{ asset('assets/img/profiles/profile_avatar_placeholder_large.png') }}" alt=""
+                                data-src="{{ asset('assets/img/profiles/profile_avatar_placeholder_large.png') }}"
+                                data-src-retina="{{ asset('assets/img/profiles/profile_avatar_placeholder_large.png') }}" width="32"
                                 height="32">
                         </span>
                     </button>

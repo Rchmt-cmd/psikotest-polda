@@ -1,6 +1,6 @@
 <div class="modal fade slide-right" id="modalLihatPeserta" tabindex="-1" role="dialog" aria-labelledby="modalLihatPeserta"
     aria-hidden="true" wire:ignore.self>
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-md">
         <div class="modal-content-wrapper">
             <div class="modal-content table-block">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><p>X</p></button>

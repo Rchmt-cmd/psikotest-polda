@@ -65,3 +65,16 @@ Route::middleware('is_user')->group(function () {
 Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('update-password');
 Auth::routes();
+
+
+Route::get('test', function(){
+    $allJawaban = JawabanPeserta::with(['soalTes.kategoriSoal', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->whereHas('soalTes', function($item){
+        $item->where('id_kategori', 1);
+    })->get();
+
+    
+    // $allJawaban = JawabanPeserta::with(['soalTes.kategoriSoal', 'hasilTes.user'])->map(function ($item){
+    //     return $item->where()
+    // });
+    dd($allJawaban);
+});

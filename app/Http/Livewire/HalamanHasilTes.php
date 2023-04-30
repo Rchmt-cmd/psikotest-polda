@@ -21,9 +21,13 @@ class HalamanHasilTes extends Component
     public function render()
     {
         $this->dataHasilTesPesertas = $this->hasilTes->get();
-        $jumlahSoal = $this->soalTesRepository->getAll()->count();
+        $jumlahSoalKategori1 = $this->soalTesRepository->getAllKategori1()->count();
+        $jumlahSoalKategori2 = $this->soalTesRepository->getAllKategori2()->count();
+        $jumlahSoalKategori3 = $this->soalTesRepository->getAllKategori3()->count();
         return view('livewire.halaman-hasil-tes', [
-            'jumlahSoal' => $jumlahSoal,
+            'jumlahSoalKategori1' => $jumlahSoalKategori1,
+            'jumlahSoalKategori2' => $jumlahSoalKategori2,
+            'jumlahSoalKategori3' => $jumlahSoalKategori3,
         ])
             ->extends('layouts.app')
             ->section('content');

@@ -13,11 +13,11 @@ class ExportUser implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return User::where('is_admin', 0)->select('name', 'email', 'nomor_tes', 'jenis_kelamin', 'tmpt_lahir', 'tgl_lahir', 'alamat', 'no_hp')->get();
+        return User::where('is_admin', 0)->select('name', 'nomor_tes', 'no_hp', 'status_tes')->get();
     }
 
     public function headings(): array
     {
-        return ["Nama", "Email", "Nomor Tes", "Jenis Kelamin", "Tempat Lahir", "Tanggal Lahir", "Alamat", "Nomor HP"];
+        return ["Nama", "Nomor Tes", "Nomor HP", "Status Tes"];
     }
 }

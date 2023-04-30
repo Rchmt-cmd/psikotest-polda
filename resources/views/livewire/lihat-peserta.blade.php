@@ -1,36 +1,41 @@
 <div>
-    <h2 class="text-primary text-center">Detail Data Peserta Tes Psikologi</h2>
+    <h2 class="text-primary text-center">Detail Data Peserta</h2>
     <br>
-    <table>
+    <table class="table table-hover" width="100%" cellspacing='0'>
         <tr>
-            <td>Nama</td>
-            <td>: {{ $idPeserta->name }}</td>
+            <td><b>Nama</b></td>
+            <td>:</td>
+            <td>{{ $idPeserta->name }}</td>
         </tr>
         <tr>
-            <td>Nomor HP</td>
-            <td>: {{ $idPeserta->no_hp }}</td>
+            <td><b>Nomor HP</b></td>
+            <td>:</td>
+            <td>{{ $idPeserta->no_hp }}</td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td>: {{ $idPeserta->old_password }}</td>
+            <td><b>Password</b></td>
+            <td>:</td>
+            <td>{{ $idPeserta->old_password }}</td>
         </tr>
         <tr>
-            <td>Nomor Tes</td>
-            <td>: {{ $idPeserta->nomor_tes }}</td>
+            <td><b>Nomor Tes</b></td>
+            <td>:</td>
+            <td>{{ $idPeserta->nomor_tes }}</td>
         </tr>
         <tr>
-            <td>Jadwal Tes</td>
-            <td>:
-                @if($idPeserta->jadwal)
-                    {{ $idPeserta->jadwal->tanggal_tes }} / {{ $idPeserta->jadwal->waktu_mulai }}-{{ $idPeserta->jadwal->waktu_selesai }} WITA
+            <td><b>Jadwal Tes</b></td>
+            <td>:</td>
+            <td>                @if($idPeserta->jadwal)
+                    {{ $idPeserta->jadwal->tanggal_tes }} ({{ $idPeserta->jadwal->waktu_mulai_akses }}-{{ $idPeserta->jadwal->waktu_selesai_akses }}) WITA
                 @else
                     <i>Jadwal Terhapus</i>
                 @endif 
             </td>
         </tr>
         <tr>
-            <td>Status Tes</td>
-            <td>: 
+            <td><b>Status Tes</b></td>
+            <td>:</td>
+            <td>
                 @if($idPeserta->status_tes)
                     <i class="text-success">Selesai</i>
                 @else

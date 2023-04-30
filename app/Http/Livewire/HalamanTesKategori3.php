@@ -64,12 +64,15 @@ class HalamanTesKategori3 extends Component
             ['id_hasil_tes' => auth()->user()->hasilTes->id, 'id_soal' => $this->id_soal],
             ['jawaban' => $this->singleAnswer]
         );
+        // return redirect('halaman-tes-peserta?page='. 1+1);
     }
 
     public function storeHasilTest()
     {
         // buat query jadi spesifik ke jawaban soal kategori 2 saja
-        $allJawaban = $this->jawabanPeserta->with(['soalTes', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->get();
+        $allJawaban = JawabanPeserta::with(['soalTes.kategoriSoal', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->whereHas('soalTes', function ($item) {
+            $item->where('id_kategori', 3);
+        })->get();
         // $jumlahSoal = $this->soalTesRepository->getAllKategori1()->count();
         // $hasil = 0;
         $jumlahBenar = 0;

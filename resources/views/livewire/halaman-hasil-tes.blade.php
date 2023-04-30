@@ -29,9 +29,9 @@
                   <th>Nama</th>
                   <th>No. Tes</th>
                   <th>Jadwal</th>
-                  <th>Durasi Penyelesaian</th>
-                  <th>Skor</th>
-                  <th>Jumlah Benar</th>
+                  <th>Jumlah Benar Kategori 1</th>
+                  <th>Jumlah Benar Kategori 2</th>
+                  <th>Jumlah Benar Kategori 3</th>
                   {{-- <th></th> --}}
                 </tr>
               </thead>
@@ -41,9 +41,9 @@
                     <td class="fs-12">{{ $dataHasilTes->user->name }}</td>
                     <td class="fs-12">{{ $dataHasilTes->user->nomor_tes }}</td>
                     <td class="fs-12">{{ date('d F Y', strtotime($dataHasilTes->user->jadwal->tanggal_tes)) }}, {{ $dataHasilTes->user->jadwal->waktu_mulai_akses }} WITA</td>
-                    <td class="fs-12">{{ date('H:i:s',strtotime($dataHasilTes->finish)) }} - {{ date('H:i:s',strtotime($dataHasilTes->start)) }}</td>
-                    <td class="fs-12">{{ $dataHasilTes->hasil_akhir }}</td>
-                    <td class="fs-12">{{ $dataHasilTes->jumlah_benar }} dari {{ $jumlahSoal }} Soal</td>
+                    <td class="fs-12">{{ $dataHasilTes->jumlah_benar_kategori1 }} dari {{ $jumlahSoalKategori1 }} Soal</td>
+                    <td class="fs-12">{{ $dataHasilTes->jumlah_benar_kategori2 }} dari {{ $jumlahSoalKategori2 }} Soal</td>
+                    <td class="fs-12">{{ $dataHasilTes->jumlah_benar_kategori3 }} dari {{ $jumlahSoalKategori3 }} Soal</td>
                     {{-- <td>
                       <div class="dropdown">
                         <a id="card-settings" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button"
