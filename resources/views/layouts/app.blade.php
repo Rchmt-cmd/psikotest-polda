@@ -128,7 +128,7 @@
         <div class="sidebar-header">
             <img src="{{ asset('assets/img/Psikotes-Logo.png') }}" alt="logo" class="brand"
                 data-src="{{ asset('assets/img/Psikotes-Logo.png') }}"
-                data-src-retina="{{ asset('assets/img/Psikotes-Logo-2x.png') }}" height="44" style="margin-right:33px;">
+                data-src-retina="{{ asset('assets/img/Psikotes-Logo.png') }}" height="44" style="margin-right:33px;">
             <div class="sidebar-header-controls">
                 <button aria-label="Pin Menu" type="button"
                     class="btn btn-icon-link invert d-lg-inline-block d-xlg-inline-block d-md-inline-block d-sm-none d-none"
