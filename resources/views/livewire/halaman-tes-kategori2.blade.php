@@ -1,12 +1,7 @@
 <div class="row no-margin no-padding">
     @include('partials.modal-konfirmasi-selesai-tes-kategori2')
     @include('partials.modal-flyout-nav2')
-    <button class="btn text-primary btn-lg pull-right nav-soal-flyout" type="button" data-toggle="modal"
-        data-target="#modalFlyoutNav2"><span class="material-icons">
-            more_vert
-        </span><span>Nomor Soal</span>
-    </button>
-    <div class="col-md-3 b-r b-grey sm-b-b full-height">
+    <div class="col-md-3 b-r b-grey sm-b-b full-height nav-soal">
         <div class="py-3 pl-5 navigation-wrapper">
             <div class="row">
                 @for ($nav = 0; $nav < count($quizNav); $nav++) @if ($nav % 5==0) </div>
@@ -24,17 +19,22 @@
         <div class="col-md-9 full-height p-5">
             <form id="formJawaban">
                 <div class="row justify-content-between">
-                    <div class="col-md-4 no-padding">
+                    <div class="col-md-4 no-padding" style="width: 38%">
                         {!! $daftarSoal->links() !!}
                     </div>
                     <div class="com-md-4 px-3 py-0 text-primary border">
                         <h5 id="timer"></h5>
                     </div>
-                    <div class="col-md-4 no-padding">
+                    <div class="col-md-4 no-padding" style="width: 28%">
                         <button class="btn text-primary btn-lg pull-right" type="button" data-toggle="modal"
                             data-target="#modalKonfirmasiSelesaiTesKategori2">Selesaikan</button>
                     </div>
                 </div>
+                <button class="btn btn-lg btn-rounded bg-primary pull-right nav-soal-flyout" type="button" data-toggle="modal"
+                    data-target="#modalFlyoutNav2"><i class="material-icons text-white semi-bold">
+                        format_list_numbered
+                    </i>
+                </button>
                 <div id="soal-tes" class="mt-5">
                     @foreach ($daftarSoal as $soal)
                     @if ($soal->gambar_soal)

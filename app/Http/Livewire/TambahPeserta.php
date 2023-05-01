@@ -53,7 +53,7 @@ class TambahPeserta extends Component
         $attributes['status_tes'] = false;
         $attributes['no_hp'] = $this->no_hp;
         $attributes['id_jadwal'] = $this->jadwal_tes;
-        $attributes['progres_tes'] = [0,0,0];
+        $attributes['progres_tes'] = 1;
 
         $this->userRepository->create($attributes);
         $this->resetField();

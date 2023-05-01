@@ -93,6 +93,9 @@
 
             .nav-soal-flyout {
                 display: block;
+                position: fixed;
+                right: 10px;
+                top: 50vh;
             }
         }
 
@@ -103,6 +106,13 @@
 
             .start-button {
                 display: none;
+            }
+            .nav-soal {
+            display: none;
+            }
+            
+            .nav-soal-flyout {
+            display: block;
             }
         }
     </style>
