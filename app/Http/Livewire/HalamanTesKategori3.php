@@ -25,6 +25,7 @@ class HalamanTesKategori3 extends Component
     protected $soalTesRepository;
     protected $jawabanPeserta;
     protected $soalTes;
+    protected $total_soal;
     
     public function boot(SoalTesRepository $soalTesRepository, JawabanPeserta $jawabanPeserta, SoalTes $soalTes)
     {
@@ -35,6 +36,8 @@ class HalamanTesKategori3 extends Component
 
     public function mount()
     {
+        $this->total_soal = count($this->soalTesRepository->getAllKategori3());
+
         $date = date("Y-m-d H:i:s");
         $hours = MasterDurasiTes::where('id', 3)->first()->durasi_tes;
 
@@ -64,7 +67,13 @@ class HalamanTesKategori3 extends Component
             ['id_hasil_tes' => auth()->user()->hasilTes->id, 'id_soal' => $this->id_soal],
             ['jawaban' => $this->singleAnswer]
         );
-        // return redirect('halaman-tes-peserta?page='. 1+1);
+        dd($this->nomorSoal);
+        if ($this->nomorSoal <= $this->total_soal) {
+            $a = intval($this->nomorSoal) + 1;
+            redirect('halaman-tes-peserta?page=' . $a);
+        }else{
+            $this->storeHasilTest();
+        }
     }
 
     public function storeHasilTest()
@@ -106,6 +115,7 @@ class HalamanTesKategori3 extends Component
             $id_soal = $item->toArray();
             return $id_soal;
         });
+        
         $id_soal = $data[0]['id'];
         $jawaban = $this->jawabanPeserta->where('id_soal', $id_soal)->where('id_hasil_tes', auth()->user()->hasilTes->id)->first();
         if (!is_null($jawaban)) {

@@ -2,26 +2,11 @@
     @include('partials.modal-konfirmasi-selesai-tes-kategori3')
     @include('partials.modal-flyout-nav3')
 
-    <div class="col-md-3 b-r b-grey sm-b-b full-height nav-soal">
-        <div class="py-3 pl-5 navigation-wrapper">
-            <div class="row">
-                @for ($nav = 0; $nav < count($quizNav); $nav++) @if ($nav % 5==0) </div>
-                    <div class="row">
-                        @endif
-                        <div class="col-md-2 p-1">
-                            <a href="?page={{ $nav+1 }}" class="btn btn-default btn-block m-t-5">
-                                {{ $quizNav[$nav]
-                                }}</a>
-                        </div>
-                        @endfor
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-9 full-height p-5">
+        <div class="col-md-12 full-height p-5">
             <form id="formJawaban">
                 <div class="row justify-content-between">
                     <div class="col-md-4 no-padding" style="width: 38%">
-                        {!! $daftarSoal->links() !!}
+                        {{-- {!! $daftarSoal->links() !!} --}}
                     </div>
                     <div class="com-md-4 px-3 py-0 text-primary border">
                         <h5 id="timer"></h5>
@@ -31,66 +16,67 @@
                             data-target="#modalKonfirmasiSelesaiTesKategori3">Selesaikan</button>
                     </div>
                 </div>
-                <button class="btn btn-lg btn-rounded bg-primary pull-right nav-soal-flyout" type="button" data-toggle="modal"
-                    data-target="#modalFlyoutNav3"><i class="material-icons text-white semi-bold">
-                        format_list_numbered
-                    </i>
-                </button>
-                <div id="soal-tes" class="mt-5">
-                    @foreach ($daftarSoal as $soal)
-                    <table>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                    <p class="font-arial fs-16">{{ $soal->nomor_soal }}. {{ $soal->subKategoriSoal->isi_subkategori }}
-                    </p>
-                    {{-- <input type="hidden" value="{{ $soal->id }}" wire:model='id_soal'> --}}
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios1"
-                            value='a' wire:model='singleAnswer'>
-                        <label class="form-check-label" for="exampleRadios1">
-                            {{ $soal->pil_a }} <br>
-                            @if (!is_null($soal->gambar_pil_a) || !empty($soal->gambar_pil_a))
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_a) }}" width="80" alt="pil_a">
-                            @endif
-                        </label>
+                <div class="row justify-content-between mt-5">
+                    <div class="col-md-8 m-auto">
+                        @foreach ($daftarSoal as $soal)
+                        @php
+                            $soal_char = str_split($soal->subKategoriSoal->isi_subkategori)
+                        @endphp
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td><p class="fs-16"><center>{{ $soal_char[0] }}</center></p></td>
+                                    <td><p class="fs-16"><center>{{ $soal_char[1] }}</center></p></td>
+                                    <td><p class="fs-16"><center>{{ $soal_char[2] }}</center></p></td>
+                                    <td><p class="fs-16"><center>{{ $soal_char[3] }}</center></p></td>
+                                    <td><p class="fs-16"><center>{{ $soal_char[4] }}</center></p></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="mt-5 row justify-content-around">
+                            <div class="col-md-4">
+                                <div class="card form-check text-black bg-light mb-3 ">
+                                    <div class="card-body">
+                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios1" value='a'
+                                            wire:model='singleAnswer'>
+                                        <label class="form-check-label w-100" for="exampleRadios1">
+                                            <p class="fs-16">{{ $soal->pil_a }}</p> <br>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="card form-check text-black bg-light mb-3 ">
+                                    <div class="card-body">
+                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios2" value='b'
+                                            wire:model='singleAnswer'>
+                                        <label class="form-check-label w-100" for="exampleRadios2">
+                                            <p class="fs-16">{{ $soal->pil_b }}</p> <br>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card form-check text-black bg-light mb-3 ">
+                                    <div class="card-body">
+                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios3" value='c'
+                                            wire:model='singleAnswer'>
+                                        <label class="form-check-label w-100" for="exampleRadios3">
+                                            <p class="fs-16">{{ $soal->pil_c }}</p> <br>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="card form-check text-black bg-light mb-3 ">
+                                    <div class="card-body">
+                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios4" value='d'
+                                            wire:model='singleAnswer'>
+                                        <label class="form-check-label w-100" for="exampleRadios4">
+                                            <p class="fs-16">{{ $soal->pil_d }}</p> <br>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios2"
-                            value='b' wire:model='singleAnswer'>
-                        <label class="form-check-label" for="exampleRadios2">
-                            {{ $soal->pil_b }} <br>
-                            @if (!is_null($soal->gambar_pil_b) || !empty($soal->gambar_pil_b))
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_b) }}" width="80" alt="pil_b">
-                            @endif
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios3"
-                            value='c' wire:model='singleAnswer'>
-                        <label class="form-check-label" for="exampleRadios3">
-                            {{ $soal->pil_c }} <br>
-                            @if (!is_null($soal->gambar_pil_c) || !empty($soal->gambar_pil_c))
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_c) }}" width="80" alt="pil_c">
-                            @endif
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios4"
-                            value='d' wire:model='singleAnswer'>
-                        <label class="form-check-label" for="exampleRadios4">
-                            {{ $soal->pil_d }} <br>
-                            @if (!is_null($soal->gambar_pil_d) || !empty($soal->gambar_pil_d))
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_d) }}" width="80" alt="pil_d">
-                            @endif
-                        </label>
-                    </div>
-                    @endforeach
                 </div>
             </form>
         </div>
