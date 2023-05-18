@@ -67,12 +67,13 @@ class HalamanTesKategori3 extends Component
             ['id_hasil_tes' => auth()->user()->hasilTes->id, 'id_soal' => $this->id_soal],
             ['jawaban' => $this->singleAnswer]
         );
-        dd($this->nomorSoal);
-        if ($this->nomorSoal <= $this->total_soal) {
+        // dd($this->nomorSoal);
+        if ($this->nomorSoal == $this->total_soal) {
+            $this->storeHasilTest();
+            redirect('home');
+        }else{
             $a = intval($this->nomorSoal) + 1;
             redirect('halaman-tes-peserta?page=' . $a);
-        }else{
-            $this->storeHasilTest();
         }
     }
 
