@@ -26,6 +26,10 @@ class HalamanTesKategori3 extends Component
     protected $jawabanPeserta;
     protected $soalTes;
     protected $total_soal;
+
+    protected $listeners =[
+        'refreshData' => '$refresh'
+    ];
     
     public function boot(SoalTesRepository $soalTesRepository, JawabanPeserta $jawabanPeserta, SoalTes $soalTes)
     {
@@ -34,20 +38,20 @@ class HalamanTesKategori3 extends Component
         $this->soalTes = $soalTes;
     }
 
-    public function mount()
-    {
-        $this->total_soal = count($this->soalTesRepository->getAllKategori3());
+    // public function mount()
+    // {
+    //     $this->total_soal = count($this->soalTesRepository->getAllKategori3());
 
-        $date = date("Y-m-d H:i:s");
-        $hours = MasterDurasiTes::where('id', 3)->first()->durasi_tes;
+    //     $date = date("Y-m-d H:i:s");
+    //     $hours = MasterDurasiTes::where('id', 3)->first()->durasi_tes;
 
-        $d0 = strtotime(date('Y-m-d 00:00:00'));
-        $d1 = strtotime(date('Y-m-d ') . $hours);
+    //     $d0 = strtotime(date('Y-m-d 00:00:00'));
+    //     $d1 = strtotime(date('Y-m-d ') . $hours);
 
-        $sumTime = strtotime($date) + ($d1 - $d0);
-        $new_time = date("M d, Y H:i:s", $sumTime);
-        $this->timer = $new_time;
-    }
+    //     $sumTime = strtotime($date) + ($d1 - $d0);
+    //     $new_time = date("M d, Y H:i:s", $sumTime);
+    //     $this->timer = $new_time;
+    // }
 
     public function paginationView()
     {
@@ -57,50 +61,60 @@ class HalamanTesKategori3 extends Component
     public function updatedSingleAnswer()
     {
         // setting variable to store in database;
-        $daftarSoal = $this->soalTesRepository->getSoalKategori3();
-        $data = $daftarSoal->map(function ($item) {
-            $this->id_soal = $item->toArray();
-            return $this->id_soal;
-        });
-        $this->id_soal = $data[0]['id'];
-        $this->jawabanPeserta->updateOrCreate(
-            ['id_hasil_tes' => auth()->user()->hasilTes->id, 'id_soal' => $this->id_soal],
-            ['jawaban' => $this->singleAnswer]
-        );
-        // dd($this->nomorSoal);
-        if ($this->nomorSoal == $this->total_soal) {
-            $this->storeHasilTest();
-            redirect('home');
-        }else{
-            $a = intval($this->nomorSoal) + 1;
-            redirect('halaman-tes-peserta?page=' . $a);
-        }
+        // $daftarSoal = $this->soalTesRepository->getSoalKategori3();
+        // $data = $daftarSoal->map(function ($item) {
+        //     $this->id_soal = $item->toArray();
+        //     return $this->id_soal;
+        // });
+        // $this->id_soal = $data[0]['id'];
+        // $this->jawabanPeserta->updateOrCreate(
+        //     ['id_hasil_tes' => auth()->user()->hasilTes->id, 'id_soal' => $this->id_soal],
+        //     ['jawaban' => $this->singleAnswer]
+        // );
+        // // dd($this->nomorSoal);
+        // if ($this->nomorSoal == $this->total_soal) {
+        //     $this->storeHasilTest();
+        //     redirect('home');
+        // }else{
+        //     $a = intval($this->nomorSoal) + 1;
+        //     redirect('halaman-tes-peserta?page=' . $a);
+        // }
+        $this->storeHasilTest();
     }
 
     public function storeHasilTest()
     {
         // buat query jadi spesifik ke jawaban soal kategori 2 saja
-        $allJawaban = JawabanPeserta::with(['soalTes.kategoriSoal', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->whereHas('soalTes', function ($item) {
-            $item->where('id_kategori', 3);
-        })->get();
-        // $jumlahSoal = $this->soalTesRepository->getAllKategori1()->count();
-        // $hasil = 0;
-        $jumlahBenar = 0;
-        foreach ($allJawaban as $jawaban) {
-            if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
-                // $bobot = $jawaban->soalTes->bobot;
-                // $hasil = $hasil + $bobot;
-                $jumlahBenar = $jumlahBenar + 1;
-            }
-        }
-        $attributes = [];
-        $attributes['finish'] = date('Y-m-d H:i:s');
-        // $attributes['hasil_akhir'] = $hasil;
-        $attributes['jumlah_benar_kategori3'] = $jumlahBenar;
-        HasilTes::where('id_user', auth()->user()->id)->update($attributes);
-        User::where('id', auth()->user()->id)->update(['progres_tes' => 'done', 'status_tes' => 1]);
-        $this->dispatchBrowserEvent('clearCookies');
-        return redirect('home');
+        // $allJawaban = JawabanPeserta::with(['soalTes.kategoriSoal', 'hasilTes.user'])->where('id_hasil_tes', auth()->user()->hasilTes->id)->whereHas('soalTes', function ($item) {
+        //     $item->where('id_kategori', 3);
+        // })->get();
+        // // $jumlahSoal = $this->soalTesRepository->getAllKategori1()->count();
+        // // $hasil = 0;
+        // $jumlahBenar = 0;
+        // foreach ($allJawaban as $jawaban) {
+        //     if ($jawaban->soalTes->jawaban == $jawaban->jawaban) {
+        //         // $bobot = $jawaban->soalTes->bobot;
+        //         // $hasil = $hasil + $bobot;
+        //         $jumlahBenar = $jumlahBenar + 1;
+        //     }
+        // }
+        // $attributes = [];
+        // $attributes['finish'] = date('Y-m-d H:i:s');
+        // // $attributes['hasil_akhir'] = $hasil;
+        // $attributes['jumlah_benar_kategori3'] = $jumlahBenar;
+        // HasilTes::where('id_user', auth()->user()->id)->update($attributes);
+        // User::where('id', auth()->user()->id)->update(['progres_tes' => 'done', 'status_tes' => 1]);
+        // $this->dispatchBrowserEvent('clearCookies');
+        // return redirect('home');
+        $this->jawabanPeserta->updateOrCreate(
+            ['id_hasil_tes' => auth()->user()->hasilTes->id, 'id_soal' => $this->id_soal],
+            ['jawaban' => $this->singleAnswer]
+        );
+
+        // $a = intval($this->nomorSoal) + 1;
+        // redirect('halaman-tes-peserta?page=' . $a); //redirextnya yang perlu ditangani pakai jquery
+
+        $this->dispatchBrowserEvent('ajax_handler');
     }
     
     public function render(Request $request)
@@ -122,8 +136,14 @@ class HalamanTesKategori3 extends Component
         if (!is_null($jawaban)) {
             $this->singleAnswer = $jawaban->jawaban;
         }
-        return view('livewire.halaman-tes-kategori3', [
-            'daftarSoal' => $daftarSoal,
-        ]);
+
+        if ($request->ajax()) {
+            return view('partials.data_soal', ['daftarSoal' => $daftarSoal]);
+        }else {
+            return view('livewire.halaman-tes-kategori3', [
+                'daftarSoal' => $daftarSoal,
+            ]);
+        }
+
     }
 }

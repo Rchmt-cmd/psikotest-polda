@@ -50,7 +50,6 @@
     <link href="{{ asset('assets/plugins/mapplic/css/mapplic.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/dashboard.widgets.css')}}" rel="stylesheet" type="text/css" media="screen" />
     <link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
-
     <style>
         .in_put {
             background-color: white;
@@ -534,6 +533,9 @@
         console.log('modal closed');
         window.livewire.emit('closeModal');
         });
+        window.Livewire.on('haschange', () => {
+        console.log('halo');
+        })
     </script>
     <!-- END PAGE LEVEL JS -->
 
