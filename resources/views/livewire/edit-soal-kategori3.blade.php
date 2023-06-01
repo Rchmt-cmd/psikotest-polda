@@ -1,5 +1,5 @@
 <div>
-    <form role="form" id="formEditSoalKategori3" wire:submit.prevent='update'>
+    <form role="form" id="formEditSoalKategori3" wire:submit='update'>
         @csrf
         <div class="row">
             <div class="col-md-3">

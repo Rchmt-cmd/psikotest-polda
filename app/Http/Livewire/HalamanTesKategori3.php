@@ -26,6 +26,9 @@ class HalamanTesKategori3 extends Component
     protected $jawabanPeserta;
     protected $soalTes;
     protected $total_soal;
+    protected $listeners = [
+        'updatedSingleAnswer'
+    ];
     
     public function boot(SoalTesRepository $soalTesRepository, JawabanPeserta $jawabanPeserta, SoalTes $soalTes)
     {
@@ -68,11 +71,12 @@ class HalamanTesKategori3 extends Component
             ['jawaban' => $this->singleAnswer]
         );
         // dd($this->nomorSoal);
-        if ($this->nomorSoal == $this->total_soal) {
+        $a = intval($this->nomorSoal) + 1;
+        if ($this->nomorSoal < $this->total_soal) {
             $this->storeHasilTest();
-            redirect('home');
+            // redirect('home');
         }else{
-            $a = intval($this->nomorSoal) + 1;
+            $this->dispatchBrowserEvent('clearCookies');
             redirect('halaman-tes-peserta?page=' . $a);
         }
     }

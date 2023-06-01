@@ -115,7 +115,7 @@
                             if (distance <= 0) {
                                 clearInterval(x);
                                 localStorage.removeItem('saved_countdown');
-                                window.livewire.emit('storeHasilTest');
+                                window.livewire.emit('updatedSingleAnswer');
                             }
                         }, 1000);
         </script>

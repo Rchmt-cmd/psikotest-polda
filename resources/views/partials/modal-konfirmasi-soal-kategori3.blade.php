@@ -10,7 +10,7 @@
           <h5>Ingin menghapus soal ?</h5>
         </div>
         @if($dataSoalKategori3)
-        <form role="form" wire:submit.prevent='delete({{ $dataSoalKategori3->id }})'>
+        <form role="form" wire:submit='delete({{ $dataSoalKategori3->id }})'>
           <div class="modal-body d-flex justify-content-center">
             <div class="col-md-4 m-t-10 sm-m-t-10">
               <button type="button" data-dismiss="modal" class="btn btn-default btn-block m-t-5">
