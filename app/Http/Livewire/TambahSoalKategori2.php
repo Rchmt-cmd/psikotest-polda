@@ -48,7 +48,7 @@ class TambahSoalKategori2 extends Component
         $attributes['nomor_soal'] = $this->nomor_soal;
         $attributes['id_kategori'] = '2';
         $attributes['isi_soal'] = $this->isi_soal;
-        $attributes['gambar_soal'] = (!is_null($this->gambar_soal)) ? $this->gambar_soal->store('files/soal-kategori2', 'public') : ''; 
+        $attributes['gambar_soal'] = (!empty($this->gambar_soal)) ? $this->gambar_soal->store('files/soal-kategori2', 'public') : ''; 
         $attributes['pil_a'] = 'Sangat Setuju';
         $attributes['pil_b'] = 'Setuju';
         $attributes['pil_c'] = 'Tidak Setuju';

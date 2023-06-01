@@ -29,7 +29,7 @@ class SoalsKategori2 extends Component
 
     public function paginationView()
     {
-        return 'vendor.pagination.simple-bootstrap-4';   
+        return 'vendor.livewire.simple-bootstrap';   
     }
 
     // event handler
