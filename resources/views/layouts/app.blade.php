@@ -163,15 +163,15 @@
                     <span class="icon-thumbnail"><i class="material-icons">assignment</i></span>
                     <ul class="sub-menu">
                         <li class="">
-                            <a href="{{ route('soal-kategori-1') }}">Kategori 1</a>
+                            <a href="{{ route('soal-kategori-1') }}">Kecerdasan</a>
                             <span class="icon-thumbnail"><i class="pg-icon">1</i></span>
                         </li>
                         <li class="">
-                            <a href="{{ route('soal-kategori-2') }}">Kategori 2</a>
+                            <a href="{{ route('soal-kategori-2') }}">Kepribadian</a>
                             <span class="icon-thumbnail"><i class="pg-icon">2</i></span>
                         </li>
                         <li class="">
-                            <a href="{{ route('soal-kategori-3') }}">Kategori 3</a>
+                            <a href="{{ route('soal-kategori-3') }}">Sikap Kerja</a>
                             <span class="icon-thumbnail"><i class="pg-icon">3</i></span>
                         </li>
                     </ul>
