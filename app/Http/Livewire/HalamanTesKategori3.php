@@ -40,25 +40,27 @@ class HalamanTesKategori3 extends Component
     public function mount()
     {
         $this->total_soal = count($this->soalTesRepository->getAllKategori3());
-
+        
         $date = date("Y-m-d H:i:s");
         $hours = MasterDurasiTes::where('id', 3)->first()->durasi_tes;
-
+        
         $d0 = strtotime(date('Y-m-d 00:00:00'));
         $d1 = strtotime(date('Y-m-d ') . $hours);
-
+        
         $sumTime = strtotime($date) + ($d1 - $d0);
         $new_time = date("M d, Y H:i:s", $sumTime);
         $this->timer = $new_time;
     }
-
+    
     public function paginationView()
     {
         return 'vendor.pagination.custom';
     }
-
+    
     public function updatedSingleAnswer()
     {
+        $this->total_soal = count($this->soalTesRepository->getAllKategori3());
+
         // setting variable to store in database;
         $daftarSoal = $this->soalTesRepository->getSoalKategori3();
         $data = $daftarSoal->map(function ($item) {
@@ -73,14 +75,14 @@ class HalamanTesKategori3 extends Component
         // dd($this->nomorSoal);
         $a = intval($this->nomorSoal) + 1;
         if ($this->nomorSoal < $this->total_soal) {
-            $this->storeHasilTest();
             // redirect('home');
-        }else{
             $this->dispatchBrowserEvent('clearCookies');
             redirect('halaman-tes-peserta?page=' . $a);
+        }else{
+            $this->storeHasilTest();
         }
     }
-
+    
     public function storeHasilTest()
     {
         // buat query jadi spesifik ke jawaban soal kategori 2 saja
@@ -110,6 +112,7 @@ class HalamanTesKategori3 extends Component
     public function render(Request $request)
     {
         $this->nomorSoal = $request->input('page') ?? '1';
+        // dd($this->nomorSoal);
         $this->quizNav = $this->soalTesRepository->getAllKategori3()->map(function ($item) {
             return $item->nomor_soal;
         });
