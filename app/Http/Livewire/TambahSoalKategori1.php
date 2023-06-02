@@ -89,7 +89,7 @@ class TambahSoalKategori1 extends Component
         $attributes['pil_e'] = $this->pil_e;
         $attributes['gambar_pil_e'] = (!empty($this->gambar_pil_e)) ? $this->gambar_pil_e->store('files/jawaban_e', 'public') : '';
         $attributes['jawaban'] = $this->jawaban;
-        $attributes['id_subkategori'] = $this->chapter_soal;
+        $attributes['id_subkategori'] = ($this->chapter_soal == "") ? null : $this->chapter_soal;
 
         $this->soalTesRepository->create($attributes);
         $this->resetField();
