@@ -14,9 +14,6 @@
             <div id="myCard" class="card">
                 <div class="card-header separator">
                     <div class="card-title">Sesi Aktif {{ $daftarJadwal->id }}</div>
-                    {{-- @if ($daftarJadwal->waktu_mulai_akses)
-                        
-                    @endif --}}
                     <div class="card-controls">
                         <ul>
                             <li>
