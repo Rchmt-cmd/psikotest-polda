@@ -28,6 +28,10 @@ class TestRunning
                 if (is_null($data)) {
                     $attributes = [];
                     $attributes['id_user'] = auth()->user()->id;
+                    $attributes['nama'] = auth()->user()->name;
+                    $attributes['nomor_tes'] = auth()->user()->nomor_tes;
+                    $attributes['tanggal_tes'] = auth()->user()->jadwal->tanggal_tes;
+                    $attributes['waktu_mulai_akses'] = auth()->user()->jadwal->waktu_mulai_akses;
                     $attributes['start'] = date('Y-m-d H:i:s');
                     HasilTes::create($attributes);
                 }

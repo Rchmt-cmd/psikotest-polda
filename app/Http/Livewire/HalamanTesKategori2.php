@@ -26,6 +26,9 @@ class HalamanTesKategori2 extends Component
     protected $jawabanPeserta;
     protected $soalTes;
     // protected $queryString = ['nomor'];
+    protected $listeners = [
+        'storeHasilTest',
+    ];
 
     public function boot(SoalTesRepository $soalTesRepository, JawabanPeserta $jawabanPeserta, SoalTes $soalTes)
     {

@@ -21,6 +21,7 @@ class HalamanHasilTes extends Component
     public function render()
     {
         $this->dataHasilTesPesertas = $this->hasilTes->get();
+        // dd($this->dataHasilTesPesertas[2]->user->name);
         $jumlahSoalKategori1 = $this->soalTesRepository->getAllKategori1()->count();
         $jumlahSoalKategori2 = $this->soalTesRepository->getAllKategori2()->count();
         $jumlahSoalKategori3 = $this->soalTesRepository->getAllKategori3()->count();

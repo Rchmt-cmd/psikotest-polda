@@ -86,7 +86,7 @@
                 </div>
             </form>
         </div>
-        <script defer>
+        <script>
             let time = new Date(@js($timer)).getTime(); // This is the time allowed
                     let saved_countdown = localStorage.getItem('saved_countdown');
                             

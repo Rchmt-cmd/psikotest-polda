@@ -37,10 +37,11 @@
               </thead>
               <tbody>
                 @forelse ($dataHasilTesPesertas as $dataHasilTes)
+                {{-- TODO di database hasil tes simpan data yang tidak berelasi lagi dengan jadwal dan user --}}
                   <tr>
-                    <td class="fs-12">{{ $dataHasilTes->user->name }}</td>
-                    <td class="fs-12">{{ $dataHasilTes->user->nomor_tes }}</td>
-                    <td class="fs-12">{{ date('d F Y', strtotime($dataHasilTes->user->jadwal->tanggal_tes)) }}, {{ $dataHasilTes->user->jadwal->waktu_mulai_akses }} WITA</td>
+                    <td class="fs-12">{{ $dataHasilTes->nama }}</td>
+                    <td class="fs-12">{{ $dataHasilTes->nomor_tes }}</td>
+                    <td class="fs-12">{{ date('d F Y', strtotime($dataHasilTes->tanggal_tes)) }}, {{ $dataHasilTes->waktu_mulai_akses }} WITA</td>
                     <td class="fs-12">{{ $dataHasilTes->jumlah_benar_kategori1 }} dari {{ $jumlahSoalKategori1 }} Soal</td>
                     <td class="fs-12">{{ $dataHasilTes->jumlah_benar_kategori2 }} dari {{ $jumlahSoalKategori2 }} Soal</td>
                     <td class="fs-12">{{ $dataHasilTes->jumlah_benar_kategori3 }} dari {{ $jumlahSoalKategori3 }} Soal</td>

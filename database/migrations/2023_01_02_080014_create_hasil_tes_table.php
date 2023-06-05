@@ -16,6 +16,10 @@ class CreateHasilTesTable extends Migration
         Schema::create('hasil_tes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->nullable();
+            $table->string('nama')->nullable();
+            $table->string('nomor_tes')->nullable();
+            $table->date('tanggal_tes')->nullable();
+            $table->time('waktu_mulai_akses')->nullable();
             $table->string('jumlah_benar_kategori1')->nullable();
             $table->string('jumlah_benar_kategori2')->nullable();
             $table->string('jumlah_benar_kategori3')->nullable();
