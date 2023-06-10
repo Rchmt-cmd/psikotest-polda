@@ -109,13 +109,13 @@
         </div>
         <script>
             let time = new Date(@js($timer)).getTime(); // This is the time allowed
-            let saved_countdown = localStorage.getItem('saved_countdown');
+            let saved_countdown = localStorage.getItem('saved_countdown1');
                     
             if(saved_countdown == null) {
                 // Set the time we're counting down to using the time allowed
                 let new_countdown = time;    
                 time = new_countdown;
-                localStorage.setItem('saved_countdown', new_countdown);
+                localStorage.setItem('saved_countdown1', new_countdown);
             } else {
                 time = saved_countdown;
             }
@@ -141,7 +141,7 @@
                 // If the count down is over, write some text 
                 if (distance <= 0) {
                     clearInterval(x);
-                    localStorage.removeItem('saved_countdown');
+                    localStorage.removeItem('saved_countdown1');
                     window.livewire.emit('storeHasilTest');
                 }
             }, 1000);
