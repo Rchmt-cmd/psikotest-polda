@@ -465,8 +465,9 @@
             $('.modal-backdrop').remove()
         })
         window.addEventListener('clearCookies', event => {
-            localStorage.removeItem('saved_countdown');
-            
+            localStorage.removeItem('saved_countdown1');
+            localStorage.removeItem('saved_countdown2');
+            localStorage.removeItem('saved_countdown3');
         })
     </script>
     <script>
