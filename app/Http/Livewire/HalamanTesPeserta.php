@@ -11,7 +11,7 @@ class HalamanTesPeserta extends Component
 
     public function mount()
     {
-        $this->user_progress = auth()->user()->progress_tes;
+        $this->user_progress = auth()->user()->progres_tes;
     }
 
     public function render()
