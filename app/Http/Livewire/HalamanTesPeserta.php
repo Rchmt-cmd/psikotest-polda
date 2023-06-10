@@ -8,11 +8,6 @@ use Livewire\Component;
 class HalamanTesPeserta extends Component
 {
     public $user_progress;
-
-    public function hydrate()
-    {
-        $this->user_progress = auth()->user()->progres_tes;
-    }
     
     public function render()
     {
