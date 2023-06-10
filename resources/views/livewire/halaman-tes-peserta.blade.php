@@ -1,5 +1,5 @@
 <div class="full-height soal-wrapper">
-    @if (auth()->user()->progres_tes == 1)
+    @if ($user_progress == 1)
     <div class="card m-0">
         <div class="row card-header justify-content-center">
             <div class="col-md-0 text-center">
@@ -33,7 +33,7 @@
         </div>
     </div>
     @livewire('halaman-tes-kategori1')
-    @elseif (auth()->user()->progres_tes ==2)
+    @elseif ($user_progress ==2)
     <div class="card m-0">
         <div class="row card-header justify-content-center">
             <div class="col-md-0 text-center">
