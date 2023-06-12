@@ -72,13 +72,9 @@ class HalamanTesKategori2 extends Component
         $attributes['jumlah_benar_kategori2'] = $jumlahBenar;
         HasilTes::where('id_user', auth()->user()->id)->update($attributes);
         $query = User::where('id', auth()->user()->id)->update(['progres_tes' => 3]);
-        if ($query) {
-            $this->dispatchBrowserEvent('clearCookies');
-            return redirect('halaman-tes-peserta');
-        } else {
-
-            return redirect('halaman-tes-peserta');
-        }
+        $this->emit('refreshComponent');
+        $this->dispatchBrowserEvent('clearCookies');
+        $this->dispatchBrowserEvent('removeModalBackdrop');
     }
 
     public function updatedSingleAnswer()

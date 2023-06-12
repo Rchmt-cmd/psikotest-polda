@@ -30,7 +30,7 @@ class HalamanTesKategori1 extends Component
     protected $listeners = [
         'storeHasilTest',
     ];
-    
+
     public function boot(SoalTesRepository $soalTesRepository, JawabanPeserta $jawabanPeserta, SoalTes $soalTes)
     {
         $this->soalTesRepository = $soalTesRepository;
@@ -48,7 +48,7 @@ class HalamanTesKategori1 extends Component
 
         $sumTime = strtotime($date) + ($d1 - $d0);
         $new_time = date("M d, Y H:i:s", $sumTime);
-        $this->timer = $new_time; 
+        $this->timer = $new_time;
     }
 
     public function storeHasilTest()
@@ -72,13 +72,17 @@ class HalamanTesKategori1 extends Component
         $attributes['jumlah_benar_kategori1'] = $jumlahBenar;
         HasilTes::where('id_user', auth()->user()->id)->update($attributes);
         $query = User::where('id', auth()->user()->id)->update(['progres_tes' => 2]);
-        if ($query) {
-            $this->dispatchBrowserEvent('clearCookies');
-            return redirect('halaman-tes-peserta');
-        }else{
-
-            return redirect('halaman-tes-peserta');
-        }
+        $this->emit('refreshComponent');
+        $this->dispatchBrowserEvent('clearCookies');
+        $this->dispatchBrowserEvent('removeModalBackdrop');
+        // if ($query) {
+        //     $this->dispatchBrowserEvent('clearCookies');
+        //     $this->refreshComponent();
+        //     // return redirect('halaman-tes-peserta');
+        // }else{
+        //     $this->refreshComponent();
+        //     // return redirect('halaman-tes-peserta');
+        // }
     }
 
     public function updatedSingleAnswer()
@@ -108,7 +112,7 @@ class HalamanTesKategori1 extends Component
             return $item->nomor_soal;
         });
         $daftarSoal = $this->soalTesRepository->getSoalKategori1();
-        
+
         $data = $daftarSoal->map(function ($item) {
             $id_soal = $item->toArray();
             return $id_soal;

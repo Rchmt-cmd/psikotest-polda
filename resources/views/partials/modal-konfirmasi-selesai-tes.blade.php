@@ -11,11 +11,11 @@
           <h5>Apakah anda yakin akan menyelesaikan tes ini? Jika belum, cek kembali jawaban anda</h5>
         </div>
         <div class="modal-body">
-          <form action="" wire:submit="storeHasilTest()">
+          <form action="">
             <div class="modal-body d-flex justify-content-center">
               <input type="hidden" name="id_user" value="">
               <div class="col-md-4 m-t-10 sm-m-t-10">
-                <button type="submit" class="btn btn-primary btn-block m-t-5">
+                <button wire:click="storeHasilTest()" type="button" class="btn btn-primary btn-block m-t-5">
                   Akhiri
                 </button>
               </div>
