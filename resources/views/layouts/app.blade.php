@@ -456,6 +456,15 @@
             $('#modalEditSoalKategori3').modal('hide');
             $('#modalEditSoalKategori3').removeClass('show');
             $('#modalEditSoalKategori3').removeAttr('style');
+            $('#modalKonfirmasiResetSoal').modal('hide');
+            $('#modalKonfirmasiResetSoal').removeClass('show');
+            $('#modalKonfirmasiResetSoal').removeAttr('style');
+            $('#modalKonfirmasiResetSoal2').modal('hide');
+            $('#modalKonfirmasiResetSoal2').removeClass('show');
+            $('#modalKonfirmasiResetSoal2').removeAttr('style');
+            $('#modalKonfirmasiResetSoal3').modal('hide');
+            $('#modalKonfirmasiResetSoal3').removeClass('show');
+            $('#modalKonfirmasiResetSoal3').removeAttr('style');
             $('body').removeClass('modal-open');
             $('body').removeAttr("style");
         })

@@ -5,6 +5,7 @@
         @include('partials.modal-edit-chapter-kategori1')
         @include('partials.modal-konfirmasi-soal-kategori1')
         @include('partials.modal-edit-soal-kategori1')
+        @include('partials.modal-konfirmasi-reset-soal')
     </div>
     <div class="card card-default p-3 flex-row justify-content-between align-items-center">
         <div>
@@ -16,6 +17,9 @@
         <div class="">
             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalTambahSoal">
                 <i class="pg-icon">add</i> Tambah Soal
+            </button>
+            <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modalKonfirmasiResetSoal">
+                <i class="pg-icon">danger</i> Reset Soal
             </button>
         </div>
     </div>

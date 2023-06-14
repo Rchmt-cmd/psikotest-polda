@@ -73,6 +73,12 @@ class SoalsKategori2 extends Component
         $this->dataSoalKategori2 = $id;
     }
 
+    public function resetSoal(){
+        $this->soalKategori2->where('id_kategori', 2)->delete();
+        $this->dispatchBrowserEvent('removeModalBackdrop');
+        $this->closeModal();
+    }
+
     public function render()
     {
         $this->totalSoalKategori2 = $this->soalKategori2->where('id_kategori', '2')->count();

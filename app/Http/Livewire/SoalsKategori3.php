@@ -111,6 +111,12 @@ class SoalsKategori3 extends Component
         $this->dataChapterKategori3 = $id;
     }
 
+    public function resetSoal(){
+        $this->soalKategori3->where('id_kategori', 3)->delete();
+        $this->dispatchBrowserEvent('removeModalBackdrop');
+        $this->closeModal();
+    }
+
     public function render()
     {
         $this->totalChapter = $this->subKategoriSoal->where('id_kategori', 3)->count();

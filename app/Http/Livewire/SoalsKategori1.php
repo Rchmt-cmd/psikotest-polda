@@ -113,6 +113,13 @@ class SoalsKategori1 extends Component
     {
         $this->dataSoalKategori1 = $id;
     }
+    
+    public function resetSoal(){
+        $this->soalTes->where('id_kategori', 1)->delete();
+        $this->dispatchBrowserEvent('removeModalBackdrop');
+        $this->closeModal();
+        // $this->dispatchBrowserEvent('refresh');
+    }
 
     public function render()
     {
