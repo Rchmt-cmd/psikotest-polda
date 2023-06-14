@@ -21,7 +21,6 @@ class DaftarJadwal extends Component
     // public $detik;
 
     protected $listeners = [
-        'refreshData' => '$refresh',
         'closeModal'
     ];
 
@@ -39,11 +38,10 @@ class DaftarJadwal extends Component
     public function delete($id)
     {
         $this->jadwalRepository->delete($id);
-        $this->daftarJadwals = $this->jadwalRepository->getAll();
         $this->closeModal();
-        $this->emitSelf('refreshData');
         $this->dispatchBrowserEvent('closeModal');
         $this->dispatchBrowserEvent('removeModalBackdrop');
+        $this->dispatchBrowserEvent('refresh');
     }
 
     public function resetField()

@@ -469,6 +469,9 @@
             localStorage.removeItem('saved_countdown2');
             localStorage.removeItem('saved_countdown3');
         })
+        window.addEventListener('refresh', event => {
+            location.reload();
+        })
     </script>
     <script>
         $("#modalLihatPeserta").on("hidden.bs.modal", function () {

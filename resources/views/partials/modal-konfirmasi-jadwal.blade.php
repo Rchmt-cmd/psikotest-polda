@@ -10,7 +10,7 @@
                     <h5>Ingin menghapus jadwal ?</h5>
                 </div>
                 @if($dataJadwal)
-                <form role="form" wire:submit='delete({{ $dataJadwal->id }})'>
+                <form role="form">
                     <div class="modal-body d-flex justify-content-center">
                         <div class="col-md-6">
                             <button type="button" data-dismiss="modal" class="btn btn-default btn-block m-t-5">
@@ -18,7 +18,7 @@
                             </button>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" class="btn btn-danger btn-block m-t-5">
+                            <button wire:click='delete({{ $dataJadwal->id }})' type="button" class="btn btn-danger btn-block m-t-5">
                                 Hapus
                             </button>
                         </div>
