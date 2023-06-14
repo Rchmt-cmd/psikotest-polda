@@ -12,9 +12,24 @@
                 </div>
                 <div class="modal-body">
                     <form wire:submit.prevent='store'>
-                        <div id="tanggal_tes" class="form-group form-group-default date">
-                            <label for="tanggal" class="fs-11">Tanggal Tes</label>
-                            <input required type="date" id="tanggal" class="form-control" wire:model='tanggalTes'>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group form-group-default">
+                                    <label for="id_jadwal" class="fs-11">Id Jadwal</label>
+                                    <input type="number" name="id_jadwal" id="id_jadwal" wire:model='id_jadwal' class="form-control @error('id_jadwal') is-invalid @enderror" required >
+                                    @error('id_jadwal')
+                                    <span class="invalid-feedback" role="alert">
+                                        <p class="fs-12 text-danger">{{ $message }}</p>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="tanggal_tes" class="form-group form-group-default date">
+                                    <label for="tanggal" class="fs-11">Tanggal Tes</label>
+                                    <input required type="date" id="tanggal" class="form-control" wire:model='tanggalTes'>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">

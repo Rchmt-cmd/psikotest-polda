@@ -13,7 +13,7 @@
         @forelse ($daftarJadwals as $daftarJadwal)
             <div id="myCard" class="card">
                 <div class="card-header separator">
-                    <div class="card-title">Sesi Aktif {{ $daftarJadwal->id }}</div>
+                    <div class="card-title">Sesi Aktif {{ $daftarJadwal->id_jadwal }}</div>
                     <div class="card-controls">
                         <ul>
                             <li>

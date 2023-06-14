@@ -13,6 +13,7 @@ class DaftarJadwal extends Component
     public $dataJadwal;
 
     public $daftarJadwals;
+    public $id_jadwal;
     public $tanggalTes;
     public $waktuMulaiAkses;
     public $waktuSelesaiAkses;
@@ -24,11 +25,9 @@ class DaftarJadwal extends Component
         'closeModal'
     ];
 
-    // protected $rules = [
-    //     'jam' => 'required|digits:2',
-    //     'menit' => 'required|digits:2',
-    //     'detik' => 'required|digits:2',
-    // ];
+    protected $rules = [
+        'id_jadwal' => 'required|unique:jadwals',
+    ];
 
     public function handleDeleteJadwal(Jadwal $dataJadwal)
     {
@@ -64,8 +63,10 @@ class DaftarJadwal extends Component
     public function store()
     {
         // $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
+        $this->validate();
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
+        $attributes['id_jadwal'] = $this->id_jadwal;
         $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
         $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
         // $attributes['durasi_tes'] = $durasi_tes;
@@ -85,6 +86,7 @@ class DaftarJadwal extends Component
         // $detik = date('s', strtotime($id->durasi_tes));
         $this->idJadwal = $id->id;
         $this->tanggalTes = $id->tanggal_tes;
+        $this->id_jadwal = $id->id_jadwal;
         $this->waktuMulaiAkses = $id->waktu_mulai_akses;
         $this->waktuSelesaiAkses = $id->waktu_selesai_akses;
         // $this->jam = $jam;
@@ -98,8 +100,10 @@ class DaftarJadwal extends Component
         // fixed-header dashboard windows desktop js-focus-visible pace-done
         // $this->validate();
         // $durasi_tes = date('H:i:s', strtotime(strval($this->jam . ':' . $this->menit . ':' . $this->detik)));
+        $this->validate();
         $attributes = [];
         $attributes['tanggal_tes'] = $this->tanggalTes;
+        $attributes['id_jadwal'] = $this->id_jadwal;
         $attributes['waktu_mulai_akses'] = $this->waktuMulaiAkses;
         $attributes['waktu_selesai_akses'] = $this->waktuSelesaiAkses;
         // $attributes['durasi_tes'] = $durasi_tes;
@@ -110,6 +114,7 @@ class DaftarJadwal extends Component
         session()->flash('message', 'Jadwal berhasil diubah');
         $this->dispatchBrowserEvent('closeModal');
         $this->dispatchBrowserEvent('removeModalBackdrop');
+        $this->dispatchBrowserEvent('refresh');
     }
 
     public function boot(JadwalRepository $jadwalRepository)

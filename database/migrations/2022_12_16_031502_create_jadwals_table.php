@@ -15,7 +15,7 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->string('periode')->nullable();
+            $table->string('id_jadwal')->nullable();
             $table->date('tanggal_tes')->nullable();
             $table->time('waktu_mulai_akses')->nullable();
             $table->time('waktu_selesai_akses')->nullable();
