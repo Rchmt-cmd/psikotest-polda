@@ -52,7 +52,7 @@
     <link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 
     <style>
-        img {
+        .img_soal {
             width: 100%;
             max-width: 400px;
         }

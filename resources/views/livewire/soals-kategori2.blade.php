@@ -50,8 +50,7 @@
                         <td class="fs-12">
                             {{ $soalKategori2->isi_soal }} <br>
                             @if($soalKategori2->gambar_soal)
-                            <img src="{{ asset('storage/'.$soalKategori2->gambar_soal) }}" alt="gambar_pil_a" srcset=""
-                                width="80">
+                            <img class="img_soal" src="{{ asset('storage/'.$soalKategori2->gambar_soal) }}" alt="gambar_pil_a" srcset="">
                             @endif
                         </td>
                         <td class="fs-12">{{ $soalKategori2->pil_a }}</td>

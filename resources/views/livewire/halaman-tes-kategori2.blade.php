@@ -38,7 +38,7 @@
                 <div id="soal-tes" class="mt-5">
                     @foreach ($daftarSoal as $soal)
                     @if ($soal->gambar_soal)
-                        <img src="{{ asset('storage/'.$soal->gambar_soal) }}" alt="gambar_soal" width="150">
+                        <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_soal) }}" alt="gambar_soal">
                     @endif
                     <p class="font-arial fs-16">{{ $soal->nomor_soal }}. {{ $soal->isi_soal }}</p>
                     {{-- <input type="hidden" value="{{ $soal->id }}" wire:model='id_soal'> --}}
@@ -48,7 +48,7 @@
                         <label class="form-check-label" for="exampleRadios1">
                             {{ $soal->pil_a }} <br>
                             @if ($soal->gambar_pil_a)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_a) }}" width="80" alt="pil_a">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_a) }}" alt="pil_a">
                             @endif
                         </label>
                     </div>
@@ -58,7 +58,7 @@
                         <label class="form-check-label" for="exampleRadios2">
                             {{ $soal->pil_b }} <br>
                             @if ($soal->gambar_pil_b)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_b) }}" width="80" alt="pil_b">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_b) }}" alt="pil_b">
                             @endif
                         </label>
                     </div>
@@ -68,7 +68,7 @@
                         <label class="form-check-label" for="exampleRadios3">
                             {{ $soal->pil_c }} <br>
                             @if ($soal->gambar_pil_c)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_c) }}" width="80" alt="pil_c">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_c) }}" alt="pil_c">
                             @endif
                         </label>
                     </div>
@@ -78,7 +78,7 @@
                         <label class="form-check-label" for="exampleRadios4">
                             {{ $soal->pil_d }} <br>
                             @if ($soal->gambar_pil_d)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_d) }}" width="80" alt="pil_d">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_d) }}" alt="pil_d">
                             @endif
                         </label>
                     </div>

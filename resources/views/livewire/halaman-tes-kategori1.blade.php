@@ -9,7 +9,11 @@
                     <div class="row">
                         @endif
                         <div class="col-md-2 p-1">
-                            <a href="?page={{ $nav+1 }}" class="btn btn-default btn-block m-t-5">
+                            <a href="?page={{ $nav+1 }}" class="btn btn-default 
+                            {{-- @if ($statusTes)
+                            bg-success text-white 
+                            @endif --}}
+                            btn-block m-t-5">
                                 {{ $quizNav[$nav]
                                 }}</a>
                         </div>
@@ -43,13 +47,13 @@
                         <b class="font-arial fs-16">{{ $soal->subKategoriSoal->deskripsi_subkategori }}</b><br>
                         @if (!is_null($soal->subKategoriSoal->gambar_subkategori))
                             <center>
-                                <img src="{{ asset('storage/'.$soal->subKategoriSoal->gambar_subkategori) }}" alt="gambar_chapter" srcset="" width="150">
+                                <img class="img_soal" src="{{ asset('storage/'.$soal->subKategoriSoal->gambar_subkategori) }}" alt="gambar_chapter" srcset="">
                             </center>
                         @endif
                         <p class="font-arial fs-16">{{ $soal->subKategoriSoal->isi_subkategori }}</p><br>
                     @endif
                     @if ($soal->gambar_soal)
-                        <img src="{{ asset('storage/'.$soal->gambar_soal) }}" alt="gambar_soal" width="150">
+                        <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_soal) }}" alt="gambar_soal">
                     @endif
                     <p class="font-arial fs-16">{{ $soal->nomor_soal }}. {{ $soal->isi_soal }}</p>
                     {{-- <input type="hidden" value="{{ $soal->id }}" wire:model='id_soal'> --}}
@@ -59,7 +63,7 @@
                         <label class="form-check-label" for="exampleRadios1">
                             {{ $soal->pil_a }} <br>
                             @if ($soal->gambar_pil_a)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_a) }}" width="80" alt="pil_a">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_a) }}" alt="pil_a">
                             @endif
                         </label>
                     </div>
@@ -69,7 +73,7 @@
                         <label class="form-check-label" for="exampleRadios2">
                             {{ $soal->pil_b }} <br>
                             @if ($soal->gambar_pil_b)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_b) }}" width="80" alt="pil_b">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_b) }}" alt="pil_b">
                             @endif
                         </label>
                     </div>
@@ -79,7 +83,7 @@
                         <label class="form-check-label" for="exampleRadios3">
                             {{ $soal->pil_c }} <br>
                             @if ($soal->gambar_pil_c)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_c) }}" width="80" alt="pil_c">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_c) }}" alt="pil_c">
                             @endif
                         </label>
                     </div>
@@ -89,7 +93,7 @@
                         <label class="form-check-label" for="exampleRadios4">
                             {{ $soal->pil_d }} <br>
                             @if ($soal->gambar_pil_d)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_d) }}" width="80" alt="pil_d">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_d) }}" alt="pil_d">
                             @endif
                         </label>
                     </div>
@@ -99,7 +103,7 @@
                         <label class="form-check-label" for="exampleRadios5">
                             {{ $soal->pil_e }} <br>
                             @if ($soal->gambar_pil_e)
-                            <img src="{{ asset('storage/'.$soal->gambar_pil_e) }}" width="80" alt="pil_e">
+                            <img class="img_soal" src="{{ asset('storage/'.$soal->gambar_pil_e) }}" alt="pil_e">
                             @endif
                         </label>
                     </div>

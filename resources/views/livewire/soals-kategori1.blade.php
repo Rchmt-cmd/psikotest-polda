@@ -53,7 +53,7 @@
                         <td class="fs-12">
                             {{ $chapter->isi_subkategori }} <br>
                             @if($chapter->gambar_subkategori)
-                                <img src="{{ asset('storage/'.$chapter->gambar_subkategori) }}" alt="gambar_chapter" srcset="" width="80">
+                                <img class="img_soal" src="{{ asset('storage/'.$chapter->gambar_subkategori) }}" alt="gambar_chapter" srcset="">
                             @endif
                         </td>
                         </td>
@@ -124,36 +124,36 @@
                         </td>
                         <td class="fs-12">{{ $soalTes->isi_soal }} <br>
                             @if($soalTes->gambar_soal)
-                                <img src="{{ asset('storage/'.$soalTes->gambar_soal) }}" alt="gambar_pil_a" srcset="" width="80">
+                                <img class="img_soal" src="{{ asset('storage/'.$soalTes->gambar_soal) }}" alt="gambar_pil_a" srcset="">
                             @endif</td>
                         <td class="fs-12">{{ $soalTes->pil_a }}
                             @if($soalTes->gambar_pil_a)
-                            <img src="{{ asset('storage/'.$soalTes->gambar_pil_a) }}" alt="gambar_pil_a" srcset=""
-                                width="80">
+                            <img class="img_soal" src="{{ asset('storage/'.$soalTes->gambar_pil_a) }}" alt="gambar_pil_a" srcset=""
+                            >
                             @endif
                         </td>
                         <td class="fs-12">{{ $soalTes->pil_b }}
                             @if($soalTes->gambar_pil_b)
-                            <img src="{{ asset('storage/'.$soalTes->gambar_pil_b) }}" alt="gambar_pil_b" srcset=""
-                                width="80">
+                            <img class="img_soal" src="{{ asset('storage/'.$soalTes->gambar_pil_b) }}" alt="gambar_pil_b" srcset=""
+                            >
                             @endif
                         </td>
                         <td class="fs-12">{{ $soalTes->pil_c }}
                             @if($soalTes->gambar_pil_c)
-                            <img src="{{ asset('storage/'.$soalTes->gambar_pil_c) }}" alt="gambar_pil_c" srcset=""
-                                width="80">
+                            <img class="img_soal" src="{{ asset('storage/'.$soalTes->gambar_pil_c) }}" alt="gambar_pil_c" srcset=""
+                            >
                             @endif
                         </td>
                         <td class="fs-12">{{ $soalTes->pil_d }}
                             @if($soalTes->gambar_pil_d)
-                            <img src="{{ asset('storage/'.$soalTes->gambar_pil_d) }}" alt="gambar_pil_d" srcset=""
-                                width="80">
+                            <img class="img_soal" src="{{ asset('storage/'.$soalTes->gambar_pil_d) }}" alt="gambar_pil_d" srcset=""
+                            >
                             @endif
                         </td>
                         <td class="fs-12">{{ $soalTes->pil_e }}
                             @if($soalTes->gambar_pil_e)
-                            <img src="{{ asset('storage/'.$soalTes->gambar_pil_e) }}" alt="gambar_pil_e" srcset=""
-                                width="80">
+                            <img class="img_soal" src="{{ asset('storage/'.$soalTes->gambar_pil_e) }}" alt="gambar_pil_e" srcset=""
+                            >
                             @endif
                         </td>
                         <td class="fs-12">{{ $soalTes->jawaban }}</td>
