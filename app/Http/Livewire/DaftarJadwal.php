@@ -26,7 +26,7 @@ class DaftarJadwal extends Component
     ];
 
     protected $rules = [
-        'id_jadwal' => 'required|unique:jadwals',
+        'id_jadwal' => 'required',
     ];
 
     public function handleDeleteJadwal(Jadwal $dataJadwal)
