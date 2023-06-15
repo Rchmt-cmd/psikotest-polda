@@ -52,6 +52,10 @@
     <link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 
     <style>
+        img {
+            width: 100%;
+            max-width: 400px;
+        }
         .in_put {
             background-color: white;
             display: inline-flex;
