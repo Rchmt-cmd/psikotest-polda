@@ -109,9 +109,16 @@ class HalamanTesKategori1 extends Component
     {
         $this->nomorSoal = $request->input('page') ?? '1';
         $this->quizNav = $this->soalTesRepository->getAllKategori1()->map(function ($item) {
-            return $item->nomor_soal;
+            $jawabanPeserta = $this->jawabanPeserta->where('id_hasil_tes', auth()->user()->hasilTes->id)->where('id_soal', $item->id)->first();
+            $statusTes = false;
+            if ($jawabanPeserta) {
+                $statusTes = true;
+            }
+            return [$item->nomor_soal, $statusTes];
         });
         $daftarSoal = $this->soalTesRepository->getSoalKategori1();
+
+        // dd($this->quizNav[34][1]);
 
         $data = $daftarSoal->map(function ($item) {
             $id_soal = $item->toArray();

@@ -101,7 +101,12 @@ class HalamanTesKategori2 extends Component
     {
         $this->nomorSoal = $request->input('page') ?? '1';
         $this->quizNav = $this->soalTesRepository->getAllKategori2()->map(function ($item) {
-            return $item->nomor_soal;
+            $jawabanPeserta = $this->jawabanPeserta->where('id_hasil_tes', auth()->user()->hasilTes->id)->where('id_soal', $item->id)->first();
+            $statusTes = false;
+            if ($jawabanPeserta) {
+                $statusTes = true;
+            }
+            return [$item->nomor_soal, $statusTes];
         });
         $daftarSoal = $this->soalTesRepository->getSoalKategori2();
         

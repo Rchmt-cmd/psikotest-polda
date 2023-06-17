@@ -10,11 +10,11 @@
                         @endif
                         <div class="col-md-2 p-1">
                             <a href="?page={{ $nav+1 }}" class="btn btn-default 
-                            {{-- @if ($statusTes)
+                            @if ($quizNav[$nav][1])
                             bg-success text-white 
-                            @endif --}}
+                            @endif
                             btn-block m-t-5">
-                                {{ $quizNav[$nav]
+                                {{ $quizNav[$nav][0]
                                 }}</a>
                         </div>
                         @endfor
