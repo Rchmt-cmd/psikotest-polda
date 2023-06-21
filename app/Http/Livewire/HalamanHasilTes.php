@@ -18,6 +18,18 @@ class HalamanHasilTes extends Component
         $this->soalTesRepository = $soalTesRepository;
     }
 
+    public function handleEksportData()
+    {
+        redirect(route('eksport.data.hasil.tes'));
+    }
+
+    public function resetHasilTes()
+    {
+        $this->hasilTes->truncate();
+        $this->dispatchBrowserEvent('closeModal');
+        $this->dispatchBrowserEvent('removeModalBackdrop');
+    }
+
     public function render()
     {
         $this->dataHasilTesPesertas = $this->hasilTes->get();

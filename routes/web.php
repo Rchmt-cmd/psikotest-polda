@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\EksportDataHasilTes;
 use App\Models\Jadwal;
 use App\Models\SoalTes;
 use Illuminate\Http\Request;
@@ -50,6 +51,7 @@ Route::middleware('is_admin')->group(function () {
 
     Route::post('/tambah-jadwal', DaftarJadwal::class)->name('tambah-jadwal');
     Route::get('eksport-data-peserta', [EksportDataPeserta::class, 'export'])->name('eksport.data.peserta');
+    Route::get('eksport-data-hasil-tes', [EksportDataHasilTes::class, 'export'])->name('eksport.data.hasil.tes');
 
 });
 

@@ -469,6 +469,9 @@
             $('#modalKonfirmasiResetSoal3').modal('hide');
             $('#modalKonfirmasiResetSoal3').removeClass('show');
             $('#modalKonfirmasiResetSoal3').removeAttr('style');
+            $('#modalKonfirmasiResetHasilTes').modal('hide');
+            $('#modalKonfirmasiResetHasilTes').removeClass('show');
+            $('#modalKonfirmasiResetHasilTes').removeAttr('style');
             $('body').removeClass('modal-open');
             $('body').removeAttr("style");
         })

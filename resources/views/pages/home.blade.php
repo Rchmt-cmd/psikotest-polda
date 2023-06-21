@@ -10,7 +10,7 @@
 </div>
 @enderror
 <div class="row full-height no-margin py-3">
-    
+
     <div class="col-md-4 overflow-auto data-peserta">
         <div class="card">
             <div class="card-header">
@@ -25,12 +25,16 @@
                 </div>
             </div>
             <div class="p-l-20 p-r-20 p-b-10 p-t-5">
-                <div class="pull-left">
-                    <h3 class="text-primary mb-2 mt-0">{{ auth()->user()->name }}</h3>
-                    <table class="full-width">
+                <h3 class="text-primary mb-2 mt-0">{{ auth()->user()->name }}</h3>
+                <div class="table-responsive">
+                    <table class="full-width
+                    @if(auth()->user()->status_tes)
+                        table
+                    @endif
+                    ">
                         <tr>
                             <td>
-                                <p class="fs-13 text-black no-margin">Status Tes</p>
+                                <p class="fs-13 text-black no-margin"><b>Status Tes</b></p>
                             </td>
                             <td>
                                 @if (auth()->user()->status_tes)
@@ -40,14 +44,34 @@
                                 @endif
                             </td>
                         </tr>
+                        @if(auth()->user()->status_tes)
                         <tr>
                             <td>
-                                <p class="fs-13 text-black no-margin">Jadwal Tes</p>
+                                <p class="fs-13 text-black no-margin"><b>Jumlah benar tes Kecerdasan</b></p>
+                            </td>
+                            <td>: {{ auth()->user()->hasilTes->jumlah_benar_kategori1 }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="fs-13 text-black no-margin"><b>Jumlah benar tes Kepribadian</b></p>
+                            </td>
+                            <td>: {{ auth()->user()->hasilTes->jumlah_benar_kategori2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="fs-13 text-black no-margin"><b>Jumlah benar tes Sikap Kerja</b></p>
+                            </td>
+                            <td>: {{ auth()->user()->hasilTes->jumlah_benar_kategori3 }}</td>
+                        </tr>
+                        @endif
+                        <tr>
+                            <td>
+                                <p class="fs-13 text-black no-margin"><b>Jadwal Tes</b></p>
                             </td>
                             <td>
                                 <p class="fs-13 text-black no-margin">: @if (is_null(auth()->user()->jadwal))
                                     Anda belum mempunyai jadwal
-                                @else
+                                    @else
                                     {{ date('d F Y',
                                     strtotime(auth()->user()->jadwal->tanggal_tes)) }} ({{ date('H:i',
                                     strtotime(auth()->user()->jadwal->waktu_mulai_akses)) }}-{{ date('H:i',
@@ -57,7 +81,6 @@
                         </tr>
                     </table>
                 </div>
-                <div class="clearfix"></div>
             </div>
             <div class="p-t-15 p-b-15 p-l-20 p-r-20">
                 <p class="small no-margin">
