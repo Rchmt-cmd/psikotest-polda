@@ -10,10 +10,10 @@ class TambahSoalKategori3 extends Component
 {
     public $nomor_soal;
     public $id_kategori;
-    public $pil_a;
-    public $pil_b;
-    public $pil_c;
-    public $pil_d;
+    public $dig_1;
+    public $dig_2;
+    public $dig_3;
+    public $dig_4;
     public $jawaban;
     public $chapter_soal;
     public $daftarChapterKategori3;
@@ -24,10 +24,10 @@ class TambahSoalKategori3 extends Component
         'nomor_soal' => 'required|unique_with:soal_tes,id_kategori',
         'chapter_soal' => 'required',
         'jawaban' => 'required',
-        'pil_a' => 'required|max:1',
-        'pil_b' => 'required|max:1',
-        'pil_c' => 'required|max:1',
-        'pil_d' => 'required|max:1',
+        'dig_1' => 'required|max:1',
+        'dig_2' => 'required|max:1',
+        'dig_3' => 'required|max:1',
+        'dig_4' => 'required|max:1',
     ];
     
     public function mount()
@@ -44,24 +44,23 @@ class TambahSoalKategori3 extends Component
     public function resetField()
     {
         $this->nomor_soal = '';
-        $this->pil_a = '';
-        $this->pil_b = '';
-        $this->pil_c = '';
-        $this->pil_d = '';
+        $this->dig_1 = '';
+        $this->dig_2 = '';
+        $this->dig_3 = '';
+        $this->dig_4 = '';
         $this->jawaban = '';
         $this->chapter_soal = '';
     }
 
     public function store()
     {
+        $soal = $this->dig_1 . $this->dig_2 . $this->dig_3 . $this->dig_4;
+        // dd(strtoupper($soal));
         $this->validate();
         $attributes = [];
         $attributes['nomor_soal'] = $this->nomor_soal;
         $attributes['id_kategori'] = $this->id_kategori;
-        $attributes['pil_a'] = strtoupper($this->pil_a);
-        $attributes['pil_b'] = strtoupper($this->pil_b);
-        $attributes['pil_c'] = strtoupper($this->pil_c);
-        $attributes['pil_d'] = strtoupper($this->pil_d);
+        $attributes['isi_soal'] = strtoupper($soal);
         $attributes['id_subkategori'] = $this->chapter_soal;
         $attributes['jawaban'] = $this->jawaban;
 

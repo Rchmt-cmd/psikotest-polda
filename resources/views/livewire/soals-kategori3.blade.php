@@ -97,22 +97,22 @@
                 <thead>
                     <th>No.</th>
                     <th>Chapter Soal</th>
-                    <th>Pil A</th>
-                    <th>Pil B</th>
-                    <th>Pil C</th>
-                    <th>Pil D</th>
+                    <th colspan="4"><center>Soal</center></th>
                     <th>Jawaban</th>
                     <th></th>
                 </thead>
                 <tbody>
                     @forelse ($daftarSoalKategori3 as $soalKategori3)
+                    @php
+                        $soal = str_split($soalKategori3->isi_soal);
+                    @endphp
                     <tr>
                         <td class="fs-12">{{ $soalKategori3->nomor_soal }}</td>
                         <td class="fs-12">{{ $soalKategori3->subKategoriSoal == null ? '-' : $soalKategori3->subKategoriSoal->deskripsi_subkategori }}</td>
-                        <td class="fs-12">{{ $soalKategori3->pil_a }}</td>
-                        <td class="fs-12">{{ $soalKategori3->pil_b }}</td>
-                        <td class="fs-12">{{ $soalKategori3->pil_c }}</td>
-                        <td class="fs-12">{{ $soalKategori3->pil_d }}</td>
+                        <td class="fs-12">{{ $soal[0] }}</td>
+                        <td class="fs-12">{{ $soal[1] }}</td>
+                        <td class="fs-12">{{ $soal[2] }}</td>
+                        <td class="fs-12">{{ $soal[3] }}</td>
                         <td class="fs-12">{{ $soalKategori3->jawaban }}</td>
                         <td>
                             <div class="dropdown">

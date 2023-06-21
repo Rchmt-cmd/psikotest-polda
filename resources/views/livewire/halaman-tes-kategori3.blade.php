@@ -20,56 +20,96 @@
                     <div class="col-md-8 m-auto">
                         @foreach ($daftarSoal as $soal)
                         @php
-                            $soal_char = str_split($soal->subKategoriSoal->isi_subkategori)
+                            $kolom = str_split($soal->subKategoriSoal->isi_subkategori);
+                            $soal = str_split($soal->isi_soal);
                         @endphp
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-sm">
                                 <tr>
-                                    <td><p class="fs-16"><center>{{ $soal_char[0] }}</center></p></td>
-                                    <td><p class="fs-16"><center>{{ $soal_char[1] }}</center></p></td>
-                                    <td><p class="fs-16"><center>{{ $soal_char[2] }}</center></p></td>
-                                    <td><p class="fs-16"><center>{{ $soal_char[3] }}</center></p></td>
-                                    <td><p class="fs-16"><center>{{ $soal_char[4] }}</center></p></td>
+                                    <td colspan="5" class="bg-success text-white p-0"><h4>
+                                        <center>Pernyataan</center>
+                                    </h4></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $kolom[0] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $kolom[1] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $kolom[2] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $kolom[3] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $kolom[4] }}</center></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-0"><p class="fs-16"><center>A</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>B</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>C</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>D</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>E</center></p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="bg-danger text-white p-0"><h4>
+                                        <center>Soal</center>
+                                    </h4></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-0"><p class="fs-16"><center></center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $soal[0] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $soal[1] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $soal[2] }}</center></p></td>
+                                    <td class="p-0"><p class="fs-16"><center>{{ $soal[3] }}</center></p></td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="mt-5 row justify-content-around">
-                            <div class="col-md-4">
+                        <div class="mt-5 row justify-content-between">
+                            <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
                                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios1" value='a'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios1">
-                                            <p class="fs-16">{{ $soal->pil_a }}</p> <br>
+                                            <p class="fs-16">A</p> <br>
                                         </label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
                                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios2" value='b'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios2">
-                                            <p class="fs-16">{{ $soal->pil_b }}</p> <br>
+                                            <p class="fs-16">B</p> <br>
                                         </label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
                                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios3" value='c'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios3">
-                                            <p class="fs-16">{{ $soal->pil_c }}</p> <br>
+                                            <p class="fs-16">C</p> <br>
                                         </label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
                                         <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios4" value='d'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios4">
-                                            <p class="fs-16">{{ $soal->pil_d }}</p> <br>
+                                            <p class="fs-16">D</p> <br>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card form-check text-black bg-light mb-3 ">
+                                    <div class="card-body">
+                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios5" value='e'
+                                            wire:model='singleAnswer'>
+                                        <label class="form-check-label w-100" for="exampleRadios4">
+                                            <p class="fs-16">E</p> <br>
                                         </label>
                                     </div>
                                 </div>
