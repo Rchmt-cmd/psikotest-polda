@@ -28,7 +28,7 @@
                 <h3 class="text-primary mb-2 mt-0">{{ auth()->user()->name }}</h3>
                 <div class="table-responsive">
                     <table class="full-width
-                    @if(auth()->user()->status_tes)
+                    @if(auth()->user()->status_tes && !is_null(auth()->user()->hasilTes))
                         table
                     @endif
                     ">
@@ -44,7 +44,7 @@
                                 @endif
                             </td>
                         </tr>
-                        @if(auth()->user()->status_tes)
+                        @if(auth()->user()->status_tes && !is_null(auth()->user()->hasilTes))
                         <tr>
                             <td>
                                 <p class="fs-13 text-black no-margin"><b>Jumlah benar tes Kecerdasan</b></p>

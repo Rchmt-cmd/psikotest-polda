@@ -6,7 +6,7 @@
                 <span class="material-icons fs-15 semi-bold text-warning">
                     fiber_manual_record
                 </span>
-                <p class="fs-12 light">Tes Kategori 1</p>
+                <p class="fs-12 light">Tes Kecerdasan</p>
             </div>
             <div class="col-md-0 text-center">
                 <span class="material-icons hint-text">
@@ -17,7 +17,7 @@
                 <span class="material-icons fs-15 semi-bold text-danger">
                     radio_button_unchecked
                 </span>
-                <p class="fs-12 light">Tes Kategori 2</p>
+                <p class="fs-12 light">Tes Kepribadian</p>
             </div>
             <div class="col-md-0 text-center">
                 <span class="material-icons hint-text">
@@ -28,7 +28,7 @@
                 <span class="material-icons fs-15 semi-bold text-danger">
                     radio_button_unchecked
                 </span>
-                <p class="fs-12 light">Tes Kategori 3</p>
+                <p class="fs-12 light">Tes Sikap Kerja</p>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                 <span class="material-icons fs-15 semi-bold text-success">
                     check_circle
                 </span>
-                <p class="fs-12 light">Tes Kategori 1</p>
+                <p class="fs-12 light">Tes Kecerdasan</p>
             </div>
             <div class="col-md-0 text-center">
                 <span class="material-icons hint-text">
@@ -51,7 +51,7 @@
                 <span class="material-icons fs-15 semi-bold text-warning">
                     fiber_manual_record
                 </span>
-                <p class="fs-12 light">Tes Kategori 2</p>
+                <p class="fs-12 light">Tes Kepribadian</p>
             </div>
             <div class="col-md-0 text-center">
                 <span class="material-icons hint-text">
@@ -62,7 +62,7 @@
                 <span class="material-icons fs-15 semi-bold text-danger">
                     radio_button_unchecked
                 </span>
-                <p class="fs-12 light">Tes Kategori 3</p>
+                <p class="fs-12 light">Tes Sikap Kerja</p>
             </div>
         </div>
     </div>
@@ -74,7 +74,7 @@
                 <span class="material-icons fs-15 semi-bold text-success">
                     check_circle
                 </span>
-                <p class="fs-12 light">Tes Kategori 1</p>
+                <p class="fs-12 light">Tes Kecerdasan</p>
             </div>
             <div class="col-md-0 text-center">
                 <span class="material-icons hint-text">
@@ -85,7 +85,7 @@
                 <span class="material-icons fs-15 semi-bold text-success">
                     check_circle
                 </span>
-                <p class="fs-12 light">Tes Kategori 2</p>
+                <p class="fs-12 light">Tes Kepribadian</p>
             </div>
             <div class="col-md-0 text-center">
                 <span class="material-icons hint-text">
@@ -96,7 +96,7 @@
                 <span class="material-icons fs-15 semi-bold text-warning">
                     fiber_manual_record
                 </span>
-                <p class="fs-12 light">Tes Kategori 3</p>
+                <p class="fs-12 light">Tes Sikap Kerja</p>
             </div>
         </div>
     </div>

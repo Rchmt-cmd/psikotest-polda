@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group form-group-default">
-                                    <label for="id_jadwal" class="fs-11">Id Jadwal</label>
+                                    <label for="id_jadwal" class="fs-11">Nomor Sesi</label>
                                     <input type="number" name="id_jadwal" id="id_jadwal" wire:model='id_jadwal' class="form-control @error('id_jadwal') is-invalid @enderror" required >
                                     @error('id_jadwal')
                                     <span class="invalid-feedback" role="alert">
