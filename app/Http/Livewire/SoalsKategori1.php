@@ -116,6 +116,7 @@ class SoalsKategori1 extends Component
     
     public function resetSoal(){
         $this->soalTes->where('id_kategori', 1)->delete();
+        $this->subKategoriSoal->where('id_kategori', 1)->delete();
         $this->dispatchBrowserEvent('removeModalBackdrop');
         $this->closeModal();
         // $this->dispatchBrowserEvent('refresh');

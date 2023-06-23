@@ -113,6 +113,7 @@ class SoalsKategori3 extends Component
 
     public function resetSoal(){
         $this->soalKategori3->where('id_kategori', 3)->delete();
+        $this->subKategoriSoal->where('id_kategori', 3)->delete();
         $this->dispatchBrowserEvent('removeModalBackdrop');
         $this->closeModal();
     }
