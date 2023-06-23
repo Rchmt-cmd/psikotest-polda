@@ -472,6 +472,9 @@
             $('#modalKonfirmasiResetHasilTes').modal('hide');
             $('#modalKonfirmasiResetHasilTes').removeClass('show');
             $('#modalKonfirmasiResetHasilTes').removeAttr('style');
+            $('#modalKonfirmasiResetPeserta').modal('hide');
+            $('#modalKonfirmasiResetPeserta').removeClass('show');
+            $('#modalKonfirmasiResetPeserta').removeAttr('style');
             $('body').removeClass('modal-open');
             $('body').removeAttr("style");
         })

@@ -4,6 +4,7 @@
         @include('partials.modal-lihat-peserta')
         @include('partials.modal-konfirmasi-peserta')
         @include('partials.modal-edit-peserta')
+        @include('partials.modal-konfirmasi-reset-peserta')
         @if (session()->has('message'))
         <div class="alert alert-success">
             {{ session('message') }}
@@ -24,6 +25,9 @@
                 </div>
                 <div class="pull-right">
                     <div class="col-xs-12">
+                        <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modalKonfirmasiResetPeserta">
+                            <i class="pg-icon">danger</i> Reset Peserta
+                        </button>
                         <button class="btn btn-primary btn-lg" wire:click="handleEksportData">
                             <span class="material-icons fs-16">
                                 print

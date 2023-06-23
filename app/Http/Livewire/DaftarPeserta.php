@@ -43,6 +43,13 @@ class DaftarPeserta extends Component
         redirect(route('eksport.data.peserta'));
     }
 
+    public function resetPeserta()
+    {
+        User::where('is_admin', 0)->delete();
+        $this->dispatchBrowserEvent('closeModal');
+        $this->dispatchBrowserEvent('removeModalBackdrop');
+    }
+
     public function delete($id)
     {
         $this->userRepository->delete($id);
