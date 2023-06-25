@@ -62,7 +62,7 @@
                             <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios1" value='a'
+                                        <input class="form-check-input" type="radio" id="exampleRadios1" value='a'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios1">
                                             <p class="fs-16">A</p> <br>
@@ -73,7 +73,7 @@
                             <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios2" value='b'
+                                        <input class="form-check-input" type="radio" id="exampleRadios2" value='b'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios2">
                                             <p class="fs-16">B</p> <br>
@@ -84,7 +84,7 @@
                             <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios3" value='c'
+                                        <input class="form-check-input" type="radio" id="exampleRadios3" value='c'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios3">
                                             <p class="fs-16">C</p> <br>
@@ -95,7 +95,7 @@
                             <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios4" value='d'
+                                        <input class="form-check-input" type="radio" id="exampleRadios4" value='d'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios4">
                                             <p class="fs-16">D</p> <br>
@@ -106,7 +106,7 @@
                             <div class="col-md-2">
                                 <div class="card form-check text-black bg-light mb-3 ">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="radio" name="{{ $soal->id }}" id="exampleRadios5" value='e'
+                                        <input class="form-check-input" type="radio" id="exampleRadios5" value='e'
                                             wire:model='singleAnswer'>
                                         <label class="form-check-label w-100" for="exampleRadios4">
                                             <p class="fs-16">E</p> <br>
