@@ -108,7 +108,7 @@
                                     <div class="card-body">
                                         <input class="form-check-input" type="radio" id="exampleRadios5" value='e'
                                             wire:model='singleAnswer'>
-                                        <label class="form-check-label w-100" for="exampleRadios4">
+                                        <label class="form-check-label w-100" for="exampleRadios5">
                                             <p class="fs-16">E</p> <br>
                                         </label>
                                     </div>
