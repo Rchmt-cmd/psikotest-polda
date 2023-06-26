@@ -90,6 +90,10 @@
                         <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios4" value='d'
                             wire:model='jawaban'>
                         <label class="form-check-label" for="exampleRadios4">D</label>
+                        
+                        <input class="form-check-input" type="radio" name="jawaban" id="exampleRadios5" value='e'
+                            wire:model='jawaban'>
+                        <label class="form-check-label" for="exampleRadios5">E</label>
                     </div>
                     @error('jawaban')
                     <span class="invalid-feedback" role="alert">
