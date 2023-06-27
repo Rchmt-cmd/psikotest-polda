@@ -25,7 +25,7 @@ class HalamanHasilTes extends Component
 
     public function resetHasilTes()
     {
-        $this->hasilTes->truncate();
+        $this->hasilTes->whereNotNull('id')->delete();
         $this->dispatchBrowserEvent('closeModal');
         $this->dispatchBrowserEvent('removeModalBackdrop');
     }
