@@ -105,6 +105,7 @@ class HalamanTesKategori3 extends Component
         $attributes['jumlah_benar_kategori3'] = $jumlahBenar;
         HasilTes::where('id_user', auth()->user()->id)->update($attributes);
         User::where('id', auth()->user()->id)->update(['progres_tes' => 'done', 'status_tes' => 1]);
+        $this->jawabanPeserta->where('id_hasil_tes', auth()->user()->hasilTes->id)->delete();
         $this->dispatchBrowserEvent('clearCookies');
         return redirect('home');
     }
