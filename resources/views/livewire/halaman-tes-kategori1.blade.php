@@ -45,7 +45,7 @@
                     @foreach ($daftarSoal as $soal)
                     @if (!is_null($soal->subKategoriSoal))
                         <b class="font-arial fs-16">{{ $soal->subKategoriSoal->deskripsi_subkategori }}</b><br>
-                        @if (!is_null($soal->subKategoriSoal->gambar_subkategori))
+                        @if (!empty($soal->subKategoriSoal->gambar_subkategori))
                             <center>
                                 <img class="img_soal" src="{{ asset('storage/'.$soal->subKategoriSoal->gambar_subkategori) }}" alt="gambar_chapter" srcset="">
                             </center>
