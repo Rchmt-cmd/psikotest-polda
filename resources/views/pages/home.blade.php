@@ -118,21 +118,27 @@
             </div>
             <div class="widget-11-table auto-overflow">
                 <ol>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nihil officiis repellendus fuga
-                        quibusdam deleniti ex sapiente optio laborum ullam! Officiis corrupti veritatis, error tenetur
-                        laboriosam cupiditate iste neque soluta!</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nihil officiis repellendus fuga
-                        quibusdam deleniti ex sapiente optio laborum ullam! Officiis corrupti veritatis, error tenetur
-                        laboriosam cupiditate iste neque soluta!</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nihil officiis repellendus fuga
-                        quibusdam deleniti ex sapiente optio laborum ullam! Officiis corrupti veritatis, error tenetur
-                        laboriosam cupiditate iste neque soluta!</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nihil officiis repellendus fuga
-                        quibusdam deleniti ex sapiente optio laborum ullam! Officiis corrupti veritatis, error tenetur
-                        laboriosam cupiditate iste neque soluta!</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nihil officiis repellendus fuga
-                        quibusdam deleniti ex sapiente optio laborum ullam! Officiis corrupti veritatis, error tenetur
-                        laboriosam cupiditate iste neque soluta!</li>
+                    <li>Lakukan perubahan password dengan menekan tombol reset password.</li>
+                    <li>Sesi tes telah diatur oleh admin untuk setiap peserta, sehingga peserta hanya bila melakukan satu kali akses untuk
+                    mengerjaak soal.</li>
+                    <li>Hasil tes akan tampil pada bagian kiri, dibawah keterangan jadwal tes.</li>
+                    <li>Psikotest ini terbagi menjadi 3 Kategori Soal, yaitu :
+                        <ul>
+                            <li>
+                                Soal Kecerdasan
+                            </li>
+                            <li>
+                                Soal Kepribadian
+                            </li>
+                            <li>
+                                Soal Sikap Kerja
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Masing-masing kategori soal telah memiliki durasi kerja yang berbeda.</li>
+                    <li>Pastikan seluruh soal telah terjawab dengan benar disetiap kategori, lalu tekan tombol selesaikan untuk pindah ke
+                    kategori soal berikutnya.</li>
+                    <li>Kerjan dengan Jujur</li>
                 </ol>
             </div>
         </div>
